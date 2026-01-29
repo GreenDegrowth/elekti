@@ -148,7 +148,7 @@
     {
       "id": "q24",
       "textKey": "questions.q24.text",
-      "axis": "democratic_institutions",
+      "axis": "law_order_vs_liberty",
       "weight": 1.5
     },
     {
@@ -184,7 +184,7 @@
     {
       "id": "q30",
       "textKey": "questions.q30.text",
-      "axis": "environment_energy",
+      "axis": "economic_left_right",
       "weight": 1.3
     },
     {
