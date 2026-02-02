@@ -14,3 +14,9 @@ app.use(router);
 app.use(i18n);
 
 app.mount("#app");
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register(import.meta.env.VITE_SW_URL || "/sw.js", {
+    scope: "/",
+  });
+}
