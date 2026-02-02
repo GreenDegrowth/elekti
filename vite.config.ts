@@ -6,6 +6,12 @@ import { VitePWA } from "vite-plugin-pwa";
 import vueDevTools from "vite-plugin-vue-devtools";
 
 export default defineConfig({
+  server: {
+    middlewareMode: false,
+    headers: {
+      "Service-Worker-Allowed": "/",
+    },
+  },
   plugins: [
     vue(),
     vueDevTools(),
