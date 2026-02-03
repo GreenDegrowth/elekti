@@ -1,3 +1,4 @@
+import type { ZodSchema } from "zod";
 import { ZodError } from "zod";
 import { AxesFileSchema, type AxesFile } from "../schemas/axis";
 import { PartiesArraySchema, type Party } from "../schemas/party";
@@ -11,7 +12,7 @@ import {
   type TranslationFile,
 } from "../schemas/translation";
 
-export interface ValidationResult<T> {
+export interface ValidationResult<T = unknown> {
   success: boolean;
   data?: T;
   errors?: string[];
@@ -22,86 +23,57 @@ export interface ConsistencyValidationResult {
   errors?: string[];
 }
 
-export function validateQuestions(data: unknown): ValidationResult<unknown> {
+function parseWithSchema<T>(
+  schema: ZodSchema<T>,
+  data: unknown
+): ValidationResult<T> {
   try {
-    const validated = QuestionsFileSchema.parse(data);
+    const validated = schema.parse(data);
     return { success: true, data: validated };
   } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return {
-        success: false,
-        errors: zodError.issues.map((e) => `${e.path.join(".")}: ${e.message}`),
-      };
+    const errors: string[] = [];
+
+    if (error instanceof ZodError) {
+      errors.push(
+        ...error.issues.map(
+          (issue) =>
+            `${issue.path.length > 0 ? `${issue.path.join(".")}: ` : ""}${issue.message}`
+        )
+      );
+    } else if (error instanceof Error) {
+      errors.push(error.message);
+    } else {
+      errors.push("Unknown validation error");
     }
-    return { success: false, errors: ["Unknown validation error"] };
+
+    return { success: false, errors };
   }
 }
 
-export function validateParties(data: unknown): ValidationResult<unknown> {
-  try {
-    const validated = PartiesArraySchema.parse(data);
-    return { success: true, data: validated };
-  } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return {
-        success: false,
-        errors: zodError.issues.map((e) => `${e.path.join(".")}: ${e.message}`),
-      };
-    }
-    return { success: false, errors: ["Unknown validation error"] };
-  }
+export function validateQuestions(
+  data: unknown
+): ValidationResult<QuestionsFile> {
+  return parseWithSchema(QuestionsFileSchema, data);
 }
 
-export function validateAxes(data: unknown): ValidationResult<unknown> {
-  try {
-    const validated = AxesFileSchema.parse(data);
-    return { success: true, data: validated };
-  } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return {
-        success: false,
-        errors: zodError.issues.map((e) => `${e.path.join(".")}: ${e.message}`),
-      };
-    }
-    return { success: false, errors: ["Unknown validation error"] };
-  }
+export function validateParties(data: unknown): ValidationResult<Party[]> {
+  return parseWithSchema(PartiesArraySchema, data);
+}
+
+export function validateAxes(data: unknown): ValidationResult<AxesFile> {
+  return parseWithSchema(AxesFileSchema, data);
 }
 
 export function validatePartyPositions(
   data: unknown
-): ValidationResult<unknown> {
-  try {
-    const validated = PartyPositionsFileSchema.parse(data);
-    return { success: true, data: validated };
-  } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return {
-        success: false,
-        errors: zodError.issues.map((e) => `${e.path.join(".")}: ${e.message}`),
-      };
-    }
-    return { success: false, errors: ["Unknown validation error"] };
-  }
+): ValidationResult<PartyPositionsFile> {
+  return parseWithSchema(PartyPositionsFileSchema, data);
 }
 
-export function validateTranslation(data: unknown): ValidationResult<unknown> {
-  try {
-    const validated = TranslationFileSchema.parse(data);
-    return { success: true, data: validated };
-  } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return {
-        success: false,
-        errors: zodError.issues.map((e) => `${e.path.join(".")}: ${e.message}`),
-      };
-    }
-    return { success: false, errors: ["Unknown validation error"] };
-  }
+export function validateTranslation(
+  data: unknown
+): ValidationResult<TranslationFile> {
+  return parseWithSchema(TranslationFileSchema, data);
 }
 
 export function validateDatasetConsistency(params: {

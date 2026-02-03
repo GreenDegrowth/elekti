@@ -1,9 +1,13 @@
 import { z } from "zod";
 
-export const AxisPositionSchema = z
+export const PartyPositionValueSchema = z
   .number()
-  .min(-1, "Axis position must be >= -1")
-  .max(1, "Axis position must be <= 1");
+  .min(-1, "Party position value must be >= -1")
+  .max(1, "Party position value must be <= 1");
+
+export const AxisPositionSchema = PartyPositionValueSchema.describe(
+  "Axis position on a -1 to 1 scale"
+);
 
 export const PartyAxisPositionsSchema = z.record(
   z.string(),
@@ -57,6 +61,7 @@ export const PartyPositionsFileSchema = z
     }
   });
 
+export type PartyPositionValue = z.infer<typeof PartyPositionValueSchema>;
 export type AxisPosition = z.infer<typeof AxisPositionSchema>;
 export type PartyAxisPositions = z.infer<typeof PartyAxisPositionsSchema>;
 export type PartyPositionsFile = z.infer<typeof PartyPositionsFileSchema>;
