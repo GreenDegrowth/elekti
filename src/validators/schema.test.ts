@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { validateAnswerIndex, validateAnswersRecord } from "./answers";
 import {
-  validateAnswerIndex,
-  validateAnswersRecord,
   validateAxis,
   validateParty,
   validatePartyPositionValue,
@@ -173,7 +172,7 @@ describe("Individual Schema Validators", () => {
       for (let i = 0; i <= 4; i++) {
         const result = validateAnswerIndex(i);
         expect(result.success).toBe(true);
-        expect(result.data).toBe(i);
+        expect(result.value).toBe(i);
       }
     });
 
@@ -206,7 +205,7 @@ describe("Individual Schema Validators", () => {
 
       const result = validateAnswersRecord(validAnswers);
       expect(result.success).toBe(true);
-      expect(result.data).toEqual(validAnswers);
+      expect(result.answers).toEqual(validAnswers);
     });
 
     it("should reject answers with invalid indices", () => {

@@ -1,11 +1,5 @@
 import type { ZodSchema } from "zod";
 import { ZodError } from "zod";
-import {
-  AnswerIndexSchema,
-  AnswersRecordSchema,
-  type AnswerIndex,
-  type AnswersRecord,
-} from "../schemas/answers";
 import { AxisSchema, type Axis } from "../schemas/axis";
 import { PartySchema, type Party } from "../schemas/party";
 import {
@@ -59,18 +53,6 @@ export function validateQuestion(
   data: unknown
 ): SchemaValidationResult<QuestionMetadata> {
   return validateSchema(QuestionMetadataSchema, data);
-}
-
-export function validateAnswerIndex(
-  data: unknown
-): SchemaValidationResult<AnswerIndex> {
-  return validateSchema(AnswerIndexSchema, data);
-}
-
-export function validateAnswersRecord(
-  data: unknown
-): SchemaValidationResult<AnswersRecord> {
-  return validateSchema(AnswersRecordSchema, data);
 }
 
 export function validatePartyPositionValue(
