@@ -70,6 +70,7 @@ When adding questions or setting party positions, identify which pole the questi
 - Axis directionality: define negative-direction questions with `direction: "negative"` to ensure inversion logic applies.
 - Type safety: keep schemas in sync with data files; prefer Zod-validated loaders for new data.
 - Style/testing: British English in text; unit tests exist for i18n, stores, router, validators, and scoring.
+- No comments: do not add inline or block comments to code; cleanliness and self-documenting code are preferred.
 
 ## Pointers to Key Files
 
