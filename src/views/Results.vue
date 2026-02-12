@@ -144,25 +144,38 @@
     <div class="results__container">
       <h1 class="results__title">{{ $t("results.title") }}</h1>
 
-      <div v-if="result" class="results__content">
-        <section class="results__section results__section--primary">
-          <div class="results__pills">
+      <div
+        v-if="result"
+        class="results__container"
+        role="main"
+        aria-label="Quiz results"
+      >
+        <section
+          class="results__section"
+          aria-labelledby="primary-match-heading"
+        >
+          <div class="results__header">
             <div class="results__badge">
               <Trophy :size="20" />
               <span>{{ $t("results.primaryMatch") }}</span>
             </div>
 
-            <div class="results__mode">
+            <div class="results__mode" aria-label="Quiz mode">
               {{ modeLabel }}
             </div>
 
             <div
               class="results__confidence"
               :class="`results__confidence--${result.confidence}`"
+              role="status"
+              :aria-label="`Confidence level: ${$t(\`results.confidence.\${result.confidence}\`)}`"
             >
               {{ $t(`results.confidence.${result.confidence}`) }}
             </div>
           </div>
+          <h2 id="primary-match-heading" class="sr-only">
+            {{ $t("results.primaryMatch") }}
+          </h2>
 
           <PartyCard
             :party="result.primary.party"
@@ -173,6 +186,9 @@
           <button
             @click="copyResults"
             class="results__button results__button--secondary results__button--share-card"
+            :aria-label="
+              copied ? $t('results.resultsCopied') : $t('results.copyResults')
+            "
           >
             <Copy :size="20" />
             {{
@@ -181,8 +197,12 @@
           </button>
         </section>
 
-        <section v-if="result.alternatives.length > 0" class="results__section">
-          <h2 class="results__section-title">
+        <section
+          v-if="result.alternatives.length > 0"
+          class="results__section"
+          aria-labelledby="alternatives-heading"
+        >
+          <h2 id="alternatives-heading" class="results__section-title">
             {{ $t("results.alternativeMatch") }}
           </h2>
 
@@ -212,23 +232,30 @@
         </div>
       </div>
 
-      <div v-else-if="error" class="results__error">
+      <div
+        v-else-if="error"
+        class="results__error"
+        role="alert"
+        aria-live="polite"
+      >
         <AlertCircle :size="48" />
         <p>{{ error }}</p>
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
+          aria-label="Start the quiz"
         >
           Start Quiz
         </button>
       </div>
 
-      <div v-else class="results__empty">
+      <div v-else class="results__empty" role="status" aria-live="polite">
         <AlertCircle :size="48" />
         <p>No results available. Please take the quiz first.</p>
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
+          aria-label="Start the quiz"
         >
           Start Quiz
         </button>
@@ -474,6 +501,18 @@
     color: var(--color-error, #ef4444);
     margin: var(--space-xl) 0;
     font-weight: var(--font-weight-medium);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 
   @media (max-width: 640px) {

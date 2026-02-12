@@ -19,7 +19,7 @@
 
 - Full algorithm explainer: [../docs/scoring-algorithm.md](../docs/scoring-algorithm.md) (inputs, poles/direction, similarity math, normalization, confidence).
 - Party positions and interpretations: [../docs/party-position-reference.md](../docs/party-position-reference.md) with per-axis lean notes.
-- Quick essentials: `STANDARD_OPTIONS` values are [-1, -0.5, 0, 0.5, 1]; negative-direction questions invert the user value before comparison; negative-direction IDs today: q2, q8, q10, q18, q20, q23, q40, q41, q42, q45.
+- Quick essentials: `STANDARD_OPTIONS` values are [-1, -0.5, 0, 0.5, 1]; negative-direction questions invert the user value before comparison; negative-direction IDs today: q2, q4, q9, q11, q19, q21, q23, q38, q39, q40, q43.
 
 ## Understanding Axis Poles and Direction Flags
 

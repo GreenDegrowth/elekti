@@ -38,9 +38,14 @@ export const useQuizStore = defineStore("quiz", () => {
 
   const translatedQuestionsCache = new Map<string, Question[]>();
 
+  function clearTranslationCache(): void {
+    translatedQuestionsCache.clear();
+  }
+
   function loadQuestionsFromI18n(ids?: string[]): Question[] {
     const locale = i18n.global.locale.value;
-    const cacheKey = `${locale}:${ids?.join(",") || "all"}`;
+    const idKey = ids && ids.length > 0 ? ids.join("|") : "all";
+    const cacheKey = `${locale}|${idKey}`;
 
     if (translatedQuestionsCache.has(cacheKey)) {
       return translatedQuestionsCache.get(cacheKey)!;
@@ -89,6 +94,7 @@ export const useQuizStore = defineStore("quiz", () => {
   watch(
     () => i18n.global.locale.value,
     () => {
+      clearTranslationCache();
       if (selectedQuestionIds.value.length === 0) {
         return;
       }

@@ -5,6 +5,20 @@ import {
   EncodedAnswersSchema,
 } from "../schemas/answers";
 
+export class AnswerEncodingError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "AnswerEncodingError";
+  }
+}
+
+export class AnswerDecodingError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "AnswerDecodingError";
+  }
+}
+
 export interface AnswerValidationResult {
   success: boolean;
   value?: number;
@@ -27,14 +41,20 @@ function base64UrlEncode(bytes: Uint8Array): string {
 }
 
 function base64UrlDecode(encoded: string): Uint8Array {
-  const padded = encoded + "===".slice((encoded.length + 3) % 4);
-  const base64 = padded.replaceAll("-", "+").replaceAll("_", "/");
-  const binary = atob(base64);
-  const bytes = new Uint8Array(binary.length);
-  for (let index = 0; index < binary.length; index++) {
-    bytes[index] = binary.codePointAt(index) ?? 0;
+  try {
+    const padded = encoded + "===".slice((encoded.length + 3) % 4);
+    const base64 = padded.replaceAll("-", "+").replaceAll("_", "/");
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index++) {
+      bytes[index] = binary.codePointAt(index) ?? 0;
+    }
+    return bytes;
+  } catch (error) {
+    throw new AnswerDecodingError(
+      `Failed to decode base64: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
   }
-  return bytes;
 }
 
 function packAnswerValues(values: number[]): Uint8Array {
@@ -82,14 +102,25 @@ function unpackAnswerValues(
   }
 
   if (values.length < expectedCount) {
-    throw new Error("Not enough data to decode answers");
+    throw new AnswerDecodingError(
+      `Expected ${expectedCount} answer values but only decoded ${values.length}`
+    );
   }
 
   return values.slice(0, expectedCount);
 }
 
 export function encodeAnswerValuesToBase64Url(values: number[]): string {
-  return base64UrlEncode(packAnswerValues(values));
+  try {
+    return base64UrlEncode(packAnswerValues(values));
+  } catch (error) {
+    if (error instanceof AnswerEncodingError) {
+      throw error;
+    }
+    throw new AnswerEncodingError(
+      `Failed to encode answers: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
 }
 
 export function validateAnswerIndex(value: unknown): AnswerValidationResult {

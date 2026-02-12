@@ -11,8 +11,23 @@ import axes from "./axes.json";
 import parties from "./parties.json";
 import partyPositions from "./party_positions.json";
 import questions from "./questions.json";
+import surveys from "./surveys.json";
 import af from "./translations/af.json";
 import en from "./translations/en.json";
+
+const DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS = [
+  "q2",
+  "q4",
+  "q9",
+  "q11",
+  "q19",
+  "q21",
+  "q23",
+  "q38",
+  "q39",
+  "q40",
+  "q43",
+];
 
 describe("Data Validation", () => {
   describe("Zod Schema Validation", () => {
@@ -337,6 +352,108 @@ describe("Data Validation", () => {
 
       for (const partyId of Object.keys(partyPositions.parties)) {
         expect(partyIds.has(partyId)).toBe(true);
+      }
+    });
+  });
+
+  describe("Direction Field Consistency", () => {
+    it("should have direction field only on documented negative-direction questions", () => {
+      for (const q of questions.questions) {
+        const hasNegativeDirection = q.direction === "negative";
+        const isDocumented = DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS.includes(
+          q.id
+        );
+
+        expect(
+          hasNegativeDirection,
+          `Question ${q.id} should ${isDocumented ? "have" : "not have"} direction: "negative"`
+        ).toBe(isDocumented);
+      }
+    });
+
+    it("should not have undocumented direction values", () => {
+      for (const q of questions.questions) {
+        if (q.direction !== undefined && q.direction !== "negative") {
+          throw new Error(
+            `Question ${q.id} has undocumented direction value: ${q.direction}`
+          );
+        }
+      }
+    });
+  });
+
+  describe("Axis Coverage", () => {
+    it("should have at least 3 questions per axis", () => {
+      const axisCount: Record<string, number> = {};
+
+      for (const q of questions.questions) {
+        axisCount[q.axis] = (axisCount[q.axis] || 0) + 1;
+      }
+
+      const axisIds = new Set(axes.axes.map((a) => a.id));
+      for (const axisId of axisIds) {
+        const count = axisCount[axisId] || 0;
+        expect(
+          count,
+          `Axis ${axisId} should have at least 3 questions but has ${count}`
+        ).toBeGreaterThanOrEqual(3);
+      }
+    });
+
+    it("should not have axes with more than 7 questions", () => {
+      const axisCount: Record<string, number> = {};
+
+      for (const q of questions.questions) {
+        axisCount[q.axis] = (axisCount[q.axis] || 0) + 1;
+      }
+
+      for (const [axisId, count] of Object.entries(axisCount)) {
+        expect(
+          count,
+          `Axis ${axisId} should not have more than 7 questions but has ${count}`
+        ).toBeLessThanOrEqual(7);
+      }
+    });
+  });
+
+  describe("Survey Data", () => {
+    it("should reference only valid question IDs", () => {
+      const validQuestionIds = new Set(questions.questions.map((q) => q.id));
+
+      for (const [surveyType, questionIds] of Object.entries(surveys.surveys)) {
+        for (const qId of questionIds) {
+          expect(
+            validQuestionIds.has(qId),
+            `Survey ${surveyType} references invalid question ${qId}`
+          ).toBe(true);
+        }
+      }
+    });
+
+    it("should have unique questions within each survey", () => {
+      for (const [surveyType, questionIds] of Object.entries(surveys.surveys)) {
+        const uniqueIds = new Set(questionIds);
+        expect(
+          uniqueIds.size,
+          `Survey ${surveyType} should have unique question IDs`
+        ).toBe(questionIds.length);
+      }
+    });
+
+    it("should have at least one survey", () => {
+      expect(Object.keys(surveys.surveys).length).toBeGreaterThan(0);
+    });
+
+    it("should have surveys with reasonable length", () => {
+      for (const [surveyType, questionIds] of Object.entries(surveys.surveys)) {
+        expect(
+          questionIds.length,
+          `Survey ${surveyType} should have at least 5 questions`
+        ).toBeGreaterThanOrEqual(5);
+        expect(
+          questionIds.length,
+          `Survey ${surveyType} should not have more than ${questions.questions.length} questions`
+        ).toBeLessThanOrEqual(questions.questions.length);
       }
     });
   });
