@@ -168,7 +168,10 @@
               class="results__confidence"
               :class="`results__confidence--${result.confidence}`"
               role="status"
-              :aria-label="`Confidence level: ${$t(\`results.confidence.\${result.confidence}\`)}`"
+              :aria-label="
+                'Confidence level: ' +
+                $t(`results.confidence.${result.confidence}`)
+              "
             >
               {{ $t(`results.confidence.${result.confidence}`) }}
             </div>
