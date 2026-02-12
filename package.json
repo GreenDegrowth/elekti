@@ -52,7 +52,7 @@
     "typescript": "^5.9.3",
     "vite": "npm:rolldown-vite@latest",
     "vite-plugin-pwa": "^1.2.0",
-    "vite-plugin-vue-devtools": "^8.0.5",
+    "vite-plugin-vue-devtools": "^8.0.6",
     "vitest": "^4.0.18",
     "vue-tsc": "^3.2.4"
   },
