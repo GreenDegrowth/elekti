@@ -332,6 +332,8 @@
     gap: var(--space-xs);
     align-items: center;
     opacity: 0.8;
+    flex-wrap: wrap;
+    max-width: 100%;
   }
 
   .landing__dev-button {
@@ -569,6 +571,20 @@
     .landing__cta {
       padding: var(--space-md) var(--space-lg);
       font-size: var(--font-size-sm);
+    }
+
+    .landing__dev-row {
+      position: static;
+      margin-top: var(--space-md);
+      gap: var(--space-sm);
+      opacity: 1;
+    }
+
+    .landing__dev-button {
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
     }
   }
 </style>

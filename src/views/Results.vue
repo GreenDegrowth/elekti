@@ -291,6 +291,19 @@
     margin-bottom: var(--space-3xl);
   }
 
+  .results__section:first-of-type :deep(.party-card) {
+    margin-top: var(--space-md);
+  }
+
+  .results__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
   .results__section--primary {
     padding: var(--space-lg);
     background: var(--color-surface-elevated);
@@ -525,6 +538,22 @@
 
     .results__title {
       font-size: var(--font-size-3xl);
+    }
+
+    .results__header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-sm);
+    }
+
+    .results__badge,
+    .results__mode,
+    .results__confidence {
+      width: 100%;
+      justify-content: center;
+      height: auto;
+      padding: var(--space-sm) var(--space-md);
+      text-align: center;
     }
 
     .results__actions {
