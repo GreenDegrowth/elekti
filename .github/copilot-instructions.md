@@ -45,8 +45,11 @@ When adding questions or setting party positions, identify which pole the questi
   - `npm run dev` (Vite on http://localhost:5173)
 - Build (fails on type errors):
   - `npm run build` (runs `vue-tsc --build` then bundles)
-- Test (Vitest + happy-dom):
+- Unit tests (Vitest + happy-dom):
   - `npm run test` or `npm run test:ui`
+- E2E tests (Playwright):
+  - `npm run test:e2e` (runs chromium and Galaxy S24 mobile)
+  - `npm run test:e2e -- --project=chromium` (single project)
 - Lint/format:
   - `npm run lint`
   - `npm run format` (Prettier + organize-imports + package.json sorting)
