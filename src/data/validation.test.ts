@@ -15,7 +15,7 @@ import surveys from "./surveys.json";
 import af from "./translations/af.json";
 import en from "./translations/en.json";
 
-const DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS = [
+const DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS = new Set([
   "q2",
   "q4",
   "q9",
@@ -27,7 +27,7 @@ const DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS = [
   "q39",
   "q40",
   "q43",
-];
+]);
 
 describe("Data Validation", () => {
   describe("Zod Schema Validation", () => {
@@ -360,9 +360,7 @@ describe("Data Validation", () => {
     it("should have direction field only on documented negative-direction questions", () => {
       for (const q of questions.questions) {
         const hasNegativeDirection = q.direction === "negative";
-        const isDocumented = DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS.includes(
-          q.id
-        );
+        const isDocumented = DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS.has(q.id);
 
         expect(
           hasNegativeDirection,

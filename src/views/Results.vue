@@ -146,10 +146,6 @@
     router.push("/quiz");
   }
 
-  function continueQuiz() {
-    router.push("/quiz");
-  }
-
   function goHome() {
     router.push("/");
   }
