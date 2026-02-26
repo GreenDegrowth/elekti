@@ -64,6 +64,23 @@
       "medium": "Gemengde passing",
       "low": "Dun passing"
     },
+    "confidenceExplainer": {
+      "high": {
+        "title": "Duidelike skeiding",
+        "description": "Jou boonste passing staan ver voor alternatiewe. Die gaping wys 'n duidelike passing."
+      },
+      "medium": {
+        "title": "Nou groepering",
+        "description": "Jou boonste passings is binne 'n paar punte van mekaar. Verskeie partye deel soortgelyke standpunte oor jou prioriteite."
+      },
+      "low": {
+        "title": "Noue verspreiding",
+        "description": "Baie partye behaal soortgelyke punte. Die verskille is minimaal; kyk dieper na spesifieke kwessies wat vir jou saak maak."
+      }
+    },
+    "topMatch": "Boonste passing",
+    "secondMatch": "Tweede passing",
+    "gap": "Gaping",
     "scoreBreakdown": "Puntverdeling",
     "allParties": "Alle partye gescoor",
     "otherParties": "Ander partye",
@@ -72,7 +89,21 @@
     "copyResults": "Kopieer deelbare skakel",
     "resultsCopied": "Skakel gekopieer",
     "retakeQuiz": "Antwoord weer",
-    "learnMore": "Lees meer oor {party}"
+    "backToHome": "Terug na begin",
+    "learnMore": "Lees meer oor {party}",
+    "viewCards": "Kaartaansig",
+    "viewTable": "Tabelaansig",
+    "sortBy": "Sorteer volgens",
+    "sortByScore": "Volgens passing",
+    "sortByName": "Volgens naam",
+    "partiesSelected": "gekies",
+    "compare": "Vergelyk",
+    "clear": "Verwyder",
+    "compareParties": "Vergelyk partye",
+    "issue": "Kwessie",
+    "party": "Party",
+    "match": "Passing",
+    "ideology": "Ideologie"
   },
   "about": {
     "title": "Oor Elekti",

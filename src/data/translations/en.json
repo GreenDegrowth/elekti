@@ -61,6 +61,23 @@
       "medium": "Mixed fit",
       "low": "Thin fit"
     },
+    "confidenceExplainer": {
+      "high": {
+        "title": "Clear separation",
+        "description": "Your top match stands well ahead of alternatives. The gap shows a distinct alignment."
+      },
+      "medium": {
+        "title": "Close clustering",
+        "description": "Your top matches are within a few points of each other. Several parties share similar positions on your priorities."
+      },
+      "low": {
+        "title": "Tight spread",
+        "description": "Many parties score similarly. The differences are marginal; dig deeper into specific axes that matter to you."
+      }
+    },
+    "topMatch": "Top match",
+    "secondMatch": "Second match",
+    "gap": "Gap",
     "scoreBreakdown": "Score breakdown",
     "allParties": "All parties scored",
     "otherParties": "Other parties",
@@ -69,7 +86,21 @@
     "copyResults": "Copy shareable link",
     "resultsCopied": "Link copied",
     "retakeQuiz": "Answer again",
-    "learnMore": "Learn more about {party}"
+    "backToHome": "Back to start",
+    "learnMore": "Learn more about {party}",
+    "viewCards": "Card view",
+    "viewTable": "Table view",
+    "sortBy": "Sort by",
+    "sortByScore": "By match",
+    "sortByName": "By name",
+    "partiesSelected": "selected",
+    "compare": "Compare",
+    "clear": "Clear",
+    "compareParties": "Compare parties",
+    "issue": "Issue",
+    "party": "Party",
+    "match": "Match",
+    "ideology": "Ideology"
   },
   "about": {
     "title": "About Elekti",

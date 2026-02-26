@@ -3,8 +3,10 @@
   import { computed, onMounted, ref } from "vue";
   import { useI18n } from "vue-i18n";
   import { useRouter } from "vue-router";
+  import ConfidenceIndicator from "../components/ConfidenceIndicator.vue";
   import PartyCard from "../components/PartyCard.vue";
-  import ResultBreakdown from "../components/ResultBreakdown.vue";
+  import PartyComparison from "../components/PartyComparison.vue";
+  import ResultBreakdownEnhanced from "../components/ResultBreakdownEnhanced.vue";
   import { useQuizStore } from "../stores/quizStore";
   import { isSurveyMode, type SurveyMode } from "../stores/uiStore";
   import type { PartyScore, Question, QuizResult } from "../types";
@@ -16,6 +18,8 @@
   const result = ref<QuizResult | undefined>(undefined);
   const copied = ref(false);
   const error = ref<string | undefined>(undefined);
+  const showComparison = ref(false);
+  const comparisonParties = ref<PartyScore[]>([]);
 
   const modeLabel = computed(() => t(`landing.modes.${quizStore.mode}.title`));
 
@@ -29,6 +33,10 @@
       ...currentResult.alternatives.map((a) => a.partyId),
     ]);
     return currentResult.allScores.filter((s) => !excludeIds.has(s.partyId));
+  });
+
+  const alternativeScores = computed<number[]>(() => {
+    return result.value?.alternatives.map((a) => a.alignmentScore) ?? [];
   });
 
   onMounted(() => {
@@ -137,6 +145,23 @@
   function goToQuiz() {
     router.push("/quiz");
   }
+
+  function continueQuiz() {
+    router.push("/quiz");
+  }
+
+  function goHome() {
+    router.push("/");
+  }
+
+  function handleCompare(parties: PartyScore[]) {
+    comparisonParties.value = parties;
+    showComparison.value = true;
+  }
+
+  function closeComparison() {
+    showComparison.value = false;
+  }
 </script>
 
 <template>
@@ -164,17 +189,11 @@
               {{ modeLabel }}
             </div>
 
-            <div
-              class="results__confidence"
-              :class="`results__confidence--${result.confidence}`"
-              role="status"
-              :aria-label="
-                'Confidence level: ' +
-                $t(`results.confidence.${result.confidence}`)
-              "
-            >
-              {{ $t(`results.confidence.${result.confidence}`) }}
-            </div>
+            <ConfidenceIndicator
+              :confidence="result.confidence"
+              :primary-score="result.primary.alignmentScore"
+              :alternative-scores="alternativeScores"
+            />
           </div>
           <h2 id="primary-match-heading" class="sr-only">
             {{ $t("results.primaryMatch") }}
@@ -221,7 +240,10 @@
         </section>
 
         <section class="results__section">
-          <ResultBreakdown :scores="otherScores" />
+          <ResultBreakdownEnhanced
+            :scores="otherScores"
+            @compare="handleCompare"
+          />
         </section>
 
         <div class="results__actions">
@@ -231,6 +253,12 @@
           >
             <RotateCcw :size="20" />
             {{ $t("results.retakeQuiz") }}
+          </button>
+          <button
+            @click="goHome"
+            class="results__button results__button--secondary"
+          >
+            {{ $t("results.backToHome") }}
           </button>
         </div>
       </div>
@@ -263,6 +291,12 @@
           Start Quiz
         </button>
       </div>
+
+      <PartyComparison
+        :parties="comparisonParties"
+        :show="showComparison"
+        @close="closeComparison"
+      />
     </div>
   </div>
 </template>
