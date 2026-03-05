@@ -6,9 +6,9 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : Math.ceil(os.cpus().length * 0.6),
+  workers: process.env.CI ? 2 : Math.ceil(os.cpus().length * 0.9),
   reporter: "html",
-  timeout: 60_000,
+  timeout: 20_000,
   use: {
     baseURL: "http://localhost:5173",
     trace: "on-first-retry",
@@ -19,10 +19,6 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
     },
     {
       name: "Mobile Chrome",

@@ -39,16 +39,14 @@ test("about page language switch updates content", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Oor Elekti" })).toBeVisible();
 });
 
-test("external CC0 license link works", async ({ page }) => {
+test("external MIT license link works", async ({ page }) => {
   await page.goto("/about");
 
-  const licenseLink = page.getByRole("link", {
-    name: "CC0 1.0 Universal Public Domain Dedication",
-  });
+  const licenseLink = page.getByRole("link", { name: "MIT License" });
   await expect(licenseLink).toHaveAttribute("target", "_blank");
   await expect(licenseLink).toHaveAttribute(
     "href",
-    "https://creativecommons.org/publicdomain/zero/1.0/legalcode.en"
+    "https://opensource.org/licenses/MIT"
   );
 });
 
