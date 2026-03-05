@@ -276,7 +276,7 @@
     },
     "q8": {
       "text": "Government should actively support growing black-owned and worker-owned businesses through loans, tax breaks, and contracts.",
-      "axis": "economic_left_right"
+      "axis": "equity_and_inclusion"
     },
     "q9": {
       "text": "Municipalities should outsource maintenance to capable private firms under performance-based contracts to improve water and power uptime.",
@@ -355,7 +355,7 @@
       "axis": "democratic_institutions"
     },
     "q28": {
-      "text": "Parties must work together in coalitions and compromise, even if they betray some of their supporters' expectations.",
+      "text": "Parties must work together in coalitions and compromise, even if it means not keeping every promise.",
       "axis": "democratic_institutions"
     },
     "q29": {
@@ -384,7 +384,7 @@
     },
     "q35": {
       "text": "Government should force companies to give parents paid leave and protect mothers and women from discrimination at work.",
-      "axis": "social_progressivism"
+      "axis": "labour_rights"
     },
     "q36": {
       "text": "Prioritise SADC and AU regional value chains and logistics corridors to grow trade on the continent.",

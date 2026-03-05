@@ -279,7 +279,7 @@
     },
     "q8": {
       "text": "Regering moet aktief groeiende swart-eienaarskap en werker-eienaarskap-ondernemings ondersteun deur lenings, belastingvermindering en opdragte.",
-      "axis": "economic_left_right"
+      "axis": "equity_and_inclusion"
     },
     "q9": {
       "text": "Munisipaliteite moet instandhouding aan bekwame private firmas uitkontrakteer onder prestasie-gebaseerde kontrakte om water- en kragbeskikbaarheid te verbeter.",
@@ -358,7 +358,7 @@
       "axis": "democratic_institutions"
     },
     "q28": {
-      "text": "Partye moet in koalisies saamwerk en kompromieë aangaan, selfs as dit sommige van hulle ondersteuners se verwagtinge verraai.",
+      "text": "Partye moet in koalisies saamwerk en kompromieë aangaan, selfs as dit beteken dat hulle nie elke belofte kan nakom nie.",
       "axis": "democratic_institutions"
     },
     "q29": {
@@ -387,7 +387,7 @@
     },
     "q35": {
       "text": "Regering moet maatskappye dwing om ouers betaalde verlof te gee en moeders en vroue teen diskriminasie by die werk te beskerm.",
-      "axis": "social_progressivism"
+      "axis": "labour_rights"
     },
     "q36": {
       "text": "Prioritiseer SADC- en AU-streek-waardekettings en logistieke korridors om handel op die vasteland te laat groei.",

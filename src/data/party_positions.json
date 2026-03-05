@@ -163,7 +163,7 @@
       "democratic_institutions": 0.4,
       "environment_energy": 0.5,
       "social_progressivism": 0.7,
-      "global_vs_local": 0.5,
+      "global_vs_local": -0.4,
       "transformation_vs_continuity": 1.0,
       "urban_development": 0.8,
       "equity_and_inclusion": 0.9

@@ -82,6 +82,6 @@ Results are encoded into the URL as three query params:
 ## Key constraints
 
 - `party.colour` is always a 6-digit hex string (`#RRGGBB`) — relied on by the contrast utility in `PartyCard.vue`
-- Party positions in `party_positions.json` must be in the `[0, 1]` range per axis
+- Party positions in `party_positions.json` must be in the `[-1, 1]` range per axis
 - The `full` survey in `surveys.json` must contain all 55 question IDs
 - Locale persistence key is `"lang"`, mode persistence key is `"mode"` (localStorage)
