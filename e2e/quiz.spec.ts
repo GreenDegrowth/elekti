@@ -8,7 +8,7 @@ test("start quiz and answer first question", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 2 })).toBeVisible();
 
   await page.getByRole("radio", { name: "Strongly agree" }).click();
-  await expect(page.getByTitle("Next")).toBeEnabled();
+  await expect(page.getByText("Question 2 of 55")).toBeVisible();
 });
 
 test("quiz navigation requires an answer and supports back", async ({
@@ -44,14 +44,20 @@ test("changing answer updates selection before advancing", async ({ page }) => {
   const agreeOption = page.getByRole("radio", { name: "Agree", exact: true });
   await expect(agreeOption).toBeEnabled();
   await agreeOption.click();
+  await expect(page.getByText("Question 2 of 55")).toBeVisible();
+
+  await page.getByRole("button", { name: "Back" }).click();
+  await expect(page.getByText("Question 1 of 55")).toBeVisible();
   await expect(agreeOption).toBeChecked();
 
   const disagreeOption = page.getByRole("radio", {
     name: "Strongly disagree",
     exact: true,
   });
-  await expect(disagreeOption).toBeEnabled();
   await disagreeOption.click();
+  await expect(page.getByText("Question 2 of 55")).toBeVisible();
+
+  await page.getByRole("button", { name: "Back" }).click();
   await expect(disagreeOption).toBeChecked();
   await expect(agreeOption).not.toBeChecked();
 });
@@ -70,7 +76,6 @@ test("quiz preserves answer when navigating back and forward", async ({
     exact: true,
   });
   await stronglyAgree.click();
-  await expect(stronglyAgree).toBeChecked();
 
   await expect(progressLabel).toContainText("Question 2 of 55");
 

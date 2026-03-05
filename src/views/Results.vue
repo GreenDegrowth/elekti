@@ -143,9 +143,7 @@
         },
         () => {}
       );
-    } catch {
-      // Swallow copy errors silently to avoid noisy runtime logs in production.
-    }
+    } catch {}
   }
 
   function retakeQuiz() {
