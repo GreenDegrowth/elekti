@@ -472,6 +472,11 @@
     "en": "English",
     "af": "Afrikaans"
   },
+  "errors": {
+    "invalidUrl": "Invalid or corrupted results URL. Please retake the quiz.",
+    "noData": "No quiz data found. Please take the quiz first.",
+    "loadFailed": "An error occurred loading your results. Please try again."
+  },
   "footer": {
     "about": "About",
     "privacy": "Privacy",

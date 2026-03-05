@@ -23,15 +23,17 @@
       <div class="app-footer__container">
         <nav class="app-footer__nav">
           <router-link to="/about">{{ $t("footer.about") }}</router-link>
-          <router-link to="/about">{{ $t("footer.privacy") }}</router-link>
+          <router-link to="/about#privacy">{{
+            $t("footer.privacy")
+          }}</router-link>
         </nav>
         <p class="app-footer__copyright">
-          Elekti is released under the
+          Released under the
           <a
-            href="https://creativecommons.org/publicdomain/zero/1.0/legalcode.en"
+            href="https://opensource.org/licenses/MIT"
             target="_blank"
             rel="noopener noreferrer"
-            >CC0 1.0 Universal Public Domain Dedication</a
+            >MIT License</a
           >
         </p>
       </div>

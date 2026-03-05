@@ -475,6 +475,11 @@
     "en": "Engels",
     "af": "Afrikaans"
   },
+  "errors": {
+    "invalidUrl": "Ongeldige of beskadigde resultate-URL. Doen asseblief die toets oor.",
+    "noData": "Geen toetsdata gevind nie. Doen asseblief eers die toets.",
+    "loadFailed": "Fout tydens laai van resultate. Probeer asseblief weer."
+  },
   "footer": {
     "about": "Oor",
     "privacy": "Privaatheid",

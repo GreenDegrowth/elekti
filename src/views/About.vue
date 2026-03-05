@@ -43,7 +43,7 @@
         </div>
       </section>
 
-      <section class="about__section">
+      <section id="privacy" class="about__section">
         <h2 class="about__section-title">
           <Lock :size="24" />
           {{ $t("about.privacy") }}
@@ -112,7 +112,7 @@
           <h3 class="about__subsection-title">{{ $t("about.viewData") }}</h3>
           <p class="about__text">{{ $t("about.viewDataText") }}</p>
           <a
-            href="https://github.com/ecosoviet/elekti/tree/main/src/data"
+            href="https://github.com/GreenDegrowth/elekti/tree/main/src/data"
             target="_blank"
             class="about__data-link"
           >

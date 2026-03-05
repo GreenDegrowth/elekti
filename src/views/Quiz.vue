@@ -54,6 +54,15 @@
     router.push("/results");
   }
 
+  function handleSkip() {
+    if (isLastQuestion.value) {
+      quizStore.skipQuestion();
+      handleFinish();
+    } else {
+      quizStore.skipQuestion();
+    }
+  }
+
   function handleKeyDown(event: KeyboardEvent) {
     if (
       event.target instanceof HTMLInputElement ||
@@ -149,6 +158,15 @@
           :title="$t('quiz.back')"
         >
           <ChevronLeft :size="24" />
+        </button>
+
+        <button
+          v-if="!hasAnsweredCurrent && currentQuestion"
+          @click="handleSkip"
+          class="quiz__nav-button quiz__nav-button--skip"
+          :title="$t('quiz.skip')"
+        >
+          {{ $t("quiz.skip") }}
         </button>
 
         <button
@@ -251,6 +269,22 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
     font-weight: var(--font-weight-semibold);
+  }
+
+  .quiz__nav-button--skip {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .quiz__nav-button--skip:hover {
+    color: var(--color-text-secondary);
+    border-color: var(--color-border);
+    background-color: var(--color-surface-elevated);
+    transform: none;
+    box-shadow: none;
   }
 
   .quiz__nav-button--next,

@@ -29,6 +29,10 @@ type ScoringData = {
 
 let cachedScoringData: ScoringData | undefined;
 
+export function clearScoringCache(): void {
+  cachedScoringData = undefined;
+}
+
 function getScoringData(): ScoringData {
   if (cachedScoringData) {
     return cachedScoringData;

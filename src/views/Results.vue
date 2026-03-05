@@ -18,6 +18,7 @@
   const result = ref<QuizResult | undefined>(undefined);
   const copied = ref(false);
   const error = ref<string | undefined>(undefined);
+  const loading = ref(true);
   const showComparison = ref(false);
   const comparisonParties = ref<PartyScore[]>([]);
 
@@ -63,13 +64,11 @@
         );
         if (loaded.success) {
           result.value = quizStore.computeScores();
-          return;
         } else {
-          error.value =
-            loaded.error ||
-            "Invalid or corrupted results URL. Please retake the quiz.";
-          return;
+          error.value = loaded.error || t("errors.invalidUrl");
         }
+        loading.value = false;
+        return;
       }
 
       if (quizStore.completed && Object.keys(quizStore.answers).length > 0) {
@@ -90,11 +89,12 @@
           router.replace({ query: queryParams });
         }
       } else {
-        error.value = "No quiz data found. Please take the quiz first.";
+        error.value = t("errors.noData");
       }
     } catch {
-      error.value = "An error occurred loading your results. Please try again.";
+      error.value = t("errors.loadFailed");
     }
+    loading.value = false;
   });
 
   function copyResults() {
@@ -103,10 +103,21 @@
     }
 
     try {
-      const encoded = quizStore.encodeAnswersToUrl();
-      const ids = quizStore.questions.map((q: Question) => q.id).join(",");
-      const m = quizStore.mode;
-      const shareUrl = `${globalThis.location.origin}/results?${URL_PARAMS.RESULTS}=${encoded}&${URL_PARAMS.MODE}=${m}&${URL_PARAMS.QUESTIONS}=${encodeURIComponent(ids)}`;
+      const currentParams = new URLSearchParams(globalThis.location.search);
+      let shareUrl: string;
+      if (currentParams.has(URL_PARAMS.RESULTS)) {
+        shareUrl = globalThis.location.href;
+      } else {
+        const encoded = quizStore.encodeAnswersToUrl();
+        const queryParams = new URLSearchParams({
+          [URL_PARAMS.RESULTS]: encoded,
+          [URL_PARAMS.MODE]: quizStore.mode,
+          [URL_PARAMS.QUESTIONS]: quizStore.questions
+            .map((q: Question) => q.id)
+            .join(","),
+        });
+        shareUrl = `${globalThis.location.origin}/results?${queryParams.toString()}`;
+      }
 
       const confidenceLabel = t(
         `results.confidence.${result.value.confidence}`
@@ -166,7 +177,16 @@
       <h1 class="results__title">{{ $t("results.title") }}</h1>
 
       <div
-        v-if="result"
+        v-if="loading"
+        class="results__loading"
+        role="status"
+        aria-live="polite"
+      >
+        <span class="sr-only">{{ $t("results.title") }}</span>
+      </div>
+
+      <div
+        v-else-if="result"
         class="results__container"
         role="main"
         aria-label="Quiz results"
@@ -270,21 +290,21 @@
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
-          aria-label="Start the quiz"
+          :aria-label="$t('landing.startButton')"
         >
-          Start Quiz
+          {{ $t("landing.startButton") }}
         </button>
       </div>
 
       <div v-else class="results__empty" role="status" aria-live="polite">
         <AlertCircle :size="48" />
-        <p>No results available. Please take the quiz first.</p>
+        <p>{{ $t("errors.noData") }}</p>
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
-          aria-label="Start the quiz"
+          :aria-label="$t('landing.startButton')"
         >
-          Start Quiz
+          {{ $t("landing.startButton") }}
         </button>
       </div>
 
@@ -334,29 +354,6 @@
     margin-bottom: var(--space-lg);
   }
 
-  .results__section--primary {
-    padding: var(--space-lg);
-    background: var(--color-surface-elevated);
-    border-radius: var(--radius-md);
-    border: 3px solid var(--color-secondary);
-    margin-bottom: var(--space-3xl);
-    box-shadow: var(--shadow-lg);
-    position: relative;
-  }
-
-  .results__section--primary :deep(.party-card) {
-    margin-top: var(--space-md);
-    margin-bottom: 0;
-  }
-
-  .results__pills {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-    margin-bottom: var(--space-lg);
-  }
-
   .results__badge {
     display: inline-flex;
     align-items: center;
@@ -385,24 +382,6 @@
     margin-top: var(--space-lg);
   }
 
-  .results__confidence {
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: 0;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    display: inline-flex;
-    align-items: center;
-    letter-spacing: 0.04em;
-    box-shadow: var(--shadow-md);
-    transition: box-shadow var(--transition-fast);
-    height: 40px;
-    text-transform: uppercase;
-  }
-
-  .results__confidence:hover {
-    box-shadow: var(--shadow-lg);
-  }
-
   .results__mode {
     padding: var(--space-sm) var(--space-lg);
     border-radius: 0;
@@ -416,37 +395,6 @@
     background: var(--color-surface);
     border: 2px solid var(--color-border);
     color: var(--color-text-secondary);
-  }
-
-  .results__confidence--high {
-    background: linear-gradient(
-      135deg,
-      var(--color-primary),
-      color-mix(in srgb, var(--color-secondary) 25%, var(--color-primary))
-    );
-    color: white;
-  }
-
-  .results__confidence--medium {
-    background: linear-gradient(
-      135deg,
-      var(--color-accent),
-      color-mix(in srgb, var(--color-secondary) 20%, var(--color-accent))
-    );
-    color: var(--color-text-primary);
-  }
-
-  .results__confidence--low {
-    background: linear-gradient(
-      135deg,
-      var(--color-signal-brick),
-      color-mix(
-        in srgb,
-        var(--color-secondary-dark) 35%,
-        var(--color-signal-brick)
-      )
-    );
-    color: white;
   }
 
   .results__section-title {
@@ -521,6 +469,10 @@
   .results__button--secondary:hover {
     background-color: var(--color-surface-elevated);
     border-color: var(--color-secondary);
+  }
+
+  .results__loading {
+    min-height: 200px;
   }
 
   .results__empty {

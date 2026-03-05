@@ -31,10 +31,7 @@ export const useQuizStore = defineStore("quiz", () => {
 
   const parties = getParties();
 
-  const tGlobal = i18n.global.t as unknown as (key: string) => string;
-  function translate(key: string): string {
-    return tGlobal(key);
-  }
+  const t = i18n.global.t as unknown as (key: string) => string;
 
   const translatedQuestionsCache = new Map<string, Question[]>();
 
@@ -61,7 +58,7 @@ export const useQuizStore = defineStore("quiz", () => {
 
     const translated = filtered.map((q: QuestionMetadata) => ({
       ...q,
-      text: translate(q.textKey),
+      text: t(q.textKey),
       textKey: q.textKey,
       options: STANDARD_OPTIONS,
     }));
@@ -230,7 +227,7 @@ export const useQuizStore = defineStore("quiz", () => {
     () => {
       const upcoming = upcomingQuestion.value;
       if (upcoming?.textKey) {
-        translate(upcoming.textKey);
+        t(upcoming.textKey);
       }
     },
     { immediate: true }

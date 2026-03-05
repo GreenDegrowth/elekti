@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ChevronDown } from "lucide-vue-next";
+  import { ChevronDown, ExternalLink } from "lucide-vue-next";
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
   import type { Party } from "../types";
@@ -34,6 +34,21 @@
       .toSorted((a, b) => b.score - a.score);
   });
 
+  function isLightColour(hex: string): boolean {
+    const r = parseInt(hex.slice(1, 3), 16) / 255;
+    const g = parseInt(hex.slice(3, 5), 16) / 255;
+    const b = parseInt(hex.slice(5, 7), 16) / 255;
+    const toLinear = (c: number) =>
+      c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+    const L =
+      0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+    return L > 0.179;
+  }
+
+  const badgeTextColor = computed(() =>
+    isLightColour(props.party.colour) ? "#1a1a1a" : "white"
+  );
+
   const getAxisColor = (percentage: number): string => {
     if (percentage >= AXIS_COLOR_THRESHOLDS.STRONG.percentage) {
       return AXIS_COLOR_THRESHOLDS.STRONG.color;
@@ -59,7 +74,7 @@
       <h3 class="party-card__name">
         {{ party.nameKey ? $t(party.nameKey) : party.name }}
       </h3>
-      <span class="party-card__short">
+      <span class="party-card__short" :style="{ color: badgeTextColor }">
         {{ party.short }}
       </span>
     </div>
@@ -89,21 +104,7 @@
       class="party-card__website"
     >
       {{ $t("party.visitWebsite") }}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1-2-2h6" />
-        <polyline points="15 3 21 3 21 9" />
-        <line x1="10" y1="14" x2="21" y2="3" />
-      </svg>
+      <ExternalLink :size="16" />
     </a>
 
     <button
@@ -205,7 +206,6 @@
     display: inline-block;
     padding: var(--space-xs) var(--space-sm);
     background-color: var(--party-colour);
-    color: white;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     border-radius: var(--radius-sm);
