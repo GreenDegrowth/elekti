@@ -97,3 +97,7 @@ Each guide covers one topic in detail so you can find what you need quickly.
 ---
 
 Have ideas, new questions, or found an alignment issue? Open an issue or start a discussion.
+
+## License
+
+[GNU General Public License v3.0 only](https://opensource.org/license/gpl-3-0-only) — © 2025 Timothy Brits

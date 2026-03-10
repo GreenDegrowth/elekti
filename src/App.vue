@@ -30,10 +30,10 @@
         <p class="app-footer__copyright">
           Released under the
           <a
-            href="https://opensource.org/licenses/MIT"
+            href="https://opensource.org/license/gpl-3-0-only"
             target="_blank"
             rel="noopener noreferrer"
-            >MIT License</a
+            >GNU GPL v3</a
           >
         </p>
       </div>
