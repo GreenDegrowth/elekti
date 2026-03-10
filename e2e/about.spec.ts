@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("about page loads with all sections", async ({ page }) => {
   await page.goto("/about");
+  await page.waitForLoadState("networkidle");
 
   await expect(
     page.getByRole("heading", { name: "About Elekti", level: 1 })
@@ -39,14 +40,14 @@ test("about page language switch updates content", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Oor Elekti" })).toBeVisible();
 });
 
-test("external MIT license link works", async ({ page }) => {
+test("external GPL license link works", async ({ page }) => {
   await page.goto("/about");
 
-  const licenseLink = page.getByRole("link", { name: "MIT License" });
+  const licenseLink = page.getByRole("link", { name: "GNU GPL v3" });
   await expect(licenseLink).toHaveAttribute("target", "_blank");
   await expect(licenseLink).toHaveAttribute(
     "href",
-    "https://opensource.org/licenses/MIT"
+    "https://opensource.org/license/gpl-3-0-only"
   );
 });
 

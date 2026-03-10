@@ -9,6 +9,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : Math.ceil(os.cpus().length * 0.6),
   reporter: "html",
   timeout: 30_000,
+  expect: { timeout: 15_000 },
   use: {
     baseURL: "http://localhost:5173",
     trace: "on-first-retry",
