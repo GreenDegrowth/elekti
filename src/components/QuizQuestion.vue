@@ -83,7 +83,7 @@
     display: flex;
     align-items: center;
     animation: fadeIn 0.5s ease-out;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--letter-spacing-snug);
     text-transform: none;
   }
 

@@ -149,7 +149,7 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
     margin-bottom: var(--space-3xl);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--letter-spacing-tight);
   }
 
   .about__section {
@@ -169,7 +169,7 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
     margin-bottom: var(--space-lg);
-    letter-spacing: 0.015em;
+    letter-spacing: var(--letter-spacing-md);
     text-transform: uppercase;
   }
 
@@ -191,7 +191,7 @@
     color: var(--color-text-primary);
     margin-bottom: var(--space-md);
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--letter-spacing-lg);
   }
 
   .about__data-links {
@@ -296,7 +296,7 @@
     text-decoration: none;
     transition: all var(--transition-fast);
     border: 2px solid var(--color-primary-dark);
-    letter-spacing: 0.03em;
+    letter-spacing: var(--letter-spacing-2xl);
     text-transform: uppercase;
   }
 

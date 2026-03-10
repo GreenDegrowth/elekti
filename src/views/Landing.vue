@@ -252,7 +252,7 @@
     color: var(--color-text-primary);
     margin-bottom: var(--space-md);
     line-height: var(--line-height-tight);
-    letter-spacing: -0.025em;
+    letter-spacing: var(--letter-spacing-tighter);
   }
 
   .landing__subtitle {
@@ -371,7 +371,7 @@
     transition: all var(--transition-base);
     box-shadow: var(--shadow-md);
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--letter-spacing-lg);
   }
 
   .landing__cta:hover {
@@ -395,7 +395,7 @@
     margin-top: var(--space-md);
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
-    letter-spacing: 0.01em;
+    letter-spacing: var(--letter-spacing-sm);
   }
 
   .landing__disclaimer {
@@ -413,7 +413,7 @@
     color: var(--color-secondary);
     margin-bottom: var(--space-lg);
     text-align: left;
-    letter-spacing: 0.015em;
+    letter-spacing: var(--letter-spacing-md);
   }
 
   .landing__disclaimer-text {
@@ -472,7 +472,7 @@
       color var(--transition-fast),
       border-color var(--transition-fast);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--letter-spacing-3xl);
   }
 
   .landing__link:hover {

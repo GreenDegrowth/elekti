@@ -83,13 +83,13 @@
     border-radius: 0;
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-bold);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--letter-spacing-3xl);
     box-shadow: var(--shadow-md);
     transition: all var(--transition-fast);
     height: 40px;
     text-transform: uppercase;
     cursor: help;
-    z-index: 50;
+    z-index: var(--z-index-dropdown);
   }
 
   .confidence-indicator:hover {
@@ -143,7 +143,7 @@
     border-radius: var(--radius-sm);
     padding: var(--space-md);
     box-shadow: var(--shadow-xl);
-    z-index: 1000;
+    z-index: var(--z-index-modal);
     min-width: 300px;
     max-width: 400px;
   }

@@ -68,6 +68,6 @@
     color: var(--color-text-primary);
     font-weight: var(--font-weight-semibold);
     text-align: center;
-    letter-spacing: 0.03em;
+    letter-spacing: var(--letter-spacing-2xl);
   }
 </style>

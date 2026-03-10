@@ -229,7 +229,7 @@
     display: flex;
     flex-direction: column;
     animation: fadeIn 0.4s ease-out;
-    transition: opacity 0.25s ease-out;
+    transition: opacity var(--transition-base);
   }
 
   .quiz__content--transitioning {
@@ -267,7 +267,7 @@
     transition: all var(--transition-base);
     box-shadow: var(--shadow-sm);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--letter-spacing-3xl);
     font-weight: var(--font-weight-semibold);
   }
 

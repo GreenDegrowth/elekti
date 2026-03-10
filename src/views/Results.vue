@@ -332,7 +332,7 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
     margin-bottom: var(--space-2xl);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--letter-spacing-tight);
   }
 
   .results__section {
@@ -367,7 +367,7 @@
     font-weight: var(--font-weight-bold);
     border-radius: 0;
     box-shadow: var(--shadow-md);
-    letter-spacing: 0.025em;
+    letter-spacing: var(--letter-spacing-xl);
     text-transform: uppercase;
     height: 40px;
     border: 2px solid var(--color-primary-dark);
@@ -387,7 +387,7 @@
     font-weight: var(--font-weight-semibold);
     display: inline-flex;
     align-items: center;
-    letter-spacing: 0.02em;
+    letter-spacing: var(--letter-spacing-lg);
     box-shadow: var(--shadow-sm);
     height: 40px;
     background: var(--color-surface);
@@ -403,7 +403,7 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
     margin-bottom: var(--space-xl);
-    letter-spacing: 0.015em;
+    letter-spacing: var(--letter-spacing-md);
   }
 
   .results__alternatives {
@@ -432,7 +432,7 @@
     transition: all var(--transition-fast);
     border: none;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: var(--letter-spacing-2xl);
   }
 
   .results__button--primary {

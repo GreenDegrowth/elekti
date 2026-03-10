@@ -16,6 +16,9 @@ coverage
 .vite
 /dev-dist/
 
+# Claude Code
+.claude/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -98,7 +98,7 @@
     font-size: var(--font-size-sm);
     cursor: pointer;
     transition: all var(--transition-fast);
-    letter-spacing: 0.03em;
+    letter-spacing: var(--letter-spacing-2xl);
     text-transform: uppercase;
   }
 
@@ -116,7 +116,7 @@
 
   .language-selector__button:focus-visible,
   .language-selector__option:focus-visible {
-    outline: 2px solid var(--color-secondary);
+    outline: var(--outline-width-sm) solid var(--color-secondary);
     outline-offset: 2px;
   }
 
@@ -129,7 +129,7 @@
     border: 2px solid var(--color-border);
     border-radius: 0;
     box-shadow: var(--shadow-lg);
-    z-index: 100;
+    z-index: var(--z-index-sticky);
     overflow: hidden;
   }
 
@@ -160,7 +160,7 @@
     transition:
       background-color var(--transition-fast),
       color var(--transition-fast);
-    letter-spacing: 0.02em;
+    letter-spacing: var(--letter-spacing-lg);
   }
 
   .language-selector__option:hover {

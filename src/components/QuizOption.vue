@@ -88,7 +88,7 @@
   }
 
   .quiz-option:focus-visible {
-    outline: 3px solid var(--color-secondary);
+    outline: var(--outline-width-md) solid var(--color-secondary);
     outline-offset: 2px;
     box-shadow: var(--shadow-lg);
   }
@@ -141,7 +141,7 @@
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
     flex: 1;
-    letter-spacing: 0.01em;
+    letter-spacing: var(--letter-spacing-sm);
   }
 
   @media (max-width: 640px) {

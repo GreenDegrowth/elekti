@@ -275,7 +275,7 @@
 
   .party-card__score-bar {
     flex: 1;
-    height: 12px;
+    height: var(--bar-height-md);
     background-color: var(--color-border-light);
     border-radius: 0;
     overflow: hidden;
@@ -382,7 +382,7 @@
   }
 
   .party-card__axis-bar {
-    height: 8px;
+    height: var(--bar-height-sm);
     background-color: var(--color-border-light);
     border-radius: var(--radius-full);
     overflow: hidden;

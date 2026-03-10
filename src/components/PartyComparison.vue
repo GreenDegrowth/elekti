@@ -99,11 +99,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--color-backdrop);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: var(--z-index-modal);
     padding: var(--space-lg);
     overflow-y: auto;
   }
@@ -173,7 +173,7 @@
     position: sticky;
     top: 0;
     background: var(--color-surface);
-    z-index: 10;
+    z-index: var(--z-index-above);
     padding-top: var(--space-lg);
     padding-bottom: var(--space-md);
     border-bottom: 2px solid var(--color-border);
@@ -227,7 +227,7 @@
 
   .comparison-table__bar-container {
     width: 100%;
-    height: 8px;
+    height: var(--bar-height-sm);
     background: var(--color-surface-elevated);
     border-radius: var(--radius-sm);
     overflow: hidden;

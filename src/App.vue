@@ -58,7 +58,7 @@
     );
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: var(--z-index-sticky);
   }
 
   .app-header__container {
@@ -84,7 +84,7 @@
     color: var(--color-primary);
     margin: 0;
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--letter-spacing-tight);
   }
 
   .app-header__tagline {
@@ -119,7 +119,7 @@
     display: flex;
     gap: var(--space-lg);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--letter-spacing-3xl);
   }
 
   .app-footer__nav a {

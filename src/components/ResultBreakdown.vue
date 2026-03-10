@@ -44,7 +44,7 @@
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-4xl);
     margin-bottom: var(--space-md);
   }
 

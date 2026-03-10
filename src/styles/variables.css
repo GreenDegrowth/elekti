@@ -29,6 +29,7 @@
   --color-error: #8f2d1f;
   --color-info: #1f7a51;
 
+  --space-2xs: 0.125rem;
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -63,6 +64,17 @@
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
 
+  --letter-spacing-tighter: -0.025em;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-snug: -0.01em;
+  --letter-spacing-sm: 0.01em;
+  --letter-spacing-md: 0.015em;
+  --letter-spacing-lg: 0.02em;
+  --letter-spacing-xl: 0.025em;
+  --letter-spacing-2xl: 0.03em;
+  --letter-spacing-3xl: 0.04em;
+  --letter-spacing-4xl: 0.05em;
+
   --radius-sm: 0.125rem;
   --radius-md: 0.35rem;
   --radius-lg: 0.55rem;
@@ -85,6 +97,19 @@
 
   --header-height: 64px;
   --footer-height: 80px;
+
+  --z-index-above: 10;
+  --z-index-dropdown: 50;
+  --z-index-sticky: 100;
+  --z-index-modal: 1000;
+
+  --outline-width-sm: 2px;
+  --outline-width-md: 3px;
+
+  --bar-height-sm: 8px;
+  --bar-height-md: 12px;
+
+  --color-backdrop: rgba(0, 0, 0, 0.7);
 }
 
 @media (prefers-color-scheme: dark) {

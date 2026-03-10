@@ -243,7 +243,7 @@
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-4xl);
     margin: 0;
   }
 
@@ -373,7 +373,7 @@
     position: absolute;
     bottom: var(--space-md);
     right: var(--space-md);
-    z-index: 50;
+    z-index: var(--z-index-dropdown);
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -395,7 +395,7 @@
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-4xl);
   }
 
   .result-breakdown__table-row {
@@ -457,7 +457,7 @@
     border-radius: var(--radius-sm);
     white-space: nowrap;
     position: relative;
-    z-index: 10;
+    z-index: var(--z-index-above);
   }
 
   .result-breakdown__score-bar-wrapper {
@@ -469,7 +469,7 @@
 
   .result-breakdown__score-bar {
     flex: 1;
-    height: 12px;
+    height: var(--bar-height-md);
     background: var(--color-surface-elevated);
     border-radius: var(--radius-sm);
     overflow: hidden;
