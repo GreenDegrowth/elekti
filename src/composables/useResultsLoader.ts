@@ -27,7 +27,7 @@ export function useResultsLoader() {
           const ids = qParam ? qParam.split(",").filter(Boolean) : undefined;
           const m: SurveyMode = isSurveyMode(modeParam)
             ? (modeParam as SurveyMode)
-            : "full";
+            : "metro";
           quizStore.loadSurvey(m, ids);
         }
         const idsForDecode = qParam

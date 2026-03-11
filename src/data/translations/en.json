@@ -10,33 +10,31 @@
     "about": "About"
   },
   "landing": {
-    "title": "Match your vote to South Africa",
-    "subtitle": "Answer 12, 24, or 55 quick questions grounded in local policy debates. See which parties line up with your priorities for your community, province, and the country.",
+    "title": "Match your vote to your metro",
+    "subtitle": "30 questions on service delivery, housing, transport, safety, and coalition governance. See which parties align with your priorities for the 2026 Local Government Elections.",
     "startButton": "Start the quiz",
     "aboutLink": "How we work",
     "privacy": "Your answers stay on this device. No tracking, no accounts.",
     "modes": {
-      "quick": { "title": "Quick (12)", "desc": "~1–2 min, 1 per issue" },
-      "balanced": {
-        "title": "Balanced (24)",
-        "desc": "~3–4 min, high coverage"
-      },
-      "full": { "title": "Full (55)", "desc": "~8–10 min, full fidelity" }
+      "metro": {
+        "title": "Local Elections 2026",
+        "desc": "~10–15 min · metro focus"
+      }
     },
     "howItHelps": {
       "title": "Why this matters now",
-      "intro": "Coalitions, load-shedding, jobs, safety, housing. Compare parties on the issues that shape daily life in South Africa.",
+      "intro": "Service delivery, audit outcomes, housing, coalitions, transport, safety. Compare parties on the issues that shape daily life in South Africa's metros.",
       "benefit1": {
         "title": "Look past slogans",
-        "text": "See actual positions on service delivery, energy, crime, jobs, and land — not just campaign posters."
+        "text": "See actual positions on service delivery, housing, audit culture, coalition deals, and transport — not just campaign posters."
       },
       "benefit2": {
         "title": "Spot real options",
-        "text": "Find parties you may not follow, based on policy fit instead of social media reach."
+        "text": "Find parties you may not follow, based on local policy fit instead of social media reach."
       },
       "benefit3": {
         "title": "Read the field",
-        "text": "Get a ranked view of every party so you can see where they bunch together and where they split."
+        "text": "Get a ranked view of every party so you can see where they bunch together and where they split on local issues."
       },
       "benefit4": {
         "title": "Walk into the booth ready",
@@ -105,15 +103,15 @@
   "about": {
     "title": "About Elekti",
     "methodology": "How this tool is built",
-    "methodologyText": "Elekti is rooted in South African policy documents and public statements. We score across 12 issue areas that affect daily life and governance. The maths is deterministic and transparent.",
+    "methodologyText": "Elekti is rooted in South African policy documents, municipal governance records, and public statements. We score across 10 issue areas specific to local government and metropolitan councils. The maths is deterministic and transparent.",
     "howItWorks": "What you answer",
-    "howItWorksText": "A set of 12, 24, or 55 questions covers power, water, housing, jobs, safety, transport, coalitions, social policy, accountability, gender-based violence, informal settlements, and decolonisation of education. Each question links to an issue axis. You answer, we map your stance, and we compare it to each party's stated position.",
+    "howItWorksText": "30 questions cover service delivery, financial accountability, housing and informal settlements, rates and tariffs, coalition governance, public transport, urban densification, metro policing, community participation, and local economic development. Each question links to an issue axis. You answer, we map your stance, and we compare it to each party's stated position.",
     "scoring": "How we score",
     "scoringText": "For every axis we calculate similarity between your answers and each party, weight by question importance, normalise by the questions you answered, then average across all axes. Scores are percentages; confidence reflects how clear the gap is between your top match and the rest.",
     "transparency": "Open data, no surprises",
     "transparencyText": "All positions, weights, and calculations live in the repo. If something is wrong, send sources and we'll update. This tool is independent and does not promote any party.",
     "dataSources": "Where the positions come from",
-    "dataSourcesText": "We rely on manifestos, policy documents, voting records, budget speeches, and verified public statements. When positions change, we update.",
+    "dataSourcesText": "We rely on manifestos, policy documents, council voting records, Auditor-General reports, and verified public statements. When positions change, we update.",
     "privacy": "Privacy",
     "privacyText": "Your answers never leave your device. No accounts, no identifiers.",
     "noTracking": "No tracking",
@@ -125,9 +123,9 @@
     "analytics": "Lightweight stats",
     "analyticsText": "We use privacy-first, cookie-free analytics only to see if people are visiting. They do not record your answers.",
     "parties": "Parties included",
-    "partiesText": "We list major parties contesting nationally and in key provinces this cycle. If we missed one, point us to their published policies.",
+    "partiesText": "We list major parties contesting in South Africa's metropolitan municipalities. If we missed one, point us to their published policies.",
     "disclaimer": "A guide, not a verdict",
-    "disclaimerText": "Use this as a starting point. Read manifestos, attend community meetings, and test our data. Politics shifts; so should your judgement.",
+    "disclaimerText": "Use this as a starting point. Read manifestos, attend ward committee meetings, and test our data. Politics shifts; so should your judgement.",
     "viewData": "Check the raw files",
     "viewDataText": "All JSON files for questions, weights, and party positions are public. Inspect them yourself.",
     "dataFolder": "All source data on GitHub"
@@ -201,41 +199,35 @@
     }
   },
   "axes": {
-    "economic_left_right": {
-      "short": "Taxation & Social Spending"
+    "service_delivery": {
+      "short": "Service Delivery Model"
     },
-    "state_vs_market": {
-      "short": "Public vs Private Services"
+    "accountability": {
+      "short": "Financial Accountability"
     },
-    "land_and_ownership": {
-      "short": "Land & Property Rights"
+    "settlement_housing": {
+      "short": "Housing & Settlements"
     },
-    "labour_rights": {
-      "short": "Workers' Rights"
+    "tariffs_affordability": {
+      "short": "Tariffs & Affordability"
     },
-    "law_order_vs_liberty": {
-      "short": "Policing & Civil Rights"
+    "coalition_governance": {
+      "short": "Coalition Governance"
     },
-    "democratic_institutions": {
-      "short": "Governance & Anti-Corruption"
+    "public_transport": {
+      "short": "Public Transport"
     },
-    "environment_energy": {
-      "short": "Climate & Energy"
+    "land_densification": {
+      "short": "Urban Densification"
     },
-    "social_progressivism": {
-      "short": "LGBTQ+ & Gender Rights"
+    "metro_safety": {
+      "short": "Metro Safety"
     },
-    "global_vs_local": {
-      "short": "Trade & Immigration"
+    "community_participation": {
+      "short": "Community Participation"
     },
-    "transformation_vs_continuity": {
-      "short": "Pace of Change"
-    },
-    "urban_development": {
-      "short": "Urban Planning & Transport"
-    },
-    "equity_and_inclusion": {
-      "short": "Affirmative Action & BEE"
+    "local_economy": {
+      "short": "Local Economy"
     }
   },
   "options": {
@@ -247,224 +239,124 @@
   },
   "questions": {
     "q1": {
-      "text": "The government should raise taxes on the wealthy to fund better health clinics, schools, and social grants for poor households.",
-      "axis": "economic_left_right"
+      "text": "Municipal water and electricity services should be run directly by council staff rather than outsourced to private companies.",
+      "axis": "service_delivery"
     },
     "q2": {
-      "text": "Government should pay down debt rather than spend on new programmes, even if it means cutting services.",
-      "axis": "economic_left_right"
+      "text": "Refuse collection, parks maintenance, and road patching should be handled by permanent council employees, not private contractors.",
+      "axis": "service_delivery"
     },
     "q3": {
-      "text": "Government should give every adult a monthly cash grant, even if it costs more in taxes.",
-      "axis": "economic_left_right"
+      "text": "Metros should partner with private investors through long-term concessions to upgrade and operate ageing water and sanitation infrastructure.",
+      "axis": "service_delivery"
     },
     "q4": {
-      "text": "Keep some coal and gas plants running for grid reliability, even if it delays emissions cuts.",
-      "axis": "environment_energy"
+      "text": "Parties that receive disclaimed or adverse audit opinions for three or more consecutive years should be disqualified from leading metro coalitions.",
+      "axis": "accountability"
     },
     "q5": {
-      "text": "Healthcare should be free at clinics and hospitals for everyone.",
-      "axis": "economic_left_right"
+      "text": "Municipal managers and CFOs should face personal criminal liability and automatic dismissal for financial misconduct, without severance pay.",
+      "axis": "accountability"
     },
     "q6": {
-      "text": "Higher education should be free for all students, even if it requires higher taxes.",
-      "axis": "economic_left_right"
+      "text": "Each metro should have a dedicated anti-corruption unit, fully independent of national agencies, with power to investigate and prosecute.",
+      "axis": "accountability"
     },
     "q7": {
-      "text": "Schools should teach comprehensive sexuality education, including LGBTQ+ inclusion, even if some parents object.",
-      "axis": "social_progressivism"
+      "text": "Informal settlements should be formalised in their current locations — with services and secure tenure — rather than relocated to new greenfield developments.",
+      "axis": "settlement_housing"
     },
     "q8": {
-      "text": "Government should actively support growing black-owned and worker-owned businesses through loans, tax breaks, and contracts.",
-      "axis": "equity_and_inclusion"
+      "text": "Metros should prioritise building subsidised social rental housing near employment centres and public transport corridors.",
+      "axis": "settlement_housing"
     },
     "q9": {
-      "text": "Municipalities should outsource maintenance to capable private firms under performance-based contracts to improve water and power uptime.",
-      "axis": "state_vs_market"
+      "text": "Municipalities should enforce bylaws against land invasions quickly, even if this means evicting residents.",
+      "axis": "settlement_housing"
     },
     "q10": {
-      "text": "Key public utilities (power, water, rail) should remain publicly owned and not be privatised.",
-      "axis": "state_vs_market"
+      "text": "Municipal tariff and rates increases should be capped at the consumer price index (CPI) each year.",
+      "axis": "tariffs_affordability"
     },
     "q11": {
-      "text": "Allow private power generation with open grid access and wheeling, overseen by NERSA to keep tariffs fair—even if Eskom’s role shrinks.",
-      "axis": "state_vs_market"
+      "text": "Illegal electricity and water connections in poor neighbourhoods should be regularised and subsidised by metros rather than disconnected.",
+      "axis": "tariffs_affordability"
     },
     "q12": {
-      "text": "Water and sanitation should stay under government control, not be run by private companies.",
-      "axis": "state_vs_market"
+      "text": "Property rates rebates for low-income owner-occupiers should be significantly expanded beyond current indigent thresholds.",
+      "axis": "tariffs_affordability"
     },
     "q13": {
-      "text": "Government should seize land without paying full compensation to speed up land reform.",
-      "axis": "land_and_ownership"
+      "text": "Coalition agreements at metro level should be fully public, legally binding, and include a mechanism for enforcing compliance.",
+      "axis": "coalition_governance"
     },
     "q14": {
-      "text": "Small farmers and communal land rights should get more government support than big commercial farms.",
-      "axis": "land_and_ownership"
+      "text": "A party that switches coalition support mid-term without a new mandate should face a by-election in its wards.",
+      "axis": "coalition_governance"
     },
     "q15": {
-      "text": "Government should fund and protect community gardens, cooperative farms, and group farming schemes.",
-      "axis": "land_and_ownership"
+      "text": "Motions of no confidence in a mayor should require a two-thirds majority rather than a simple majority.",
+      "axis": "coalition_governance"
     },
     "q16": {
-      "text": "Communities' traditional land claims should be legally recognised and protected, even if it overrides current titles.",
-      "axis": "land_and_ownership"
+      "text": "Metros should significantly expand Bus Rapid Transit (BRT) networks even where this disrupts existing minibus taxi routes.",
+      "axis": "public_transport"
     },
     "q17": {
-      "text": "Strengthen workplace protections against gender-based violence and harassment and enforce them, even if compliance costs rise.",
-      "axis": "labour_rights"
+      "text": "Minibus taxi associations should be formally integrated into metro public transport networks with regulated fares and routes.",
+      "axis": "public_transport"
     },
     "q18": {
-      "text": "Minimum wages should be increased significantly to reduce in-work poverty, even if some small businesses struggle.",
-      "axis": "labour_rights"
+      "text": "Metros should invest heavily in safe cycling and pedestrian infrastructure as a primary commuter mode.",
+      "axis": "public_transport"
     },
     "q19": {
-      "text": "Making it easier for bosses to hire and fire workers will attract investment and create jobs.",
-      "axis": "labour_rights"
+      "text": "Residential suburbs should be rezoned to allow higher-density development near BRT and rail corridors.",
+      "axis": "land_densification"
     },
     "q20": {
-      "text": "Workplace rights such as paid leave, sick leave, and severance pay should be strengthened and actively enforced across all sectors.",
-      "axis": "labour_rights"
+      "text": "Greenfield housing developments on the metropolitan periphery should be actively deprioritised in favour of inner-city regeneration.",
+      "axis": "land_densification"
     },
     "q21": {
-      "text": "Police need more funding and powers to tackle violent crime like house robberies, gender-based violence, and taxi violence—even if it means more police stops.",
-      "axis": "law_order_vs_liberty"
+      "text": "Heritage and neighbourhood-character protections should not be allowed to block densification in well-located suburbs.",
+      "axis": "land_densification"
     },
     "q22": {
-      "text": "People should be free to protest and speak out, even if it disrupts traffic, business, or services.",
-      "axis": "law_order_vs_liberty"
+      "text": "Metropolitan police forces should be significantly expanded and given full urban law enforcement powers, reducing reliance on SAPS in cities.",
+      "axis": "metro_safety"
     },
     "q23": {
-      "text": "Government and companies should not be allowed to spy on what people do online.",
-      "axis": "law_order_vs_liberty"
+      "text": "Community policing forums should have formal power to set metro policing priorities in their area.",
+      "axis": "metro_safety"
     },
     "q24": {
-      "text": "Government should use law to stop disruptive protests and strikes, even if it limits people's right to resist.",
-      "axis": "law_order_vs_liberty"
+      "text": "CCTV surveillance networks in public spaces should be massively expanded, even if this raises privacy concerns.",
+      "axis": "metro_safety"
     },
     "q25": {
-      "text": "Local councils need professional managers and independent auditors to stop corruption and waste, even if it weakens political control.",
-      "axis": "democratic_institutions"
+      "text": "Ward committees should have binding decision-making power over a portion of their ward's capital infrastructure budget.",
+      "axis": "community_participation"
     },
     "q26": {
-      "text": "Courts and prosecutors must be independent and protected from political pressure, even if it slows justice.",
-      "axis": "democratic_institutions"
+      "text": "Residents should be able to recall a ward councillor through a formal petition signed by 30% of registered voters.",
+      "axis": "community_participation"
     },
     "q27": {
-      "text": "Corruption cases should be prosecuted fast and aggressively, even if it creates temporary chaos in government.",
-      "axis": "democratic_institutions"
+      "text": "Developers should be required to hold binding community referendums before large residential or commercial projects are approved in a ward.",
+      "axis": "community_participation"
     },
     "q28": {
-      "text": "Parties must work together in coalitions and compromise, even if it means not keeping every promise.",
-      "axis": "democratic_institutions"
+      "text": "Metros should actively operate business incubators and subsidised training centres to create local employment.",
+      "axis": "local_economy"
     },
     "q29": {
-      "text": "National government should take over failing councils and fix them, even if it weakens local democracy.",
-      "axis": "democratic_institutions"
+      "text": "Councils should give binding preference to locally owned small businesses in all municipal procurement above a minimum threshold.",
+      "axis": "local_economy"
     },
     "q30": {
-      "text": "Cut corporate and personal tax rates to attract investment, even if it reduces short-term social spending.",
-      "axis": "economic_left_right"
-    },
-    "q31": {
-      "text": "South Africa should set legal targets to cut pollution and close coal power stations.",
-      "axis": "environment_energy"
-    },
-    "q32": {
-      "text": "Government should invest more in solar, wind, and clean energy instead of coal.",
-      "axis": "environment_energy"
-    },
-    "q33": {
-      "text": "Environmental laws should stop new mines and coal projects when they damage nature.",
-      "axis": "environment_energy"
-    },
-    "q34": {
-      "text": "Government must protect LGBTQ+ people from discrimination at work and in shops.",
-      "axis": "social_progressivism"
-    },
-    "q35": {
-      "text": "Government should force companies to give parents paid leave and protect mothers and women from discrimination at work.",
-      "axis": "labour_rights"
-    },
-    "q36": {
-      "text": "Prioritise SADC and AU regional value chains and logistics corridors to grow trade on the continent.",
-      "axis": "global_vs_local"
-    },
-    "q37": {
-      "text": "Sign trade deals that align product standards and digitise customs, even if some industries must upgrade at cost.",
-      "axis": "global_vs_local"
-    },
-    "q38": {
-      "text": "Government should use tariffs and local content rules to protect South African factories and jobs.",
-      "axis": "global_vs_local"
-    },
-    "q39": {
-      "text": "South Africa should adopt stricter immigration and border enforcement policies, even if this strains relations with neighbouring countries.",
-      "axis": "global_vs_local"
-    },
-    "q40": {
-      "text": "Government should crack down on employers hiring undocumented migrants, even if it hurts businesses that depend on them.",
-      "axis": "global_vs_local"
-    },
-    "q41": {
-      "text": "Introduce merit-based appointments and fixed-term performance contracts across SOEs to drive rapid change, even if it disrupts existing arrangements.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q42": {
-      "text": "South Africa needs rapid, radical changes to the economy and job market, not slow reforms.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q43": {
-      "text": "Fix apartheid's legacy through slow, steady changes to institutions, not radical overhauls.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q44": {
-      "text": "Transport funding should prioritise improving minibus taxi routes, bus systems, and local trains over building new highways.",
-      "axis": "urban_development"
-    },
-    "q45": {
-      "text": "Government should prioritise building affordable public housing in townships and informal settlements over private development projects.",
-      "axis": "urban_development"
-    },
-    "q46": {
-      "text": "Cities should limit sprawling, car-dependent suburbs and instead support walkable, mixed-use townships with shops, schools, and clinics nearby—even if developers lose profits.",
-      "axis": "urban_development"
-    },
-    "q47": {
-      "text": "Government departments must meet strict accessibility standards for people with disabilities, even if this impacts other services.",
-      "axis": "equity_and_inclusion"
-    },
-    "q48": {
-      "text": "Government should pump money into township and rural businesses to create jobs and economic growth.",
-      "axis": "equity_and_inclusion"
-    },
-    "q49": {
-      "text": "Employment Equity and BEE rules must stay as tools to fix racial inequality, even if companies complain about the costs.",
-      "axis": "equity_and_inclusion"
-    },
-    "q50": {
-      "text": "Government should invest in job training for historically disadvantaged people to get them into work.",
-      "axis": "equity_and_inclusion"
-    },
-    "q51": {
-      "text": "Government should fast-track land redistribution to smallholder and black farmers, even if it means less time for careful planning and training support.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q52": {
-      "text": "Government should dedicate significant budget and police capacity to prevent and prosecute gender-based violence and femicide, even if it diverts resources from other crime priorities.",
-      "axis": "social_progressivism"
-    },
-    "q53": {
-      "text": "Government should provide water, electricity, and sanitation to informal settlements and upgrade them in place, rather than demolishing them for formal redevelopment.",
-      "axis": "urban_development"
-    },
-    "q54": {
-      "text": "School curriculum should teach African history, indigenous languages, and local knowledge systems with equal weight to European curricula.",
-      "axis": "social_progressivism"
-    },
-    "q55": {
-      "text": "State-owned enterprises should be radically restructured and given independent professional management, even if it disrupts current operations and employment.",
-      "axis": "transformation_vs_continuity"
+      "text": "Metro economic development should be led by private sector investment, with councils providing a favourable regulatory environment rather than direct intervention.",
+      "axis": "local_economy"
     }
   },
   "languages": {
@@ -484,8 +376,8 @@
   },
   "disclaimer": {
     "title": "Use this as a guide",
-    "educational": "Elekti helps you compare parties. It does not replace your own research, and positions can shift as coalitions and policy debates move.",
+    "educational": "Elekti helps you compare parties on local government issues. It does not replace your own research, and positions can shift as coalitions and policy debates move.",
     "alpha": "This site is under active development. We update data as parties publish and adjust their stances.",
-    "research": "Read manifestos, budget speeches, council plans, and community briefings. If you spot issues in our data, send sources and we will correct them."
+    "research": "Read manifestos, attend ward committee meetings, and review Auditor-General reports. If you spot issues in our data, send sources and we will correct them."
   }
 }

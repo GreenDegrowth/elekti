@@ -10,36 +10,31 @@
     "about": "Oor"
   },
   "landing": {
-    "title": "Pas jou stem by Suid-Afrika",
-    "subtitle": "Beantwoord 12, 24 of 55 kort vrae oor plaaslike beleid. Sien watter partye by jou prioriteite vir jou gemeenskap, provinsie en die land pas.",
+    "title": "Pas jou stem by jou metro",
+    "subtitle": "30 vrae oor dienslewering, behuising, vervoer, veiligheid en koalisiebestuur. Sien watter partye by jou prioriteite vir die 2026 Plaaslike Regeringsverkiesings pas.",
     "startButton": "Begin die toets",
     "aboutLink": "Hoe ons werk",
     "privacy": "Jou antwoorde bly op hierdie toestel. Geen nasporing of rekeninge nie.",
     "modes": {
-      "quick": { "title": "Vinnig (12)", "desc": "~1–2 min, 1 per kwessie" },
-      "balanced": {
-        "title": "Gebalanseerd (24)",
-        "desc": "~3–4 min, goeie dekking"
-      },
-      "full": {
-        "title": "Volledig (55)",
-        "desc": "~8–10 min, volle getrouheid"
+      "metro": {
+        "title": "Plaaslike Verkiesings 2026",
+        "desc": "~10–15 min · metro-fokus"
       }
     },
     "howItHelps": {
       "title": "Hoekom dit nou tel",
-      "intro": "Koalisies, beurtkrag, werk, veiligheid, behuising. Vergelyk partye oor die kwessies wat elke dag saak maak.",
+      "intro": "Dienslewering, oudituitkomste, behuising, koalisies, vervoer, veiligheid. Vergelyk partye oor die kwessies wat elke dag saak maak in Suid-Afrika se metros.",
       "benefit1": {
         "title": "Kyk verby slagspreuke",
-        "text": "Sien werklike standpunte oor dienslewering, energie, misdaad, werk en grond - nie net plakkate nie."
+        "text": "Sien werklike standpunte oor dienslewering, behuising, ouditkultuur, koalisie-ooreenkomste en vervoer — nie net plakkate nie."
       },
       "benefit2": {
         "title": "Raak bewus van opsies",
-        "text": "Vind partye wat jy dalk ignoreer het, gebaseer op beleidspassing eerder as volgelinge."
+        "text": "Vind partye wat jy dalk ignoreer het, gebaseer op plaaslike beleidspassing eerder as volgelinge."
       },
       "benefit3": {
         "title": "Lees die veld",
-        "text": "Kry 'n gerangskikte uitsig van elke party om te sien waar hulle saamstaan en waar hulle uiteenloop."
+        "text": "Kry 'n gerangskikte uitsig van elke party om te sien waar hulle saamstaan en waar hulle uiteenloop oor plaaslike kwessies."
       },
       "benefit4": {
         "title": "Staan gereed in die stemhok",
@@ -108,15 +103,15 @@
   "about": {
     "title": "Oor Elekti",
     "methodology": "Hoe hierdie hulpmiddel gebou is",
-    "methodologyText": "Elekti rus op Suid-Afrikaanse beleidsdokumente en openbare verklarings. Ons meet oor 12 kwessie-areas wat daaglikse lewe en regering raak. Die wiskunde is deursigtig en vas.",
+    "methodologyText": "Elekti rus op Suid-Afrikaanse beleidsdokumente, munisipale bestuursrekords en openbare verklarings. Ons meet oor 10 kwessie-areas spesifiek vir plaaslike regering en metropolitaanse rade. Die wiskunde is deursigtig en vas.",
     "howItWorks": "Wat jy beantwoord",
-    "howItWorksText": "'n Stel van 12, 24 of 55 vrae dek krag, water, behuising, werk, veiligheid, vervoer, koalisies, sosiale beleid, aanspreeklikheid, geslagsgebaseerde geweld, informele nedersettings en dekolonisering van onderwys. Elke vraag koppel na 'n kwessie-as. Jy antwoord; ons karteer jou standpunt; ons vergelyk dit met elke party se gepubliseerde posisie.",
+    "howItWorksText": "30 vrae dek dienslewering, finansiële aanspreeklikheid, behuising en informele nedersettings, tariewe, koalisiebestuur, openbare vervoer, stedelike verdichting, metropolisiëring, gemeenskapsdeelname en plaaslike ekonomiese ontwikkeling. Elke vraag koppel na 'n kwessie-as. Jy antwoord; ons karteer jou standpunt; ons vergelyk dit met elke party se gepubliseerde posisie.",
     "scoring": "Hoe ons score",
     "scoringText": "Vir elke as bereken ons ooreenstemming tussen jou antwoorde en elke party, weeg dit volgens vraagbelang, normaliseer volgens die vrae wat jy beantwoord het, en neem dan die gemiddelde oor alle asse. Punte is persentasies; vertroue wys hoe duidelik die gaping tussen jou top-passing en die res is.",
     "transparency": "Oop data, geen verrassings",
     "transparencyText": "Alle posisies, gewigte en berekeninge is in die repo. As iets verkeerd is, stuur bronne en ons werk dit by. Die hulpmiddel is onafhanklik en bevorder geen party nie.",
     "dataSources": "Waar die posisies vandaan kom",
-    "dataSourcesText": "Ons steun op manifeste, beleiddokumente, stemrekords, begrotingsredes en geverifieerde openbare verklarings. Wanneer standpunte skuif, werk ons dit by.",
+    "dataSourcesText": "Ons steun op manifeste, beleiddokumente, raad-stemrekords, Ouditeur-Generaal-verslae en geverifieerde openbare verklarings. Wanneer standpunte skuif, werk ons dit by.",
     "privacy": "Privaatheid",
     "privacyText": "Jou antwoorde verlaat nooit jou toestel nie. Geen rekeninge, geen identifiseerders.",
     "noTracking": "Geen nasporing",
@@ -128,9 +123,9 @@
     "analytics": "Liggewig statistiek",
     "analyticsText": "Ons gebruik privaatheidsvriendelike, koekielose statistiek net om te weet of mense besoek. Dit neem nie jou antwoorde op nie.",
     "parties": "Ingeslote partye",
-    "partiesText": "Ons lys groot partye wat landwyd en in sleutelprovinsies meeding. As ons een mis, wys ons na hul gepubliseerde beleid.",
+    "partiesText": "Ons lys groot partye wat in Suid-Afrika se metropolitaanse munisipaliteite meeding. As ons een mis, wys ons na hul gepubliseerde beleid.",
     "disclaimer": "Riglyn, nie uitspraak nie",
-    "disclaimerText": "Gebruik dit as 'n beginpunt. Lees manifeste, woon gemeenskapsvergaderings by, en toets ons data. Politiek skuif; jou oordeel ook.",
+    "disclaimerText": "Gebruik dit as 'n beginpunt. Lees manifeste, woon wykskomiteevergaderings by en toets ons data. Politiek skuif; jou oordeel ook.",
     "viewData": "Kyk na die rou lêers",
     "viewDataText": "Alle JSON-lêers vir vrae, gewigte en partyposisies is openbaar. Inspekteer dit self.",
     "dataFolder": "Alle brondata op GitHub"
@@ -142,11 +137,11 @@
       "ideology": "Sentrumlinks, ontwikkelingstaat"
     },
     "da": {
-      "desc": "Die Democratic Alliance bevorder liberale demokrasie, vryemark-ekonomie en nie-rassige politiek met klem op goeie bestuur en werkcreasie.",
+      "desc": "Die Democratic Alliance bevorder liberale demokrasie, vryemark-ekonomie en nie-rassige politiek met klem op goeie bestuur en werkskepping.",
       "ideology": "Sentrumregs, liberale mark"
     },
     "mk": {
-      "desc": "uMkhonto we Sizwe Party fokus op radikale ekonomiese transformasie en bevorder staatgelei ontwikkeling en die aanspreek van historiese ongeregtighede.",
+      "desc": "uMkhonto we Sizwe Party fokus op radikale ekonomiese transformasie en bevorder staatsgeleide ontwikkeling en die aanspreek van historiese ongeregtighede.",
       "ideology": "Linksvleuel, populisties"
     },
     "eff": {
@@ -154,7 +149,7 @@
       "ideology": "Linksvleuel, pan-Afrikanisties"
     },
     "ifp": {
-      "desc": "Die Inkatha Freedom Party verteenwoordig hoofsaaklik Zulugemeenskappe en bevorder Zulu-kulturele waardes, federalisme en 'n vryemarkbenadering met sosiale verantwoordelikheid. Alhoewel dit breër aantrekking het, sentreer beleids prioriteite om Zulu-tradisies en KwaZulu-Natal-belange.",
+      "desc": "Die Inkatha Freedom Party verteenwoordig hoofsaaklik Zulugemeenskappe en bevorder Zulu-kulturele waardes, federalisme en 'n vryemarkbenadering met sosiale verantwoordelikheid. Alhoewel dit breër aantrekking het, sentreer beleidsprioriteite om Zulu-tradisies en KwaZulu-Natal-belange.",
       "ideology": "Sentrum, Zulu-gefokus, konserwatief"
     },
     "pa": {
@@ -167,7 +162,7 @@
       "ideology": "Regsvleuel, Afrikaner-belange"
     },
     "actionsa": {
-      "desc": "ActionSA is 'n sentrum-party gefokus op praktiese bestuur, anti-korrupsie en ekonomiese groei deur privaat-sektorbetrokkenheid.",
+      "desc": "ActionSA is 'n sentrum-party gefokus op praktiese bestuur, anti-korrupsie en ekonomiese groei deur privaatsektorbetrokkenheid.",
       "ideology": "Sentrumregs, anti-korrupsie"
     },
     "acdp": {
@@ -175,11 +170,11 @@
       "ideology": "Sentrumregs, Christelik-konserwatief"
     },
     "ufc": {
-      "desc": "Unite for Change is 'n samesmelting van RISE Mzansi, BOSA, en GOOD. Dit fokus op grondvlak-mobilisering en die aanspreek van plaaslike gemeenskapskwessies deur progressiewe beleid.",
+      "desc": "Unite for Change is 'n samesmelting van RISE Mzansi, BOSA en GOOD. Dit fokus op grondvlak-mobilisering en die aanspreek van plaaslike gemeenskapskwessies deur progressiewe beleid.",
       "ideology": "Sentristies, grondvlak"
     },
     "udm": {
-      "desc": "Die United Democratic Movement is 'n sosiale demokratiese party gefokus op skoon bestuur, anti-korrupsie, en gebalanseerde ekonomiese beleide wat verdienste beloon.",
+      "desc": "Die United Democratic Movement is 'n sosiale demokratiese party gefokus op skoon bestuur, anti-korrupsie en gebalanseerde ekonomiese beleide wat verdienste beloon.",
       "ideology": "Sentrumlinks, institusionele hervorming"
     },
     "sacp": {
@@ -187,7 +182,7 @@
       "ideology": "Ver links, sosialisties"
     },
     "atm": {
-      "desc": "Die African Transformation Movement bepleit konserwatiewe sosiale waardes, strenger dissipline in skole, en sterker wet en orde polisiëring.",
+      "desc": "Die African Transformation Movement bepleit konserwatiewe sosiale waardes, strenger dissipline in skole en sterker wet-en-orde-polisiëring.",
       "ideology": "Sentrumregs, Christen-konserwatief"
     },
     "aljama-ah": {
@@ -204,41 +199,35 @@
     }
   },
   "axes": {
-    "economic_left_right": {
-      "short": "Belasting & Sosiale Besteding"
+    "service_delivery": {
+      "short": "Diensleweringsmodel"
     },
-    "state_vs_market": {
-      "short": "Openbare vs Private Dienste"
+    "accountability": {
+      "short": "Finansiële Aanspreeklikheid"
     },
-    "land_and_ownership": {
-      "short": "Grond- & Eiendomsregte"
+    "settlement_housing": {
+      "short": "Behuising & Nedersettings"
     },
-    "labour_rights": {
-      "short": "Werkersregte"
+    "tariffs_affordability": {
+      "short": "Tariewe & Bekostigbaarheid"
     },
-    "law_order_vs_liberty": {
-      "short": "Polisiëring & Burgerregte"
+    "coalition_governance": {
+      "short": "Koalisiebestuur"
     },
-    "democratic_institutions": {
-      "short": "Bestuur & Anti-Korrupsie"
+    "public_transport": {
+      "short": "Openbare Vervoer"
     },
-    "environment_energy": {
-      "short": "Klimaat & Energie"
+    "land_densification": {
+      "short": "Stedelike Verdichting"
     },
-    "social_progressivism": {
-      "short": "LGBTQ+ & Geslagsregte"
+    "metro_safety": {
+      "short": "Metroveiligheid"
     },
-    "global_vs_local": {
-      "short": "Handel & Immigrasie"
+    "community_participation": {
+      "short": "Gemeenskapsdeelname"
     },
-    "transformation_vs_continuity": {
-      "short": "Tempo van Verandering"
-    },
-    "urban_development": {
-      "short": "Stedelike Beplanning & Vervoer"
-    },
-    "equity_and_inclusion": {
-      "short": "Regstellende Aksie & BEE"
+    "local_economy": {
+      "short": "Plaaslike Ekonomie"
     }
   },
   "options": {
@@ -250,224 +239,124 @@
   },
   "questions": {
     "q1": {
-      "text": "Die regering moet belasting op die rykes verhoog om beter gesondheidsorgklinieke, skole en maatskaplike toelaes vir arm huishoudings te befonds.",
-      "axis": "economic_left_right"
+      "text": "Munisipale water- en elektrisiteitsdienste moet direk deur raadpersoneel bestuur word eerder as om dit aan privaatmaatskappye uit te kontrakteer.",
+      "axis": "service_delivery"
     },
     "q2": {
-      "text": "Regering moet skuld afbetaal eerder as om nuwe programme te bekostig, selfs al beteken dit dienste uit te sny.",
-      "axis": "economic_left_right"
+      "text": "Vullisverwydering, parkinstandhouding en padlappings moet deur vaste raadwerknemers hanteer word, nie private kontrakteurs nie.",
+      "axis": "service_delivery"
     },
     "q3": {
-      "text": "Regering moet elke volwassene 'n maandelikse kontanttoelae gee, selfs as dit meer belasting kos.",
-      "axis": "economic_left_right"
+      "text": "Metros moet met private beleggers vennoot deur langtermyn-kontsessies om verouderde water- en sanitasie-infrastruktuur op te gradeer en te bedryf.",
+      "axis": "service_delivery"
     },
     "q4": {
-      "text": "Hou sommige steenkool- en gasaanlegte aan die gang vir netwerkbetroubaarheid, selfs al vertraag dit emissiesnydoelwitte.",
-      "axis": "environment_energy"
+      "text": "Partye wat drie of meer opeenvolgende jare verwerping- of ongunstige ouditmenings ontvang, moet gediskwalifiseer word van leidende metro-koalisies.",
+      "axis": "accountability"
     },
     "q5": {
-      "text": "Gesondheidsorg moet gratis wees by klinieke en hospitale vir almal.",
-      "axis": "economic_left_right"
+      "text": "Munisipale bestuurders en HFB's moet persoonlike kriminele aanspreeklikheid en outomatiese ontslag vir finansiële wangedrag ondervind, sonder skeidingsvergoeding.",
+      "axis": "accountability"
     },
     "q6": {
-      "text": "Hoër onderwys moet gratis wees vir alle studente, selfs as dit hoër belasting vereis.",
-      "axis": "economic_left_right"
+      "text": "'n Toegewyde eenheid teen korrupsie, volledig onafhanklik van nasionale agentskappe en met ondersoek- en vervolgingsbevoegdheid, moet in elke metro gestig word.",
+      "axis": "accountability"
     },
     "q7": {
-      "text": "Skole moet omvattende seksualiteitsopvoeding met LGBTQ+ insluiting leer, selfs al beswaar sommige ouers.",
-      "axis": "social_progressivism"
+      "text": "Informele nedersettings moet in hulle huidige liggings geformaliseer word — met dienste en veilige grondreg — eerder as om na nuwe ontwikkelings verskuif te word.",
+      "axis": "settlement_housing"
     },
     "q8": {
-      "text": "Regering moet aktief groeiende swart-eienaarskap en werker-eienaarskap-ondernemings ondersteun deur lenings, belastingvermindering en opdragte.",
-      "axis": "equity_and_inclusion"
+      "text": "Metros moet die bou van gesubsidieerde sosiale huurbehuising naby werksgebiede en openbare vervoerkorridors prioritiseer.",
+      "axis": "settlement_housing"
     },
     "q9": {
-      "text": "Munisipaliteite moet instandhouding aan bekwame private firmas uitkontrakteer onder prestasie-gebaseerde kontrakte om water- en kragbeskikbaarheid te verbeter.",
-      "axis": "state_vs_market"
+      "text": "Munisipaliteite moet verordeninge teen grondinvasies vinnig afdwing, selfs as dit die uitsetting van inwoners beteken.",
+      "axis": "settlement_housing"
     },
     "q10": {
-      "text": "Sleutel openbare nutsdienste (krag, water, spoor) moet openbaar besit bly en nie geprivatiseer word nie.",
-      "axis": "state_vs_market"
+      "text": "Munisipale tarief- en belastingverhogings moet elke jaar aan die verbruikersprysindeks (VPI) gekoppel word.",
+      "axis": "tariffs_affordability"
     },
     "q11": {
-      "text": "Laat private kragopwekking toe met oop netwerktoegang en wheeling, onder NERSA toesig vir billike tariewe—selfs al verminder dit Eskom se rol.",
-      "axis": "state_vs_market"
+      "text": "Onwettige elektrisiteits- en waterverbindings in arm woongebiede moet deur metros geregulariseer en gesubsidieer word eerder as om dit af te sny.",
+      "axis": "tariffs_affordability"
     },
     "q12": {
-      "text": "Water en sanitasie moet onder regeringsbeheer bly en nie deur private maatskappye bestuur word nie.",
-      "axis": "state_vs_market"
+      "text": "Eiendomsbelastingkortings vir lae-inkomste eiendomseienaars moet aansienlik uitgebrei word bo huidige behoeftige drempels.",
+      "axis": "tariffs_affordability"
     },
     "q13": {
-      "text": "Regering moet grond in beslag neem sonder om volle vergoeding te betaal om grondhervorming te versnel.",
-      "axis": "land_and_ownership"
+      "text": "Koalisie-ooreenkomste op metrovlak moet volledig openbaar, wetlik bindend wees en 'n meganisme vir die afdwing van nakoming insluit.",
+      "axis": "coalition_governance"
     },
     "q14": {
-      "text": "Klein boere en gemeenskaplike grondregte moet meer regeringsondersteuning kry as groot kommersiële plase.",
-      "axis": "land_and_ownership"
+      "text": "'n Party wat midterm koalisie-ondersteuning sonder 'n nuwe mandaat verwissel, moet 'n tussenverkiesing in sy wyke in die gesig staar.",
+      "axis": "coalition_governance"
     },
     "q15": {
-      "text": "Regering moet gemeenskapstuine, koöperatiewe plase en groepboerderyskemas befonds en beskerm.",
-      "axis": "land_and_ownership"
+      "text": "Mosies van wantroue teen 'n burgemeester moet 'n tweederdemeerderheid vereis eerder as 'n gewone meerderheid.",
+      "axis": "coalition_governance"
     },
     "q16": {
-      "text": "Gemeenskappe se tradisionele grondopvorderings moet wettig erken en beskerm word, selfs as dit huidige titels verbreek.",
-      "axis": "land_and_ownership"
+      "text": "Metros moet Bus Rapid Transit (BRT)-netwerke aansienlik uitbrei, selfs waar dit bestaande minibustaxiroetes ontwrig.",
+      "axis": "public_transport"
     },
     "q17": {
-      "text": "Versterk werkplekbeskerming teen geslagsgebaseerde geweld en teistering en dwing dit af, selfs as nakomingskoste styg.",
-      "axis": "labour_rights"
+      "text": "Minibustaksi-assosiasies moet formeel in metro-openbare-vervoernetwerke geïntegreer word met gereguleerde tariewe en roetes.",
+      "axis": "public_transport"
     },
     "q18": {
-      "text": "Minimum lone moet aansienlik verhoog word om werkende armoede te verminder, selfs as sommige klein besighede sukkel.",
-      "axis": "labour_rights"
+      "text": "Metros moet swaar belê in veilige fiets- en voetgangerinfrastruktuur as 'n primêre pendelaarwyse.",
+      "axis": "public_transport"
     },
     "q19": {
-      "text": "Om dit makliker te maak vir base om werkers aan te stel en af te dank sal belegging lok en werksgeleenthede skep.",
-      "axis": "labour_rights"
+      "text": "Residensiële voorstede moet hersoneer word om hoëdigtheid-ontwikkeling naby BRT- en spoorkorridors toe te laat.",
+      "axis": "land_densification"
     },
     "q20": {
-      "text": "Werkplekregte soos betaalde verlof, siekeverlof en afdankingsvergoeding moet versterk en aktief oor alle sektore afgedwing word.",
-      "axis": "labour_rights"
+      "text": "Groenveldontwikkelings op die metropolitaanse randgebied moet aktief gedeprioritiseer word ten gunste van binnestad-hernuwing.",
+      "axis": "land_densification"
     },
     "q21": {
-      "text": "Polisie benodig meer befondsing en magte om geweldsmisdaad soos huisrooftogte, geslagsgebaseerde geweld en taxi-geweld te bekamp—selfs as dit meer polisie-stopings beteken.",
-      "axis": "law_order_vs_liberty"
+      "text": "Erfenis- en buurtkarakter-beskermings moet nie toegelaat word om verdichting in goeie-ligging-voorstede te blokkeer nie.",
+      "axis": "land_densification"
     },
     "q22": {
-      "text": "Mense moet vry wees om te protesteer en hulle uit te spreek, selfs as dit verkeer, besigheid of dienste ontwrig.",
-      "axis": "law_order_vs_liberty"
+      "text": "Metropolitaanse polisiemagte moet aansienlik uitgebrei word en volle stedelike wetstoepassingsbevoegdhede kry, wat staatmaking op die SAPD in stede verminder.",
+      "axis": "metro_safety"
     },
     "q23": {
-      "text": "Regering en maatskappye moet nie toegelaat word om te spioeneer wat mense aanlyn doen nie.",
-      "axis": "law_order_vs_liberty"
+      "text": "Gemeenskapspolisiëringsforums moet formele mag hê om metro-polisiëringsprioriteite in hulle gebied te stel.",
+      "axis": "metro_safety"
     },
     "q24": {
-      "text": "Regering moet die wet gebruik om ontwrigtende proteste en stakings te stop, selfs as dit mense se reg om te weerstaan beperk.",
-      "axis": "law_order_vs_liberty"
+      "text": "CCTV-toesignetwerke in openbare ruimtes moet massief uitgebrei word, selfs as dit privaatheidskwessies wek.",
+      "axis": "metro_safety"
     },
     "q25": {
-      "text": "Plaaslike rade benodig professionele bestuurders en onafhanklike ouditeure om korrupsie en vermorsing te stop, selfs as dit politieke beheer verswak.",
-      "axis": "democratic_institutions"
+      "text": "Wykskomitees moet bindende besluitnemingsmag oor 'n deel van hul wyk se kapitaalinfrastruktuursbegroting hê.",
+      "axis": "community_participation"
     },
     "q26": {
-      "text": "Howe en vervolgers moet onafhanklik wees en teen politieke druk beskerm word, selfs as dit geregtigheid vertraag.",
-      "axis": "democratic_institutions"
+      "text": "Inwoners moet 'n wyksraadslid kan terugroep deur 'n formele petisie deur 30% van geregistreerde kiesers onderteken.",
+      "axis": "community_participation"
     },
     "q27": {
-      "text": "Korrupsiesake moet vinnig en aggressief vervolgd word, selfs as dit tydelike chaos in die regering skep.",
-      "axis": "democratic_institutions"
+      "text": "Ontwikkelaars moet verplig word om bindende gemeenskapsverwysings te hou voordat groot residensiële of kommersiële projekte in 'n wyk goedgekeur word.",
+      "axis": "community_participation"
     },
     "q28": {
-      "text": "Partye moet in koalisies saamwerk en kompromieë aangaan, selfs as dit beteken dat hulle nie elke belofte kan nakom nie.",
-      "axis": "democratic_institutions"
+      "text": "Metros moet aktief besigheidsbroeikas en gesubsidieerde opleidingsentrums bedryf om plaaslike werkskepping te bevorder.",
+      "axis": "local_economy"
     },
     "q29": {
-      "text": "Nasionale regering moet falende rade oorneem en hulle regmaak, selfs as dit plaaslike demokrasie verswak.",
-      "axis": "democratic_institutions"
+      "text": "Rade moet bindende voorkeur gee aan plaaslik-eienaarskap-klein-ondernemings in alle munisipale verkryging bo 'n minimum drempel.",
+      "axis": "local_economy"
     },
     "q30": {
-      "text": "Verlaag maatskappy- en persoonlike belasting om belegging te lok, selfs al verminder dit korttermyn sosiale besteding.",
-      "axis": "economic_left_right"
-    },
-    "q31": {
-      "text": "Suid-Afrika moet wetlike teikens stel om besoedeling te sny en steenkoolkragstasies te sluit.",
-      "axis": "environment_energy"
-    },
-    "q32": {
-      "text": "Regering moet meer in son-, wind- en skoon energie belê in plaas van steenkool.",
-      "axis": "environment_energy"
-    },
-    "q33": {
-      "text": "Omgewingswette moet nuwe myne en steenkoolprojekte stop wanneer hulle die natuur beskadig.",
-      "axis": "environment_energy"
-    },
-    "q34": {
-      "text": "Regering moet LGBTQ+-mense teen diskriminasie by die werk en in winkels beskerm.",
-      "axis": "social_progressivism"
-    },
-    "q35": {
-      "text": "Regering moet maatskappye dwing om ouers betaalde verlof te gee en moeders en vroue teen diskriminasie by die werk te beskerm.",
-      "axis": "labour_rights"
-    },
-    "q36": {
-      "text": "Prioritiseer SADC- en AU-streek-waardekettings en logistieke korridors om handel op die vasteland te laat groei.",
-      "axis": "global_vs_local"
-    },
-    "q37": {
-      "text": "Sluit handelsverdrae wat produkstandaarde belyn en doeane digitaliseer, selfs as sommige nywerhede teen koste moet opgradeer.",
-      "axis": "global_vs_local"
-    },
-    "q38": {
-      "text": "Regering moet tariewe en plaaslike inhoudreëls gebruik om Suid-Afrikaanse fabrieke en werksgeleenthede te beskerm.",
-      "axis": "global_vs_local"
-    },
-    "q39": {
-      "text": "Suid-Afrika moet strenger immigrasie- en grenstoesigbeleide aanvaar, selfs as dit betrekkinge met buurlande benadeel.",
-      "axis": "global_vs_local"
-    },
-    "q40": {
-      "text": "Regering moet streng optree teen werkgewers wat ongedokumenteerde migrante in diens neem, selfs as dit besighede benadeel wat op hulle staatmaak.",
-      "axis": "global_vs_local"
-    },
-    "q41": {
-      "text": "Stel meriet-gebaseerde aanstellings en vaste-termyn prestasiekontrakte by staatsondernemings in om vinnige verandering te dryf, selfs as dit bestaande reëlings ontwrig.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q42": {
-      "text": "Suid-Afrika benodig vinnige, radikale veranderinge aan die ekonomie en arbeidsmark, nie stadige hervormings nie.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q43": {
-      "text": "Herstel apartheid se nalatenskap deur stadige, bestendige veranderinge aan instellings, nie radikale oorholings nie.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q44": {
-      "text": "Vervoerbefondsing moet die verbetering van minibus-taxiroetes, busstelsels en plaaslike treine prioritiseer bo die bou van nuwe snelweë.",
-      "axis": "urban_development"
-    },
-    "q45": {
-      "text": "Regering moet die bou van bekostigbare openbare behuising in townships en informele nedersettings prioritiseer bo private ontwikkelingsprojekte.",
-      "axis": "urban_development"
-    },
-    "q46": {
-      "text": "Stede moet uitgestrekte, motor-afhanklike voorstede beperk en eerder bewandelbare, gemengde-gebruik townships met winkels, skole en klinieke naby ondersteun—selfs as ontwikkelaars winste verloor.",
-      "axis": "urban_development"
-    },
-    "q47": {
-      "text": "Regeringsdepartemente moet streng toeganklikheidstandaarde vir gestremde mense nakom, selfs as dit ander dienste beïnvloed.",
-      "axis": "equity_and_inclusion"
-    },
-    "q48": {
-      "text": "Regering moet geld in township- en plattelandse besighede pomp om werksgeleenthede en ekonomiese groei te skep.",
-      "axis": "equity_and_inclusion"
-    },
-    "q49": {
-      "text": "Gelyke Indiensneming en BEE-reëls moet bly as instrumente om rasse-ongelykheid reg te maak, selfs as maatskappye oor die koste kla.",
-      "axis": "equity_and_inclusion"
-    },
-    "q50": {
-      "text": "Regering moet in werkopleiding vir histories benadeelde mense belê om hulle in werk te kry.",
-      "axis": "equity_and_inclusion"
-    },
-    "q51": {
-      "text": "Regering moet grondherverdeling na kleinskaalboere en swart boere versnel, selfs as dit minder tyd vir deeglike beplanning en opleidingsondersteuning beteken.",
-      "axis": "transformation_vs_continuity"
-    },
-    "q52": {
-      "text": "Regering moet aansienlike begroting en polisie-kapasiteit aan die voorkoming en vervolging van geslagsgebaseerde geweld en vrouemoord wy, selfs as dit hulpbronne van ander misdaadprioriteite aflei.",
-      "axis": "social_progressivism"
-    },
-    "q53": {
-      "text": "Regering moet water, elektrisiteit en sanitasie aan informele nedersettings voorsien en hulle ter plekke opgradeer, eerder as om hulle te sloop vir formele herontwikkeling.",
-      "axis": "urban_development"
-    },
-    "q54": {
-      "text": "Skoolkurrikulum moet Afrika-geskiedenis, inheemse tale en plaaslike kennisstelsels met gelyke gewig as Europese kurrikula leer.",
-      "axis": "social_progressivism"
-    },
-    "q55": {
-      "text": "Staatsondernemings moet radikaal herstruktureer word en onafhanklike professionele bestuur kry, selfs as dit huidige bedrywighede en indiensneming ontwrig.",
-      "axis": "transformation_vs_continuity"
+      "text": "Metro-ekonomiese ontwikkeling moet deur privaatsektorbelegging gelei word, met rade wat 'n gunstige regulatoriese omgewing eerder as direkte ingryping bied.",
+      "axis": "local_economy"
     }
   },
   "languages": {
@@ -487,8 +376,8 @@
   },
   "disclaimer": {
     "title": "Gebruik dit as riglyn",
-    "educational": "Elekti help jou om partye te vergelyk. Dit vervang nie jou eie navorsing nie, en standpunte kan skuif soos koalisies en debatte verander.",
+    "educational": "Elekti help jou om partye oor plaaslike regeringskwessies te vergelyk. Dit vervang nie jou eie navorsing nie, en standpunte kan skuif soos koalisies en debatte verander.",
     "alpha": "Hierdie webwerf is onder aktiewe ontwikkeling. Ons werk data by soos partye hul standpunte publiseer en wysig.",
-    "research": "Lees manifeste, begrotingsredes, raadsplanne en gemeenskapsbriewe. As jy 'n fout sien, stuur bronne en ons maak dit reg."
+    "research": "Lees manifeste, woon wykskomiteevergaderings by en hersien Ouditeur-Generaal-verslae. As jy 'n fout sien, stuur bronne en ons maak dit reg."
   }
 }

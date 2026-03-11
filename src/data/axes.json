@@ -1,76 +1,64 @@
 {
   "axes": [
     {
-      "id": "economic_left_right",
-      "name": "Economic Left ↔ Right",
-      "shortNameKey": "axes.economic_left_right.short",
-      "description": "Taxation, redistribution, and social spending. Positive (+1): Progressive taxation, expanded social services, high redistribution. Negative (-1): Low taxation, minimal state intervention, market-led growth."
+      "id": "service_delivery",
+      "name": "State-run Service Delivery ↔ Outsourced & Private",
+      "shortNameKey": "axes.service_delivery.short",
+      "description": "Who delivers municipal services. Positive (+1): State employees run water, electricity, refuse, and road services directly. Negative (-1): Private contractors and concessions deliver services under performance contracts."
     },
     {
-      "id": "state_vs_market",
-      "name": "State Control ↔ Market Economics",
-      "shortNameKey": "axes.state_vs_market.short",
-      "description": "Role of the state in the economy. Positive (+1): State ownership of key utilities, active regulation, public sector leadership. Negative (-1): Privatisation, deregulation, private sector leadership."
+      "id": "accountability",
+      "name": "Strict Financial Accountability ↔ Flexible Management",
+      "shortNameKey": "axes.accountability.short",
+      "description": "Financial management and anti-corruption. Positive (+1): Strict audit culture, personal criminal liability for misconduct, independent oversight units. Negative (-1): Flexible management, political discretion over financial decisions."
     },
     {
-      "id": "land_and_ownership",
-      "name": "Land & Property Rights",
-      "shortNameKey": "axes.land_and_ownership.short",
-      "description": "Land expropriation, communal rights, and land reform pace. Positive (+1): Expropriation without compensation, communal precedence, rapid reform. Negative (-1): Market-rate transactions, private property rights, commercial agriculture."
+      "id": "settlement_housing",
+      "name": "Formalise In Situ / Community Housing ↔ Relocate & Market",
+      "shortNameKey": "axes.settlement_housing.short",
+      "description": "Housing and informal settlement policy. Positive (+1): Formalise settlements in place, subsidised rental housing, oppose evictions. Negative (-1): Relocate to formal housing, market-led development, enforce land-use bylaws."
     },
     {
-      "id": "labour_rights",
-      "name": "Labour Rights ↔ Market Flexibility",
-      "shortNameKey": "axes.labour_rights.short",
-      "description": "Union power, minimum wages, and labour regulation. Positive (+1): Strong unionisation, wage floors, job protection. Negative (-1): Labour flexibility, minimal restrictions, lower wage floors."
+      "id": "tariffs_affordability",
+      "name": "Subsidised / Capped Tariffs ↔ Cost-reflective Rates",
+      "shortNameKey": "axes.tariffs_affordability.short",
+      "description": "Rates, tariffs, and service affordability. Positive (+1): CPI-capped tariffs, subsidised connections, expanded indigent rebates. Negative (-1): Cost-reflective, market-rate tariffs and strict disconnection enforcement."
     },
     {
-      "id": "law_order_vs_liberty",
-      "name": "Law & Order ↔ Civil Liberties",
-      "shortNameKey": "axes.law_order_vs_liberty.short",
-      "description": "State authority, policing, and protest. Positive (+1): Civil liberties prioritised, protest rights, scrutiny of state power. Negative (-1): Strong policing, order prioritised, limits on disruptive protest."
+      "id": "coalition_governance",
+      "name": "Transparent & Structured Coalitions ↔ Executive Flexibility",
+      "shortNameKey": "axes.coalition_governance.short",
+      "description": "Coalition politics at metro level. Positive (+1): Binding, public coalition agreements with accountability mechanisms. Negative (-1): Flexible, ad-hoc coalitions with executive discretion and informal deals."
     },
     {
-      "id": "democratic_institutions",
-      "name": "Institutional Independence & Governance",
-      "shortNameKey": "axes.democratic_institutions.short",
-      "description": "Independence of judiciary, electoral bodies, and oversight. Positive (+1): Strong institutional autonomy, anti-corruption, good governance, oversight mechanisms. Negative (-1): Political executive flexibility, cadre deployment, centralised control."
+      "id": "public_transport",
+      "name": "Mass Transit Investment ↔ Private Transport / Taxis",
+      "shortNameKey": "axes.public_transport.short",
+      "description": "Urban mobility and transit. Positive (+1): Investment in BRT, rail, cycling, and pedestrian infrastructure. Negative (-1): Accommodation of private transport, minibus taxis, and car-oriented infrastructure."
     },
     {
-      "id": "environment_energy",
-      "name": "Environmental Protection ↔ Energy Pragmatism",
-      "shortNameKey": "axes.environment_energy.short",
-      "description": "Climate action and energy transition speed. Positive (+1): Aggressive climate targets, rapid renewable transition, restrictions on fossil fuels. Negative (-1): Pragmatic energy mix, coal flexibility, economic prioritisation."
+      "id": "land_densification",
+      "name": "Densification & Transit-oriented ↔ Greenfield & Sprawl",
+      "shortNameKey": "axes.land_densification.short",
+      "description": "Urban form and development. Positive (+1): Densification near transit corridors, inner-city regeneration, rezoning for higher density. Negative (-1): Greenfield peripheral development, suburban sprawl, heritage protection over density."
     },
     {
-      "id": "social_progressivism",
-      "name": "Social Progressivism ↔ Conservatism",
-      "shortNameKey": "axes.social_progressivism.short",
-      "description": "LGBTQ+ rights, gender equality, and cultural liberalism. Positive (+1): Active promotion of progressive values, LGBTQ+ rights, gender equality. Negative (-1): Traditional/conservative values, minimal state intervention in social morality."
+      "id": "metro_safety",
+      "name": "Expanded Metro Police ↔ SAPS Reliance",
+      "shortNameKey": "axes.metro_safety.short",
+      "description": "Urban policing and safety. Positive (+1): Expanded metro police forces, community policing forums with formal power. Negative (-1): Reliance on national SAPS, national policing primacy in cities."
     },
     {
-      "id": "global_vs_local",
-      "name": "Global Integration ↔ Economic Nationalism",
-      "shortNameKey": "axes.global_vs_local.short",
-      "description": "Trade openness, international integration, and immigration. Positive (+1): Global cooperation, open borders, multilateral engagement, free trade. Negative (-1): Economic nationalism, border control, protectionism."
+      "id": "community_participation",
+      "name": "Participatory Ward Democracy ↔ Representative Council",
+      "shortNameKey": "axes.community_participation.short",
+      "description": "Democracy at ward level. Positive (+1): Ward committees with budget power, councillor recall, community referendums. Negative (-1): Councillor discretion, representative democracy without direct participation mechanisms."
     },
     {
-      "id": "transformation_vs_continuity",
-      "name": "Radical Transformation ↔ Incremental Reform",
-      "shortNameKey": "axes.transformation_vs_continuity.short",
-      "description": "Speed and depth of systemic change. Positive (+1): Radical, rapid transformation addressing historical injustices. Negative (-1): Continuity, incremental reform, stability-focused."
-    },
-    {
-      "id": "urban_development",
-      "name": "Public Urban Planning ↔ Market-Led Development",
-      "shortNameKey": "axes.urban_development.short",
-      "description": "Urban form and transit priorities. Positive (+1): Public transport, mixed-use walkability, affordable housing, dense development. Negative (-1): Car-friendly, private property rights, market-led sprawl."
-    },
-    {
-      "id": "equity_and_inclusion",
-      "name": "Affirmative Action & BEE ↔ Meritocratic Neutrality",
-      "shortNameKey": "axes.equity_and_inclusion.short",
-      "description": "Employment equity, BEE, and targeted economic support. Positive (+1): Active targeting to address inequality, strong BEE, protected minorities. Negative (-1): Minimal state-mandated targets, colour-blind approaches, merit-based."
+      "id": "local_economy",
+      "name": "Active Municipal LED ↔ Private Sector-led",
+      "shortNameKey": "axes.local_economy.short",
+      "description": "Local economic development. Positive (+1): Municipal job creation, business incubators, local procurement preference. Negative (-1): Private sector-led growth, enabling environment only, minimal council intervention."
     }
   ]
 }
