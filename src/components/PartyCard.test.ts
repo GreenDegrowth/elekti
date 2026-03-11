@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
-import type { Party } from "../types";
 import { createTestI18n } from "../test-utils/i18n";
+import type { Party } from "../types";
 import PartyCard from "./PartyCard.vue";
 
 vi.mock("lucide-vue-next", () => ({

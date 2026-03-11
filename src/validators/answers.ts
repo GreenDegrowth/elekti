@@ -209,7 +209,10 @@ export function decodeAndValidateAnswers(
   } catch (error) {
     return {
       success: false,
-      error: error instanceof Error ? error.message : "Failed to decode base64 string",
+      error:
+        error instanceof Error
+          ? error.message
+          : "Failed to decode base64 string",
     };
   }
 }

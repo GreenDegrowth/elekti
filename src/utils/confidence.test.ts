@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { SCORING } from "./constants";
 import { determineConfidence } from "./confidence";
+import { SCORING } from "./constants";
 
-const { LOW_CONFIDENCE_THRESHOLD, MEDIUM_CONFIDENCE_THRESHOLD, SPREAD_THRESHOLD } =
-  SCORING;
+const {
+  LOW_CONFIDENCE_THRESHOLD,
+  MEDIUM_CONFIDENCE_THRESHOLD,
+  SPREAD_THRESHOLD,
+} = SCORING;
 
 describe("determineConfidence", () => {
   describe("high confidence baseline", () => {
@@ -46,12 +49,7 @@ describe("determineConfidence", () => {
     });
 
     it("returns medium when spread is below SPREAD_THRESHOLD even with high topScore", () => {
-      const result = determineConfidence(
-        0.9,
-        SPREAD_THRESHOLD - 0.01,
-        20,
-        30
-      );
+      const result = determineConfidence(0.9, SPREAD_THRESHOLD - 0.01, 20, 30);
       expect(result).toBe("medium");
     });
 
