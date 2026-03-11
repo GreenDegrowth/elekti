@@ -7,6 +7,7 @@ import {
   type PartyPositionsFile,
 } from "../schemas/party-positions";
 import { QuestionsFileSchema, type QuestionsFile } from "../schemas/question";
+import { SurveysFileSchema, type SurveysFile } from "../schemas/surveys";
 import {
   TranslationFileSchema,
   type TranslationFile,
@@ -68,6 +69,10 @@ export function validatePartyPositions(
   data: unknown
 ): ValidationResult<PartyPositionsFile> {
   return parseWithSchema(PartyPositionsFileSchema, data);
+}
+
+export function validateSurveys(data: unknown): ValidationResult<SurveysFile> {
+  return parseWithSchema(SurveysFileSchema, data);
 }
 
 export function validateTranslation(

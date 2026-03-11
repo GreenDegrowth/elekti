@@ -1,10 +1,7 @@
 import { createPinia, setActivePinia } from "pinia";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { useQuizStore } from "../stores/quizStore";
-import {
-  encodeAnswerValuesToBase64Url,
-  UNANSWERED_VALUE,
-} from "../validators/answers";
+import { makeEncodedAnswers } from "../test-utils/answers";
 
 vi.mock("vue-i18n", () => ({
   createI18n: (_opts?: unknown) => ({
@@ -46,18 +43,6 @@ vi.mock("../data/questions.json", () => {
     },
   };
 });
-
-const makeEncodedAnswers = (
-  values: Array<number | undefined>,
-  total: number
-) => {
-  const padded = Array.from({ length: total }, (_, index) => {
-    const value = values[index];
-    return value === undefined ? UNANSWERED_VALUE : value;
-  });
-
-  return encodeAnswerValuesToBase64Url(padded);
-};
 
 describe("quizStore", () => {
   beforeEach(() => {

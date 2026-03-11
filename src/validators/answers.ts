@@ -206,7 +206,10 @@ export function decodeAndValidateAnswers(
     }
 
     return { success: true, answers: newAnswers };
-  } catch {
-    return { success: false, error: "Failed to decode base64 string" };
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Failed to decode base64 string",
+    };
   }
 }

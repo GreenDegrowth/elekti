@@ -70,7 +70,10 @@ export function decodeAnswersFromUrl(
     }
 
     return { success: true, answers: filtered, restoredCount };
-  } catch {
+  } catch (error) {
+    if (import.meta.env.DEV) {
+      console.error("[urlCodec] decode failed:", error);
+    }
     return { success: false, error: "Failed to load encoded answers" };
   }
 }

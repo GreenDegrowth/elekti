@@ -3,12 +3,21 @@ import { computed, ref, watch } from "vue";
 import { i18n } from "../i18n/i18n";
 
 import { useQuestionTranslation } from "../composables/useQuestionTranslation";
-import surveysData from "../data/surveys.json";
+import rawSurveysData from "../data/surveys.json";
 import type { Question, QuizResult } from "../types";
 import { getParties } from "../utils/dataLoader";
 import { computeScores as computeScoresUtility } from "../utils/scoring";
 import { decodeAnswersFromUrl, encodeAnswers } from "../utils/urlCodec";
+import { validateSurveys } from "../validators/data";
 import { useUiStore, type SurveyMode } from "./uiStore";
+
+const surveysValidation = validateSurveys(rawSurveysData);
+if (!surveysValidation.success) {
+  throw new Error(
+    `Invalid surveys.json: ${surveysValidation.errors?.join("; ")}`
+  );
+}
+const surveysData = surveysValidation.data!;
 
 export interface LoadAnswersResult {
   success: boolean;
@@ -32,13 +41,10 @@ export const useQuizStore = defineStore("quiz", () => {
     translator.clearCache();
     mode.value = newMode;
     ui.setMode(newMode);
-    const surveyLists = (
-      surveysData as unknown as { surveys: Record<string, string[]> }
-    ).surveys;
     const ids =
       questionIdsOverride && questionIdsOverride.length > 0
         ? questionIdsOverride
-        : surveyLists?.[newMode] || [];
+        : (surveysData.surveys[newMode] ?? []);
 
     const q = translator.getTranslated(ids.length > 0 ? ids : undefined);
     selectedQuestionIds.value = q.map((qq) => qq.id);
@@ -137,13 +143,13 @@ export const useQuizStore = defineStore("quiz", () => {
     };
   }
 
-  const t = i18n.global.t as unknown as (key: string) => string;
   watch(
     () => currentQuestionIndex.value,
     () => {
       const upcoming = upcomingQuestion.value;
       if (upcoming?.textKey) {
-        t(upcoming.textKey);
+        // Pre-warm the i18n translation cache for the upcoming question
+        String(i18n.global.t(upcoming.textKey));
       }
     },
     { immediate: true }
