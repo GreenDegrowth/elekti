@@ -560,7 +560,7 @@
     }
 
     .landing__modes {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-sm);
     }
 
@@ -585,6 +585,20 @@
       border: 1px solid var(--color-border);
       background: var(--color-surface);
       color: var(--color-text-secondary);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .landing {
+      padding: var(--space-md);
+    }
+
+    .landing__hero {
+      padding: var(--space-md);
+    }
+
+    .landing__modes {
+      grid-template-columns: 1fr;
     }
   }
 </style>

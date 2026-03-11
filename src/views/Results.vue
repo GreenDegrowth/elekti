@@ -459,6 +459,7 @@
 
     .results__title {
       font-size: var(--font-size-3xl);
+      margin-bottom: var(--space-xl);
     }
 
     .results__header {
@@ -484,6 +485,20 @@
     .results__button {
       width: 100%;
       justify-content: center;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .results {
+      padding: var(--space-md);
+    }
+
+    .results__title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .results__section {
+      margin-bottom: var(--space-2xl);
     }
   }
 </style>
