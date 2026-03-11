@@ -156,10 +156,12 @@
   .comparison-modal__body {
     padding: 0;
     overflow-y: auto;
+    overflow-x: auto;
   }
 
   .comparison-table {
     width: 100%;
+    min-width: 480px;
     border-collapse: collapse;
     padding: var(--space-lg);
     padding-top: 0;
@@ -257,6 +259,22 @@
 
     .comparison-modal__title {
       font-size: var(--font-size-lg);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .comparison-modal {
+      padding: var(--space-sm);
+      align-items: flex-end;
+    }
+
+    .comparison-modal__content {
+      max-height: 85vh;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+
+    .comparison-modal__header {
+      padding: var(--space-md);
     }
   }
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { HelpCircle, TrendingDown, TrendingUp } from "lucide-vue-next";
-  import { ref } from "vue";
+  import { onBeforeUnmount, onMounted, ref } from "vue";
   import { useI18n } from "vue-i18n";
 
   defineProps<{
@@ -11,6 +11,18 @@
 
   useI18n();
   const showTooltip = ref(false);
+
+  function handleDocumentClick() {
+    showTooltip.value = false;
+  }
+
+  onMounted(() => {
+    document.addEventListener("click", handleDocumentClick);
+  });
+
+  onBeforeUnmount(() => {
+    document.removeEventListener("click", handleDocumentClick);
+  });
 </script>
 
 <template>
@@ -19,6 +31,7 @@
     :class="`confidence-indicator--${confidence}`"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
+    @click.stop="showTooltip = !showTooltip"
   >
     <div class="confidence-indicator__content">
       <component
@@ -213,6 +226,7 @@
     .confidence-indicator__tooltip {
       right: auto;
       left: 0;
+      min-width: 0;
       max-width: 90vw;
     }
   }

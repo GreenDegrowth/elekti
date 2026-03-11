@@ -335,16 +335,19 @@
   @media (max-width: 768px) {
     .quiz {
       padding: var(--space-lg) var(--space-md);
+      align-items: flex-start;
     }
 
     .quiz__wrapper {
       flex-direction: column;
       gap: var(--space-xl);
       max-width: none;
+      min-height: 0;
     }
 
     .quiz__container {
       max-width: none;
+      min-height: 0;
     }
 
     .quiz__navigation {
@@ -364,6 +367,12 @@
     .quiz__nav-button--back {
       order: -1;
       opacity: 0.7;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .quiz {
+      padding: var(--space-md);
     }
   }
 </style>
