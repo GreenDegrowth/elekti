@@ -1,12 +1,13 @@
 import { expect, test } from "@playwright/test";
 
-const quickResultsUrl =
-  "/results?r=ELaEjZA&m=quick&q=q1,q10,q13,q18,q22,q27,q31,q35,q39,q46,q51,q52";
+// 30 neutral answers (index 2) for metro mode (q1–q30), encoded as base64url
+const metroResultsUrl =
+  "/results?r=SSSSSSSSSSSSSSSA&m=metro&q=q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20,q21,q22,q23,q24,q25,q26,q27,q28,q29,q30";
 
 test("dev shortcut reaches results and can retake", async ({ page }) => {
   await page.goto("/");
 
-  await page.getByRole("button", { name: /DEV: Quick/i }).click();
+  await page.getByRole("button", { name: /DEV: Metro/i }).click();
   await expect(page).toHaveURL(/\/results/);
   await expect(
     page.getByRole("heading", { name: "Your matches" })
@@ -17,7 +18,7 @@ test("dev shortcut reaches results and can retake", async ({ page }) => {
 });
 
 test("results deep link renders primary match", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await expect(
     page.getByRole("heading", { name: "Your matches" })
@@ -28,7 +29,7 @@ test("results deep link renders primary match", async ({ page }) => {
 });
 
 test("results issue toggle expands and collapses", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   const showIssues = page
     .getByRole("button", { name: "Show all issues" })
@@ -40,7 +41,7 @@ test("results issue toggle expands and collapses", async ({ page }) => {
 });
 
 test("results table view supports comparison", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await page.getByRole("button", { name: "Table view" }).click();
 
@@ -68,7 +69,7 @@ test("copy shareable link button works", async ({
   );
 
   await context.grantPermissions(["clipboard-write", "clipboard-read"]);
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await page.getByRole("button", { name: "Copy shareable link" }).click();
 
@@ -76,11 +77,11 @@ test("copy shareable link button works", async ({
     navigator.clipboard.readText()
   );
   expect(clipboardText).toContain("/results");
-  expect(clipboardText).toContain("m=quick");
+  expect(clipboardText).toContain("m=metro");
 });
 
 test("open party site link navigates externally", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   const partyLink = page.getByRole("link", { name: "Open party site" }).first();
   await expect(partyLink).toHaveAttribute("target", "_blank");
@@ -88,7 +89,7 @@ test("open party site link navigates externally", async ({ page }) => {
 });
 
 test("confidence indicator displays correctly", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await expect(page.getByText(/Clear fit|Mixed fit|Thin fit/i)).toBeVisible();
 });
@@ -96,7 +97,7 @@ test("confidence indicator displays correctly", async ({ page }) => {
 test("switching between strongest alignment and table view", async ({
   page,
 }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   const cardViewButton = page.getByRole("button", { name: /card view/i });
   const tableViewButton = page.getByRole("button", { name: /table view/i });
@@ -113,15 +114,15 @@ test("switching between strongest alignment and table view", async ({
 });
 
 test("answer again button resets to quiz start", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await page.getByRole("button", { name: "Answer again" }).click();
   await expect(page).toHaveURL(/\/quiz/);
-  await expect(page.getByText("Question 1 of 12")).toBeVisible();
+  await expect(page.getByText("Question 1 of 30")).toBeVisible();
 });
 
 test("all party cards display in table view", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await page.getByRole("button", { name: /table view/i }).click();
   await expect(page.locator(".result-breakdown__table")).toBeVisible();
@@ -133,7 +134,7 @@ test("all party cards display in table view", async ({ page }) => {
 });
 
 test("comparison view displays differences correctly", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await page.getByRole("button", { name: /table view/i }).click();
 
@@ -158,7 +159,7 @@ test("comparison view displays differences correctly", async ({ page }) => {
 });
 
 test("results page shows close alternatives section", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await expect(
     page.getByRole("heading", { name: "Close alternatives" })
@@ -166,7 +167,7 @@ test("results page shows close alternatives section", async ({ page }) => {
 });
 
 test("language switch updates results page content", async ({ page }) => {
-  await page.goto(quickResultsUrl);
+  await page.goto(metroResultsUrl);
 
   await expect(
     page.getByRole("heading", { name: "Your matches" })

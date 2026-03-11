@@ -17,6 +17,7 @@
   const { t } = useI18n();
   const { result, error, loading } = useResultsLoader();
   const copied = ref(false);
+  const copyFailed = ref(false);
   const showComparison = ref(false);
   const comparisonParties = ref<PartyScore[]>([]);
 
@@ -82,7 +83,12 @@
             copied.value = false;
           }, 2000);
         },
-        () => {}
+        () => {
+          copyFailed.value = true;
+          setTimeout(() => {
+            copyFailed.value = false;
+          }, 2000);
+        }
       );
     } catch {}
   }
@@ -164,12 +170,20 @@
             @click="copyResults"
             class="results__button results__button--secondary results__button--share-card"
             :aria-label="
-              copied ? $t('results.resultsCopied') : $t('results.copyResults')
+              copied
+                ? $t('results.resultsCopied')
+                : copyFailed
+                  ? $t('results.copyFailed')
+                  : $t('results.copyResults')
             "
           >
             <Copy :size="20" />
             {{
-              copied ? $t("results.resultsCopied") : $t("results.copyResults")
+              copied
+                ? $t("results.resultsCopied")
+                : copyFailed
+                  ? $t("results.copyFailed")
+                  : $t("results.copyResults")
             }}
           </button>
         </section>

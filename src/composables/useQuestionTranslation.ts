@@ -3,9 +3,12 @@ import type { Question, QuestionMetadata } from "../types";
 import { STANDARD_OPTIONS } from "../utils/constants";
 import { getQuestions } from "../utils/dataLoader";
 
+function t(key: string): string {
+  return String(i18n.global.t(key));
+}
+
 export function useQuestionTranslation() {
   const cache = new Map<string, Question[]>();
-  const t = i18n.global.t as unknown as (key: string) => string;
 
   function clearCache(): void {
     cache.clear();

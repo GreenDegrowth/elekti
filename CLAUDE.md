@@ -31,7 +31,7 @@ All static data lives in `src/data/` as JSON and is imported at build time:
 - `axes.json` — 12 political axes
 - `parties.json` — 16 parties with colour, website, i18n key references
 - `party_positions.json` — per-party scores per axis (0–1 scale, normalised)
-- `surveys.json` — question ID lists for the three quiz modes: `quick` (12), `balanced` (24), `full` (55)
+- `surveys.json` — question ID lists per survey mode. Currently only one mode exists: `metro` (30 questions). The `surveys` key is a `Record<string, string[]>`, validated by `SurveysFileSchema`.
 - `translations/{en,af}.json` — all UI text; question text is keyed via `textKey` (e.g. `questions.q1.text`)
 
 `src/utils/dataLoader.ts` wraps JSON imports with module-level caches. Call `clearDataCaches()` in tests that need fresh state. Similarly, `src/utils/scoring.ts` exports `clearScoringCache()`.
@@ -66,7 +66,7 @@ Inside `quizStore`, i18n is accessed directly via `i18n.global.t` (not `useI18n(
 
 Results are encoded into the URL as three query params:
 - `r` — base64url-packed answer values (3 bits each, `UNANSWERED_VALUE=7` for skipped)
-- `m` — survey mode (`quick`/`balanced`/`full`)
+- `m` — survey mode (currently always `metro`)
 - `q` — comma-separated question IDs
 
 `Results.vue` reads these on mount, calls `loadSurvey` then `loadAnswersFromUrl`, and uses `router.replace` to set the canonical URL (skipped if URL would exceed `URL_PARAMS.MAX_URL_LENGTH = 2000` chars).
@@ -82,6 +82,11 @@ Results are encoded into the URL as three query params:
 ## Key constraints
 
 - `party.colour` is always a 6-digit hex string (`#RRGGBB`) — relied on by the contrast utility in `PartyCard.vue`
-- Party positions in `party_positions.json` must be in the `[-1, 1]` range per axis
-- The `full` survey in `surveys.json` must contain all 55 question IDs
+- Party positions in `party_positions.json` must be in the `[-1, 1]` range per axis (enforced by `PartyPositionValueSchema` in `src/schemas/party-positions.ts`)
+- `surveys.json` is validated at startup by `validateSurveys()` — the app throws on invalid data
 - Locale persistence key is `"lang"`, mode persistence key is `"mode"` (localStorage)
+
+### Testing
+
+Component tests use `@vue/test-utils` and Vitest with `happy-dom`. Shared test utilities live in `src/test-utils/`. Key helpers:
+- `makeEncodedAnswers(values, total)` — encode answer arrays into base64url for use in URL-based tests

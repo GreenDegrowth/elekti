@@ -9,6 +9,12 @@ import "./styles/index.css";
 
 const app = createApp(App);
 
+app.config.errorHandler = (err, _vm, info) => {
+  if (import.meta.env.DEV) {
+    console.error(`[Vue Error] ${info}:`, err);
+  }
+};
+
 app.use(createPinia());
 app.use(router);
 app.use(i18n);

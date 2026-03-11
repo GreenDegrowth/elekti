@@ -83,6 +83,7 @@
     "hideAxes": "Hide issues",
     "copyResults": "Copy shareable link",
     "resultsCopied": "Link copied",
+    "copyFailed": "Copy failed",
     "retakeQuiz": "Answer again",
     "backToHome": "Back to start",
     "learnMore": "Learn more about {party}",
