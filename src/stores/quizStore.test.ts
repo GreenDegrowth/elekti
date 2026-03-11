@@ -26,10 +26,10 @@ vi.mock("vue-i18n", () => ({
 }));
 
 vi.mock("../data/questions.json", () => {
-  const questions = Array.from({ length: 55 }, (_, index) => ({
+  const questions = Array.from({ length: 30 }, (_, index) => ({
     id: `q${index + 1}`,
     textKey: `questions.q${index + 1}.text`,
-    axis: `axis${(index % 12) + 1}`,
+    axis: `axis${(index % 10) + 1}`,
     weight: 1.5,
     options: [
       { value: 1, label: "Strongly agree" },
@@ -80,9 +80,9 @@ describe("quizStore", () => {
       expect(store.completed).toBe(false);
     });
 
-    it("should load 55 questions", () => {
+    it("should load 30 questions", () => {
       const store = useQuizStore();
-      expect(store.questions.length).toBe(55);
+      expect(store.questions.length).toBe(30);
     });
     it("should have all parties loaded", () => {
       const store = useQuizStore();
@@ -124,7 +124,7 @@ describe("quizStore", () => {
     it("should mark as completed when reaching last question", () => {
       const store = useQuizStore();
 
-      for (let index = 0; index < 55; index++) {
+      for (let index = 0; index < 30; index++) {
         store.nextQuestion();
       }
       expect(store.completed).toBe(true);
@@ -207,7 +207,7 @@ describe("quizStore", () => {
 
     it("should preserve unanswered questions as missing entries", () => {
       const store = useQuizStore();
-      const encoded = makeEncodedAnswers([2, undefined, 4], 55);
+      const encoded = makeEncodedAnswers([2, undefined, 4], 30);
       const result = store.loadAnswersFromUrl(encoded);
 
       expect(result.success).toBe(true);
@@ -218,8 +218,8 @@ describe("quizStore", () => {
 
     it("should set completed flag when all answers loaded", () => {
       const store = useQuizStore();
-      const allAnswers = Array.from({ length: 55 }, (_, index) => index % 5);
-      const encoded = makeEncodedAnswers(allAnswers, 55);
+      const allAnswers = Array.from({ length: 30 }, (_, index) => index % 5);
+      const encoded = makeEncodedAnswers(allAnswers, 30);
       const result = store.loadAnswersFromUrl(encoded);
 
       expect(result.success).toBe(true);
@@ -228,7 +228,7 @@ describe("quizStore", () => {
 
     it("should not set completed if partial answers", () => {
       const store = useQuizStore();
-      const encoded = makeEncodedAnswers([0, 1, 2, 3, 4, 0, 0, 0, 0, 0], 55);
+      const encoded = makeEncodedAnswers([0, 1, 2, 3, 4, 0, 0, 0, 0, 0], 30);
       const result = store.loadAnswersFromUrl(encoded);
 
       expect(result.success).toBe(true);

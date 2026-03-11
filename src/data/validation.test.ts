@@ -16,17 +16,10 @@ import af from "./translations/af.json";
 import en from "./translations/en.json";
 
 const DOCUMENTED_NEGATIVE_DIRECTION_QUESTIONS = new Set([
-  "q2",
-  "q4",
+  "q3",
   "q9",
-  "q11",
-  "q19",
-  "q21",
-  "q23",
-  "q38",
-  "q39",
-  "q40",
-  "q43",
+  "q15",
+  "q30",
 ]);
 
 describe("Data Validation", () => {

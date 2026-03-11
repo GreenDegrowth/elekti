@@ -163,7 +163,7 @@ describe("i18n", () => {
       }
     });
 
-    it("should have all 50 questions in each locale", async () => {
+    it("should have all questions in each locale", async () => {
       const { i18n, loadAFTranslations } = await import("./i18n");
       await loadAFTranslations();
       const messages = i18n.global.messages.value as Record<string, unknown>;
@@ -176,9 +176,9 @@ describe("i18n", () => {
           >) || {};
         const questionKeys = Object.keys(questions);
 
-        expect(questionKeys).toHaveLength(55);
+        expect(questionKeys).toHaveLength(30);
         expect(questionKeys).toContain("q1");
-        expect(questionKeys).toContain("q55");
+        expect(questionKeys).toContain("q30");
       }
     });
   });

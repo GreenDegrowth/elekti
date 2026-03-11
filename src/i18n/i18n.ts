@@ -52,6 +52,7 @@ export const i18n = createI18n({
 export const loadAFTranslations = async () => {
   if (!messages.af) {
     messages.af = await loadAfrikaansTranslations();
+    i18n.global.setLocaleMessage("af", messages.af);
   }
   return messages.af;
 };

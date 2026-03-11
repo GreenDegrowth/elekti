@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { i18n } from "../i18n/i18n";
 
 type Locale = "en" | "af";
-export const SURVEY_MODES = ["quick", "balanced", "full"] as const;
+export const SURVEY_MODES = ["metro"] as const;
 export type SurveyMode = (typeof SURVEY_MODES)[number];
 export function isSurveyMode(m: string): m is SurveyMode {
   return (SURVEY_MODES as readonly string[]).includes(m);
@@ -19,7 +19,7 @@ export const useUiStore = defineStore("ui", () => {
       : undefined;
   const storedMode = isSurveyMode(rawStoredMode || "")
     ? (rawStoredMode as SurveyMode)
-    : ("full" as SurveyMode);
+    : ("metro" as SurveyMode);
   const mode = ref<SurveyMode>(storedMode);
 
   function setLang(langCode: Locale) {

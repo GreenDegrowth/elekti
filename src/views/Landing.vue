@@ -1,34 +1,22 @@
 <script setup lang="ts">
   import { Info, Lock, Vote } from "lucide-vue-next";
-  import { computed } from "vue";
   import { useRouter } from "vue-router";
   import { useQuizStore } from "../stores/quizStore";
-  import { useUiStore, type SurveyMode } from "../stores/uiStore";
 
   const router = useRouter();
   const quizStore = useQuizStore();
-  const ui = useUiStore();
-  const selectedMode = computed<SurveyMode>({
-    get() {
-      return ui.mode;
-    },
-    set(v: SurveyMode) {
-      ui.setMode(v);
-    },
-  });
-
   const isDev = import.meta.env.DEV;
 
   function startQuiz() {
-    quizStore.loadSurvey(ui.mode);
+    quizStore.loadSurvey("metro");
     router.push("/quiz");
   }
 
-  function devFillRandomForMode(mode: SurveyMode) {
+  function devFillRandom() {
     if (!isDev) {
       return;
     }
-    quizStore.loadSurvey(mode);
+    quizStore.loadSurvey("metro");
     const questions = quizStore.getQuestions();
     const optionCount = 5;
     for (const question of questions) {
@@ -47,92 +35,14 @@
         <h1 class="landing__title">{{ $t("landing.title") }}</h1>
         <p class="landing__subtitle">{{ $t("landing.subtitle") }}</p>
 
-        <div class="landing__modes" role="radiogroup" aria-label="Quiz length">
-          <label
-            class="landing__mode"
-            :class="{ 'landing__mode--active': selectedMode === 'quick' }"
-            role="radio"
-            :aria-checked="selectedMode === 'quick'"
-          >
-            <input
-              type="radio"
-              name="mode"
-              value="quick"
-              :checked="selectedMode === 'quick'"
-              @change="selectedMode = 'quick'"
-            />
-            <span class="landing__mode-title">{{
-              $t("landing.modes.quick.title")
-            }}</span>
-            <span class="landing__mode-desc">{{
-              $t("landing.modes.quick.desc")
-            }}</span>
-          </label>
-          <label
-            class="landing__mode"
-            :class="{ 'landing__mode--active': selectedMode === 'balanced' }"
-            role="radio"
-            :aria-checked="selectedMode === 'balanced'"
-          >
-            <input
-              type="radio"
-              name="mode"
-              value="balanced"
-              :checked="selectedMode === 'balanced'"
-              @change="selectedMode = 'balanced'"
-            />
-            <span class="landing__mode-title">{{
-              $t("landing.modes.balanced.title")
-            }}</span>
-            <span class="landing__mode-desc">{{
-              $t("landing.modes.balanced.desc")
-            }}</span>
-          </label>
-          <label
-            class="landing__mode"
-            :class="{ 'landing__mode--active': selectedMode === 'full' }"
-            role="radio"
-            :aria-checked="selectedMode === 'full'"
-          >
-            <input
-              type="radio"
-              name="mode"
-              value="full"
-              :checked="selectedMode === 'full'"
-              @change="selectedMode = 'full'"
-            />
-            <span class="landing__mode-title">{{
-              $t("landing.modes.full.title")
-            }}</span>
-            <span class="landing__mode-desc">{{
-              $t("landing.modes.full.desc")
-            }}</span>
-          </label>
-        </div>
-
         <button @click="startQuiz" class="landing__cta">
           <Vote :size="24" />
           {{ $t("landing.startButton") }}
         </button>
 
         <div v-if="isDev" class="landing__dev-row">
-          <button
-            class="landing__dev-button"
-            @click="devFillRandomForMode('quick')"
-          >
-            🔧 DEV: Quick → Results
-          </button>
-          <button
-            class="landing__dev-button"
-            @click="devFillRandomForMode('balanced')"
-          >
-            🔧 DEV: Balanced → Results
-          </button>
-          <button
-            class="landing__dev-button"
-            @click="devFillRandomForMode('full')"
-          >
-            🔧 DEV: Full → Results
+          <button class="landing__dev-button" @click="devFillRandom()">
+            🔧 DEV: Metro → Results
           </button>
         </div>
 
@@ -261,67 +171,6 @@
     line-height: var(--line-height-relaxed);
     margin-bottom: var(--space-xl);
     max-width: 620px;
-  }
-
-  .landing__modes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-  }
-
-  .landing__mode {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-2xs);
-    padding: var(--space-md);
-    border: 1px solid var(--color-border);
-    background: var(--color-surface);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    cursor: pointer;
-    transition: all var(--transition-base);
-  }
-
-  .landing__mode input[type="radio"] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  .landing__mode:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .landing__mode:focus-within {
-    outline: none;
-    box-shadow:
-      0 0 0 2px color-mix(in srgb, var(--color-secondary) 45%, transparent),
-      var(--shadow-md);
-  }
-
-  .landing__mode--active {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)) 0%,
-      var(--color-surface) 100%
-    );
-    box-shadow:
-      0 0 0 2px color-mix(in srgb, var(--color-primary) 45%, transparent),
-      var(--shadow-md);
-  }
-
-  .landing__mode-title {
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text-primary);
-  }
-
-  .landing__mode-desc {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
   }
 
   .landing__dev-row {
@@ -559,15 +408,6 @@
       margin-bottom: var(--space-lg);
     }
 
-    .landing__modes {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-sm);
-    }
-
-    .landing__mode {
-      padding: var(--space-sm) var(--space-md);
-    }
-
     .landing__cta {
       padding: var(--space-md) var(--space-lg);
       font-size: var(--font-size-sm);
@@ -595,10 +435,6 @@
 
     .landing__hero {
       padding: var(--space-md);
-    }
-
-    .landing__modes {
-      grid-template-columns: 1fr;
     }
   }
 </style>
