@@ -3,7 +3,7 @@
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
   import type { Party } from "../types";
-  import { AXIS_COLOR_THRESHOLDS } from "../utils/constants";
+  import { badgeTextColor, getAxisColor } from "../utils/colorUtils";
   import { getAxes } from "../utils/dataLoader";
 
   const props = defineProps<{
@@ -34,34 +34,9 @@
       .toSorted((a, b) => b.score - a.score);
   });
 
-  const toLinear = (c: number) =>
-    c <= 0.040_45 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-
-  function isLightColour(hex: string): boolean {
-    const r = Number.parseInt(hex.slice(1, 3), 16) / 255;
-    const g = Number.parseInt(hex.slice(3, 5), 16) / 255;
-    const b = Number.parseInt(hex.slice(5, 7), 16) / 255;
-    const L =
-      0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
-    return L > 0.179;
-  }
-
-  const badgeTextColor = computed(() =>
-    isLightColour(props.party.colour) ? "#1a1a1a" : "white"
+  const partyBadgeTextColor = computed(() =>
+    badgeTextColor(props.party.colour)
   );
-
-  const getAxisColor = (percentage: number): string => {
-    if (percentage >= AXIS_COLOR_THRESHOLDS.STRONG.percentage) {
-      return AXIS_COLOR_THRESHOLDS.STRONG.color;
-    }
-    if (percentage >= AXIS_COLOR_THRESHOLDS.MODERATE.percentage) {
-      return AXIS_COLOR_THRESHOLDS.MODERATE.color;
-    }
-    if (percentage >= AXIS_COLOR_THRESHOLDS.WEAK.percentage) {
-      return AXIS_COLOR_THRESHOLDS.WEAK.color;
-    }
-    return AXIS_COLOR_THRESHOLDS.NONE.color;
-  };
 
   const formatPercentage = (score: number): string => {
     const percentage = Math.max(0, score * 100);
@@ -75,7 +50,7 @@
       <h3 class="party-card__name">
         {{ party.nameKey ? $t(party.nameKey) : party.name }}
       </h3>
-      <span class="party-card__short" :style="{ color: badgeTextColor }">
+      <span class="party-card__short" :style="{ color: partyBadgeTextColor }">
         {{ party.short }}
       </span>
     </div>

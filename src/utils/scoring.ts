@@ -7,8 +7,9 @@ import type {
   QuestionMetadata,
   QuizResult,
 } from "../types";
-import { SCORING, STANDARD_OPTIONS } from "./constants";
-import { getAxes, getPartyPositions, getQuestions } from "./dataLoader";
+import { determineConfidence } from "./confidence";
+import { STANDARD_OPTIONS } from "./constants";
+import { getScoringData } from "./scoringData";
 
 export type {
   Axis,
@@ -20,34 +21,7 @@ export type {
   QuizResult,
 } from "../types";
 
-type ScoringData = {
-  axes: Axis[];
-  partyPositions: Record<string, Record<string, number>>;
-  questionsMetadata: QuestionMetadata[];
-  questionById: Map<string, QuestionMetadata>;
-};
-
-let cachedScoringData: ScoringData | undefined;
-
-export function clearScoringCache(): void {
-  cachedScoringData = undefined;
-}
-
-function getScoringData(): ScoringData {
-  if (cachedScoringData) {
-    return cachedScoringData;
-  }
-
-  const axes = getAxes();
-  const partyPositions = getPartyPositions();
-  const questionsMetadata = getQuestions();
-  const questionById = new Map(
-    questionsMetadata.map((question) => [question.id, question])
-  );
-
-  cachedScoringData = { axes, partyPositions, questionsMetadata, questionById };
-  return cachedScoringData;
-}
+export { clearScoringCache } from "./scoringData";
 
 export function computeScores(
   answers: Record<string, number>,
@@ -148,27 +122,18 @@ export function computeScores(
 
   const alternatives = partyScores.slice(1, 3);
 
-  let confidence: "high" | "medium" | "low" = "high";
-
   const topScore = primary.alignmentScore;
   const scoreSpread =
     alternatives.length > 0 && alternatives[0]
       ? topScore - alternatives[0].alignmentScore
       : topScore;
 
-  if (topScore < SCORING.LOW_CONFIDENCE_THRESHOLD) {
-    confidence = "low";
-  } else if (
-    topScore < SCORING.MEDIUM_CONFIDENCE_THRESHOLD ||
-    scoreSpread < SCORING.SPREAD_THRESHOLD
-  ) {
-    confidence = "medium";
-  }
-
-  const answerRate = Object.keys(answers).length / questionsMetadata.length;
-  if (answerRate < 0.2 && confidence === "high") {
-    confidence = "medium";
-  }
+  const confidence = determineConfidence(
+    topScore,
+    scoreSpread,
+    Object.keys(answers).length,
+    questionsMetadata.length
+  );
 
   const topAxes = getTopContributingAxes(primary, axes, axisWeightsPerParty);
   const answeredAxes = getAxisCoverage(answers, questionsMetadata, axes);
