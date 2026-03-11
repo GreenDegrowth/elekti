@@ -2,16 +2,12 @@ import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
 import { i18n } from "../i18n/i18n";
 
+import { useQuestionTranslation } from "../composables/useQuestionTranslation";
 import surveysData from "../data/surveys.json";
-import type { Question, QuestionMetadata, QuizResult } from "../types";
-import { STANDARD_OPTIONS } from "../utils/constants";
-import { getParties, getQuestions } from "../utils/dataLoader";
+import type { Question, QuizResult } from "../types";
+import { getParties } from "../utils/dataLoader";
 import { computeScores as computeScoresUtility } from "../utils/scoring";
-import {
-  decodeAndValidateAnswers,
-  encodeAnswerValuesToBase64Url,
-  UNANSWERED_VALUE,
-} from "../validators/answers";
+import { decodeAnswersFromUrl, encodeAnswers } from "../utils/urlCodec";
 import { useUiStore, type SurveyMode } from "./uiStore";
 
 export interface LoadAnswersResult {
@@ -30,45 +26,10 @@ export const useQuizStore = defineStore("quiz", () => {
   const selectedQuestionIds = ref<string[]>([]);
 
   const parties = getParties();
-
-  const t = i18n.global.t as unknown as (key: string) => string;
-
-  const translatedQuestionsCache = new Map<string, Question[]>();
-
-  function clearTranslationCache(): void {
-    translatedQuestionsCache.clear();
-  }
-
-  function loadQuestionsFromI18n(ids?: string[]): Question[] {
-    const locale = i18n.global.locale.value;
-    const idKey = ids && ids.length > 0 ? ids.join("|") : "all";
-    const cacheKey = `${locale}|${idKey}`;
-
-    if (translatedQuestionsCache.has(cacheKey)) {
-      return translatedQuestionsCache.get(cacheKey)!;
-    }
-
-    const base = getQuestions();
-    const filtered =
-      ids && ids.length > 0
-        ? ids
-            .map((id) => base.find((q) => q.id === id))
-            .filter((q): q is QuestionMetadata => !!q)
-        : base;
-
-    const translated = filtered.map((q: QuestionMetadata) => ({
-      ...q,
-      text: t(q.textKey),
-      textKey: q.textKey,
-      options: STANDARD_OPTIONS,
-    }));
-
-    translatedQuestionsCache.set(cacheKey, translated);
-    return translated;
-  }
+  const translator = useQuestionTranslation();
 
   function loadSurvey(newMode: SurveyMode, questionIdsOverride?: string[]) {
-    translatedQuestionsCache.clear();
+    translator.clearCache();
     mode.value = newMode;
     ui.setMode(newMode);
     const surveyLists = (
@@ -79,7 +40,7 @@ export const useQuizStore = defineStore("quiz", () => {
         ? questionIdsOverride
         : surveyLists?.[newMode] || [];
 
-    const q = loadQuestionsFromI18n(ids.length > 0 ? ids : undefined);
+    const q = translator.getTranslated(ids.length > 0 ? ids : undefined);
     selectedQuestionIds.value = q.map((qq) => qq.id);
     questions.value = q;
     reset();
@@ -91,12 +52,11 @@ export const useQuizStore = defineStore("quiz", () => {
   watch(
     () => i18n.global.locale.value,
     () => {
-      clearTranslationCache();
+      translator.clearCache();
       if (selectedQuestionIds.value.length === 0) {
         return;
       }
-      const refreshed = loadQuestionsFromI18n(selectedQuestionIds.value);
-      questions.value = refreshed;
+      questions.value = translator.getTranslated(selectedQuestionIds.value);
     }
   );
 
@@ -148,80 +108,36 @@ export const useQuizStore = defineStore("quiz", () => {
   }
 
   function encodeAnswersToUrl(): string {
-    const values = questions.value.map((q) => {
-      const answer = answers.value[q.id];
-      return answer === undefined ? UNANSWERED_VALUE : answer;
-    });
-
-    return encodeAnswerValuesToBase64Url(values);
+    return encodeAnswers(questions.value, answers.value);
   }
 
   function loadAnswersFromUrl(
     encoded: string,
     questionIdsParam?: string[]
   ): LoadAnswersResult {
-    if (!encoded) {
-      return { success: false, error: "No encoded answers provided" };
+    const questionIds =
+      questionIdsParam && questionIdsParam.length > 0
+        ? questionIdsParam
+        : questions.value.map((q) => q.id);
+
+    const availableIds = questions.value.map((q) => q.id);
+    const decoded = decodeAnswersFromUrl(encoded, questionIds, availableIds);
+
+    if (!decoded.success || !decoded.answers) {
+      return { success: false, error: decoded.error };
     }
 
-    try {
-      const questionIds =
-        questionIdsParam && questionIdsParam.length > 0
-          ? questionIdsParam
-          : questions.value.map((q) => q.id);
+    answers.value = decoded.answers;
+    completed.value = decoded.restoredCount === questionIds.length;
 
-      const availableQuestionIds = new Set(questions.value.map((q) => q.id));
-      const invalidQuestionIds = questionIds.filter(
-        (id) => !availableQuestionIds.has(id)
-      );
-
-      if (invalidQuestionIds.length > 0) {
-        return {
-          success: false,
-          error: `Question ids not present in current survey: ${invalidQuestionIds.join(", ")}`,
-        };
-      }
-
-      if (questionIds.length === 0) {
-        return { success: false, error: "No questions available to decode" };
-      }
-
-      const result = decodeAndValidateAnswers(encoded, questionIds);
-
-      if (!result.success || !result.answers) {
-        return {
-          success: false,
-          error: result.error || "Encoded answers could not be decoded",
-        };
-      }
-
-      const allowedIds = new Set(questionIds);
-      const filtered = Object.fromEntries(
-        Object.entries(result.answers).filter(([id]) => allowedIds.has(id))
-      );
-
-      const restoredCount = Object.keys(filtered).length;
-
-      if (restoredCount === 0) {
-        return {
-          success: false,
-          error: "No valid answers found for the provided questions",
-        };
-      }
-
-      answers.value = filtered;
-      completed.value = restoredCount === allowedIds.size;
-
-      return {
-        success: true,
-        restoredCount,
-        completed: completed.value,
-      };
-    } catch {
-      return { success: false, error: "Failed to load encoded answers" };
-    }
+    return {
+      success: true,
+      restoredCount: decoded.restoredCount,
+      completed: completed.value,
+    };
   }
 
+  const t = i18n.global.t as unknown as (key: string) => string;
   watch(
     () => currentQuestionIndex.value,
     () => {
