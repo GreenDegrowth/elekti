@@ -347,7 +347,10 @@ describe("Data Validation", () => {
         const afKeys = Object.keys(
           (af as Record<string, unknown>)[section] as Record<string, unknown>
         ).toSorted();
-        expect(afKeys, `"${section}" section keys must match between en and af`).toEqual(enKeys);
+        expect(
+          afKeys,
+          `"${section}" section keys must match between en and af`
+        ).toEqual(enKeys);
       }
     });
   });

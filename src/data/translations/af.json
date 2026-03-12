@@ -176,9 +176,13 @@
       "desc": "Die African Christian Democratic Party bevorder Christelike waardes, konserwatiewe sosiale beleide en grondwetlike demokrasie.",
       "ideology": "Sentrumregs, Christelik-konserwatief"
     },
+    "cope": {
+      "desc": "Congress of the People bepleit verdienste-gebaseerde, ont-politiseerde plaaslike regering, met professionele munisipale administrasie, direkte aanspreeklikheid en sterker wykvlak-demokrasie.",
+      "ideology": "Sentrum, tegnokreatiese hervorming"
+    },
     "ufc": {
-      "desc": "Unite for Change is 'n samesmelting van RISE Mzansi, BOSA en GOOD. Dit fokus op grondvlak-mobilisering en die aanspreek van plaaslike gemeenskapskwessies deur progressiewe beleid.",
-      "ideology": "Sentristies, grondvlak"
+      "desc": "Unite for Change (UFC) is in Oktober 2025 gevorm uit die samesmelting van RISE Mzansi, BOSA en GOOD. Dit fokus op bekwame, verdienste-gebaseerde plaaslike bestuur, anti-korrupsie en universele toegang tot basiese dienste.",
+      "ideology": "Sentristies, goeie bestuur"
     },
     "udm": {
       "desc": "Die United Democratic Movement is 'n sosiale demokratiese party gefokus op skoon bestuur, anti-korrupsie en gebalanseerde ekonomiese beleide wat verdienste beloon.",

@@ -176,9 +176,13 @@
       "desc": "The African Christian Democratic Party promotes Christian values, conservative social policies, and constitutional democracy.",
       "ideology": "Centre-right, Christian conservative"
     },
+    "cope": {
+      "desc": "Congress of the People advocates for merit-based, depoliticised local government, with professional municipal administration, direct accountability, and stronger ward-level democracy.",
+      "ideology": "Centre, technocratic reform"
+    },
     "ufc": {
-      "desc": "Unite for Change is a merger of RISE Mzansi, BOSA, and GOOD. It focuses on grassroots mobilisation and addressing local community concerns through progressive policies.",
-      "ideology": "Centrist, grassroots"
+      "desc": "Unite for Change (UFC) was formed from the merger of RISE Mzansi, BOSA, and GOOD in October 2025. It focuses on capable, merit-based local governance, anti-corruption, and universal access to basic services.",
+      "ideology": "Centrist, good governance"
     },
     "udm": {
       "desc": "The United Democratic Movement is a social democratic party focused on clean governance, anti-corruption, and balanced economic policies that reward merit.",

@@ -27,6 +27,15 @@
     "website": "https://www.anc1912.org.za/"
   },
   {
+    "id": "cope",
+    "short": "COPE",
+    "name": "Congress of the People",
+    "descriptionKey": "party.cope.desc",
+    "ideologyKey": "party.cope.ideology",
+    "colour": "#1B6CA8",
+    "website": "https://cope.org.za/"
+  },
+  {
     "id": "atm",
     "short": "ATM",
     "name": "African Transformation Movement",
