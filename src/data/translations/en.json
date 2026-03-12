@@ -106,7 +106,7 @@
     "methodology": "How this tool is built",
     "methodologyText": "Elekti is rooted in South African policy documents, municipal governance records, and public statements. We score across 10 issue areas specific to local government. The maths is deterministic and transparent.",
     "howItWorks": "What you answer",
-    "howItWorksText": "30 questions cover service delivery, financial accountability, housing and informal settlements, rates and tariffs, coalition governance, public transport, urban densification, local policing, community participation, and local economic development. Each question links to an issue axis. You answer, we map your stance, and we compare it to each party's stated position.",
+    "howItWorksText": "30 questions cover service delivery, financial accountability, housing and informal settlements, rates and tariffs, coalition governance, public transport, land use and densification, local policing, community participation, and local economic development. Each question links to an issue axis. You answer, we map your stance, and we compare it to each party's stated position.",
     "scoring": "How we score",
     "scoringText": "For every axis we calculate similarity between your answers and each party, weight by question importance, normalise by the questions you answered, then average across all axes. Scores are percentages; confidence reflects how clear the gap is between your top match and the rest.",
     "transparency": "Open data, no surprises",
@@ -229,7 +229,7 @@
       "short": "Public Transport"
     },
     "land_densification": {
-      "short": "Urban Densification"
+      "short": "Land Use & Densification"
     },
     "metro_safety": {
       "short": "Local Safety"
@@ -278,7 +278,7 @@
       "axis": "settlement_housing"
     },
     "q8": {
-      "text": "Municipalities should prioritise building subsidised social rental housing near employment centres and public transport corridors.",
+      "text": "Municipalities should prioritise building subsidised social rental housing near employment centres and public transport routes.",
       "axis": "settlement_housing"
     },
     "q9": {
@@ -310,7 +310,7 @@
       "axis": "coalition_governance"
     },
     "q16": {
-      "text": "Municipalities should invest in formal rapid transit networks even where this disrupts existing minibus taxi routes.",
+      "text": "Municipalities should invest in formal public transport networks even where this disrupts existing minibus taxi routes.",
       "axis": "public_transport"
     },
     "q17": {
@@ -322,7 +322,7 @@
       "axis": "public_transport"
     },
     "q19": {
-      "text": "Residential areas should be rezoned to allow higher-density development near transit and rail corridors.",
+      "text": "Residential areas should be rezoned to allow higher-density development near public transport routes.",
       "axis": "land_densification"
     },
     "q20": {
@@ -330,7 +330,7 @@
       "axis": "land_densification"
     },
     "q21": {
-      "text": "Heritage and neighbourhood-character protections should not be allowed to block densification in well-located suburbs.",
+      "text": "Heritage and neighbourhood-character protections should not be allowed to block higher-density development in well-located residential areas.",
       "axis": "land_densification"
     },
     "q22": {
