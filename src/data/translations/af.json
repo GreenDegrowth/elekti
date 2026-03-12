@@ -106,7 +106,7 @@
     "methodology": "Hoe hierdie hulpmiddel gebou is",
     "methodologyText": "Elekti rus op Suid-Afrikaanse beleidsdokumente, munisipale bestuursrekords en openbare verklarings. Ons meet oor 10 kwessie-areas spesifiek vir plaaslike regering. Die wiskunde is deursigtig en vas.",
     "howItWorks": "Wat jy beantwoord",
-    "howItWorksText": "30 vrae dek dienslewering, finansiële aanspreeklikheid, behuising en informele nedersettings, tariewe, koalisiebestuur, openbare vervoer, stedelike verdichting, plaaslike polisiëring, gemeenskapsdeelname en plaaslike ekonomiese ontwikkeling. Elke vraag koppel na 'n kwessie-as. Jy antwoord; ons karteer jou standpunt; ons vergelyk dit met elke party se gepubliseerde posisie.",
+    "howItWorksText": "30 vrae dek dienslewering, finansiële aanspreeklikheid, behuising en informele nedersettings, tariewe, koalisiebestuur, openbare vervoer, grondgebruik en verdichting, plaaslike polisiëring, gemeenskapsdeelname en plaaslike ekonomiese ontwikkeling. Elke vraag koppel na 'n kwessie-as. Jy antwoord; ons karteer jou standpunt; ons vergelyk dit met elke party se gepubliseerde posisie.",
     "scoring": "Hoe ons score",
     "scoringText": "Vir elke as bereken ons ooreenstemming tussen jou antwoorde en elke party, weeg dit volgens vraagbelang, normaliseer volgens die vrae wat jy beantwoord het, en neem dan die gemiddelde oor alle asse. Punte is persentasies; vertroue wys hoe duidelik die gaping tussen jou top-passing en die res is.",
     "transparency": "Oop data, geen verrassings",
@@ -229,7 +229,7 @@
       "short": "Openbare Vervoer"
     },
     "land_densification": {
-      "short": "Stedelike Verdichting"
+      "short": "Grondgebruik & Verdichting"
     },
     "metro_safety": {
       "short": "Plaaslike Veiligheid"
@@ -278,7 +278,7 @@
       "axis": "settlement_housing"
     },
     "q8": {
-      "text": "Munisipaliteite moet die bou van gesubsidieerde sosiale huurbehuising naby werksgebiede en openbare vervoerkorridors prioritiseer.",
+      "text": "Munisipaliteite moet die bou van gesubsidieerde sosiale huurbehuising naby werksgebiede en openbare vervoerroetes prioritiseer.",
       "axis": "settlement_housing"
     },
     "q9": {
@@ -310,7 +310,7 @@
       "axis": "coalition_governance"
     },
     "q16": {
-      "text": "Munisipaliteite moet in formele snelvervoernetwerke belê, selfs waar dit bestaande minibustaxiroetes ontwrig.",
+      "text": "Munisipaliteite moet in formele openbare vervoernetwerke belê, selfs waar dit bestaande minibustaxiroetes ontwrig.",
       "axis": "public_transport"
     },
     "q17": {
@@ -322,7 +322,7 @@
       "axis": "public_transport"
     },
     "q19": {
-      "text": "Residensiële gebiede moet hersoneer word om hoëdigtheid-ontwikkeling naby vervoer- en spoorkorridors toe te laat.",
+      "text": "Residensiële gebiede moet hersoneer word om hoëdigtheid-ontwikkeling naby openbare vervoerroetes toe te laat.",
       "axis": "land_densification"
     },
     "q20": {
@@ -330,7 +330,7 @@
       "axis": "land_densification"
     },
     "q21": {
-      "text": "Erfenis- en buurtkarakter-beskermings moet nie toegelaat word om verdichting in goeie-ligging-voorstede te blokkeer nie.",
+      "text": "Erfenis- en buurtkarakter-beskermings moet nie toegelaat word om hoëdigtheid-ontwikkeling in goed-geleë woongebiede te blokkeer nie.",
       "axis": "land_densification"
     },
     "q22": {
