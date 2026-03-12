@@ -27,7 +27,7 @@ npx vitest run src/utils/scoring.test.ts
 
 All static data lives in `src/data/` as JSON and is imported at build time:
 
-- `questions.json` — 55 questions with `id`, `textKey`, `axis`, `weight`, optional `direction: "negative"`
+- `questions.json` — 30 questions with `id`, `textKey`, `axis`, `weight`, optional `direction: "negative"`
 - `axes.json` — 10 political axes
 - `parties.json` — 16 parties with colour, website, i18n key references
 - `party_positions.json` — per-party scores per axis (0–1 scale, normalised)
