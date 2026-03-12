@@ -503,7 +503,39 @@
 
     .result-breakdown__table-header,
     .result-breakdown__table-row {
-      grid-template-columns: 32px minmax(150px, 1fr) 90px;
+      grid-template-columns: 32px 1fr 75px;
+      gap: var(--space-sm);
+    }
+
+    .result-breakdown__party-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+
+    .result-breakdown__party-name {
+      font-size: var(--font-size-sm);
+    }
+
+    .result-breakdown__party-short {
+      padding: var(--space-xs) var(--space-xs);
+      font-size: var(--font-size-xs);
+      align-self: flex-start;
+    }
+
+    .result-breakdown__score-bar-wrapper {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .result-breakdown__score-bar {
+      min-height: var(--bar-height-sm);
+    }
+
+    .result-breakdown__score-text {
+      font-size: var(--font-size-sm);
+      min-width: auto;
+      text-align: left;
     }
 
     .result-breakdown__table-cell--ideology {
