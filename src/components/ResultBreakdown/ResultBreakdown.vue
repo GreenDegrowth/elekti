@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import type { PartyScore } from "../types";
-  import PartyCard from "./PartyCard.vue";
+  import type { PartyScore } from "../../types";
+  import PartyCard from "../PartyCard/PartyCard.vue";
 
   defineProps<{
     scores: PartyScore[];

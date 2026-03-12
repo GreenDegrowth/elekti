@@ -2,9 +2,9 @@
   import { ChevronDown, ExternalLink } from "lucide-vue-next";
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
-  import type { Party } from "../types";
-  import { badgeTextColor, getAxisColor } from "../utils/colorUtils";
-  import { getAxes } from "../utils/dataLoader";
+  import type { Party } from "../../types";
+  import { badgeTextColor, getAxisColor } from "../../utils/colorUtils";
+  import { getAxes } from "../../utils/dataLoader";
 
   const props = defineProps<{
     party: Party;

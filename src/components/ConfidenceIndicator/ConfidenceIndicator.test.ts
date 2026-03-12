@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
-import { createTestI18n } from "../test-utils/i18n";
+import { createTestI18n } from "../../test-utils/i18n";
 import ConfidenceIndicator from "./ConfidenceIndicator.vue";
 
 vi.mock("lucide-vue-next", () => ({

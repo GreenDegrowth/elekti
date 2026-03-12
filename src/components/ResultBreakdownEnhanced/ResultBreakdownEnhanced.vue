@@ -2,8 +2,8 @@
   import { ArrowUpDown, LayoutGrid, Table } from "lucide-vue-next";
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
-  import type { PartyScore } from "../types";
-  import PartyCard from "./PartyCard.vue";
+  import type { PartyScore } from "../../types";
+  import PartyCard from "../PartyCard/PartyCard.vue";
 
   const props = defineProps<{
     scores: PartyScore[];

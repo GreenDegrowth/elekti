@@ -2,8 +2,8 @@
   import { ChevronLeft, ChevronRight } from "lucide-vue-next";
   import { computed, onBeforeUnmount, onMounted, ref } from "vue";
   import { useRouter } from "vue-router";
-  import ProgressBar from "../components/ProgressBar.vue";
-  import QuizQuestion from "../components/QuizQuestion.vue";
+  import ProgressBar from "../components/ProgressBar/ProgressBar.vue";
+  import QuizQuestion from "../components/QuizQuestion/QuizQuestion.vue";
   import { useQuizStore } from "../stores/quizStore";
   import { TIMING } from "../utils/constants";
 

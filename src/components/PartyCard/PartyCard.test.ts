@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
-import { createTestI18n } from "../test-utils/i18n";
-import type { Party } from "../types";
+import { createTestI18n } from "../../test-utils/i18n";
+import type { Party } from "../../types";
 import PartyCard from "./PartyCard.vue";
 
 vi.mock("lucide-vue-next", () => ({
@@ -9,14 +9,14 @@ vi.mock("lucide-vue-next", () => ({
   ExternalLink: { template: "<span />" },
 }));
 
-vi.mock("../utils/dataLoader", () => ({
+vi.mock("../../utils/dataLoader", () => ({
   getAxes: () => [
     { id: "axis1", name: "Economy", shortNameKey: "axes.axis1.short" },
     { id: "axis2", name: "Society", shortNameKey: "axes.axis2.short" },
   ],
 }));
 
-vi.mock("../utils/colorUtils", () => ({
+vi.mock("../../utils/colorUtils", () => ({
   badgeTextColor: () => "#ffffff",
   getAxisColor: () => "#1f7a51",
 }));

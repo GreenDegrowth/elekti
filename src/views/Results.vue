@@ -3,10 +3,10 @@
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
   import { useRouter } from "vue-router";
-  import ConfidenceIndicator from "../components/ConfidenceIndicator.vue";
-  import PartyCard from "../components/PartyCard.vue";
-  import PartyComparison from "../components/PartyComparison.vue";
-  import ResultBreakdownEnhanced from "../components/ResultBreakdownEnhanced.vue";
+  import ConfidenceIndicator from "../components/ConfidenceIndicator/ConfidenceIndicator.vue";
+  import PartyCard from "../components/PartyCard/PartyCard.vue";
+  import PartyComparison from "../components/PartyComparison/PartyComparison.vue";
+  import ResultBreakdownEnhanced from "../components/ResultBreakdownEnhanced/ResultBreakdownEnhanced.vue";
   import { useResultsLoader } from "../composables/useResultsLoader";
   import { useQuizStore } from "../stores/quizStore";
   import type { PartyScore, Question } from "../types";

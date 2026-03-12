@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
-import type { Question } from "../types";
+import type { Question } from "../../types";
 import QuizQuestion from "./QuizQuestion.vue";
 
 vi.mock("vue-i18n", () => ({
@@ -18,7 +18,7 @@ vi.mock("vue-i18n", () => ({
   }),
 }));
 
-vi.mock("./QuizOption.vue", () => ({
+vi.mock("../QuizOption/QuizOption.vue", () => ({
   default: {
     name: "QuizOption",
     template: `<button class="quiz-option" :data-selected="isSelected" @click="$emit('select')">{{ label }}</button>`,
