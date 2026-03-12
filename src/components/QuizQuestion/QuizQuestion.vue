@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed, ref, watch } from "vue";
+  import { computed } from "vue";
   import { useI18n } from "vue-i18n";
   import type { Question } from "../../types";
   import QuizOption from "../QuizOption/QuizOption.vue";
@@ -15,7 +15,6 @@
   }>();
 
   const { t } = useI18n();
-  const selectedOption = ref<number | undefined>(properties.modelValue);
   const questionLabelId = computed(() => `${properties.question.id}-label`);
 
   const optionLabels = computed(() => [
@@ -26,18 +25,10 @@
     t("options.stronglyDisagree"),
   ]);
 
-  watch(
-    () => properties.modelValue,
-    (newValue) => {
-      selectedOption.value = newValue;
-    }
-  );
-
   function selectOption(index: number) {
     if (properties.disabled) {
       return;
     }
-    selectedOption.value = index;
     emit("update:modelValue", index);
   }
 </script>
@@ -58,7 +49,7 @@
         v-for="(option, index) in optionLabels"
         :key="index"
         :label="option"
-        :is-selected="selectedOption === index"
+        :is-selected="modelValue === index"
         :disabled="disabled"
         @select="selectOption(index)"
       />

@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { HelpCircle, TrendingDown, TrendingUp } from "lucide-vue-next";
   import { onBeforeUnmount, onMounted, ref } from "vue";
-  import { useI18n } from "vue-i18n";
 
   defineProps<{
     confidence: "high" | "medium" | "low";
@@ -9,7 +8,6 @@
     alternativeScores: number[];
   }>();
 
-  useI18n();
   const showTooltip = ref(false);
 
   function handleDocumentClick() {

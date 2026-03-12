@@ -31,9 +31,17 @@ describe("Router", () => {
       expect(aboutRoute?.components?.default).toBeDefined();
     });
 
-    it("should have exactly 4 routes", () => {
+    it("should have exactly 5 routes", () => {
       const routes = router.getRoutes();
-      expect(routes).toHaveLength(4);
+      expect(routes).toHaveLength(5);
+    });
+
+    it("should have a catch-all route that redirects to /", () => {
+      const catchAll = router
+        .getRoutes()
+        .find((r) => r.path === "/:pathMatch(.*)*");
+      expect(catchAll).toBeDefined();
+      expect(catchAll?.redirect).toBe("/");
     });
   });
 
