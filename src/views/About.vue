@@ -213,13 +213,6 @@
     letter-spacing: var(--letter-spacing-lg);
   }
 
-  .about__data-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    margin-top: var(--space-md);
-  }
-
   .about__data-link {
     display: inline-flex;
     align-items: center;

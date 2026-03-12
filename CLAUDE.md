@@ -28,7 +28,7 @@ npx vitest run src/utils/scoring.test.ts
 All static data lives in `src/data/` as JSON and is imported at build time:
 
 - `questions.json` — 55 questions with `id`, `textKey`, `axis`, `weight`, optional `direction: "negative"`
-- `axes.json` — 12 political axes
+- `axes.json` — 10 political axes
 - `parties.json` — 16 parties with colour, website, i18n key references
 - `party_positions.json` — per-party scores per axis (0–1 scale, normalised)
 - `surveys.json` — question ID lists per survey mode. Currently only one mode exists: `metro` (30 questions). The `surveys` key is a `Record<string, string[]>`, validated by `SurveysFileSchema`.
@@ -75,7 +75,7 @@ Results are encoded into the URL as three query params:
 
 **New question:** add metadata to `questions.json`, question text to both translation files under `questions.qN.text`, add it to relevant survey lists in `surveys.json`, and set party positions in `party_positions.json` for its axis.
 
-**New party:** add to `parties.json` and `party_positions.json` (all 12 axes), add `party.<id>.desc` and `party.<id>.ideology` keys to both translation files.
+**New party:** add to `parties.json` and `party_positions.json` (all 10 axes), add `party.<id>.desc` and `party.<id>.ideology` keys to both translation files.
 
 **New i18n key:** add to `en.json` first (it is the type source), then mirror in `af.json`. The build will type-check coverage.
 

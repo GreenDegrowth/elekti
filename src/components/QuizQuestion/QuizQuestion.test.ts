@@ -87,4 +87,16 @@ describe("QuizQuestion", () => {
       "quiz-question__options--disabled"
     );
   });
+
+  it("reflects updated modelValue when parent changes the prop", async () => {
+    const wrapper = mount(QuizQuestion, {
+      props: { question: mockQuestion, modelValue: 1 },
+    });
+    const options = wrapper.findAll(".quiz-option");
+    expect(options[1].attributes("data-selected")).toBe("true");
+
+    await wrapper.setProps({ modelValue: 4 });
+    expect(options[1].attributes("data-selected")).toBe("false");
+    expect(options[4].attributes("data-selected")).toBe("true");
+  });
 });

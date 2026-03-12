@@ -16,8 +16,7 @@
   const quizStore = useQuizStore();
   const { t } = useI18n();
   const { result, error, loading } = useResultsLoader();
-  const copied = ref(false);
-  const copyFailed = ref(false);
+  const copyState = ref<"idle" | "success" | "failed">("idle");
   const showComparison = ref(false);
   const comparisonParties = ref<PartyScore[]>([]);
 
@@ -78,15 +77,15 @@
 
       navigator.clipboard.writeText(text).then(
         () => {
-          copied.value = true;
+          copyState.value = "success";
           setTimeout(() => {
-            copied.value = false;
+            copyState.value = "idle";
           }, 2000);
         },
         () => {
-          copyFailed.value = true;
+          copyState.value = "failed";
           setTimeout(() => {
-            copyFailed.value = false;
+            copyState.value = "idle";
           }, 2000);
         }
       );
@@ -170,18 +169,18 @@
             @click="copyResults"
             class="results__button results__button--secondary results__button--share-card"
             :aria-label="
-              copied
+              copyState === 'success'
                 ? $t('results.resultsCopied')
-                : copyFailed
+                : copyState === 'failed'
                   ? $t('results.copyFailed')
                   : $t('results.copyResults')
             "
           >
             <Copy :size="20" />
             {{
-              copied
+              copyState === "success"
                 ? $t("results.resultsCopied")
-                : copyFailed
+                : copyState === "failed"
                   ? $t("results.copyFailed")
                   : $t("results.copyResults")
             }}
