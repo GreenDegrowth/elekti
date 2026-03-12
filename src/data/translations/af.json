@@ -10,7 +10,7 @@
     "about": "Oor"
   },
   "landing": {
-    "title": "Pas jou stem by jou metro",
+    "title": "Pas jou stem by plaaslike regering",
     "subtitle": "30 vrae oor dienslewering, behuising, vervoer, veiligheid en koalisiebestuur. Sien watter partye by jou prioriteite vir die 2026 Plaaslike Regeringsverkiesings pas.",
     "startButton": "Begin die toets",
     "aboutLink": "Hoe ons werk",
@@ -18,12 +18,12 @@
     "modes": {
       "metro": {
         "title": "Plaaslike Verkiesings 2026",
-        "desc": "~10–15 min · metro-fokus"
+        "desc": "~10–15 min · plaaslike regering"
       }
     },
     "howItHelps": {
       "title": "Hoekom dit nou tel",
-      "intro": "Dienslewering, oudituitkomste, behuising, koalisies, vervoer, veiligheid. Vergelyk partye oor die kwessies wat elke dag saak maak in Suid-Afrika se metros.",
+      "intro": "Dienslewering, oudituitkomste, behuising, koalisies, vervoer, veiligheid. Vergelyk partye oor die kwessies wat elke dag saak maak in Suid-Afrika se munisipaliteite.",
       "benefit1": {
         "title": "Kyk verby slagspreuke",
         "text": "Sien werklike standpunte oor dienslewering, behuising, ouditkultuur, koalisie-ooreenkomste en vervoer — nie net plakkate nie."
@@ -104,9 +104,9 @@
   "about": {
     "title": "Oor Elekti",
     "methodology": "Hoe hierdie hulpmiddel gebou is",
-    "methodologyText": "Elekti rus op Suid-Afrikaanse beleidsdokumente, munisipale bestuursrekords en openbare verklarings. Ons meet oor 10 kwessie-areas spesifiek vir plaaslike regering en metropolitaanse rade. Die wiskunde is deursigtig en vas.",
+    "methodologyText": "Elekti rus op Suid-Afrikaanse beleidsdokumente, munisipale bestuursrekords en openbare verklarings. Ons meet oor 10 kwessie-areas spesifiek vir plaaslike regering. Die wiskunde is deursigtig en vas.",
     "howItWorks": "Wat jy beantwoord",
-    "howItWorksText": "30 vrae dek dienslewering, finansiële aanspreeklikheid, behuising en informele nedersettings, tariewe, koalisiebestuur, openbare vervoer, stedelike verdichting, metropolisiëring, gemeenskapsdeelname en plaaslike ekonomiese ontwikkeling. Elke vraag koppel na 'n kwessie-as. Jy antwoord; ons karteer jou standpunt; ons vergelyk dit met elke party se gepubliseerde posisie.",
+    "howItWorksText": "30 vrae dek dienslewering, finansiële aanspreeklikheid, behuising en informele nedersettings, tariewe, koalisiebestuur, openbare vervoer, stedelike verdichting, plaaslike polisiëring, gemeenskapsdeelname en plaaslike ekonomiese ontwikkeling. Elke vraag koppel na 'n kwessie-as. Jy antwoord; ons karteer jou standpunt; ons vergelyk dit met elke party se gepubliseerde posisie.",
     "scoring": "Hoe ons score",
     "scoringText": "Vir elke as bereken ons ooreenstemming tussen jou antwoorde en elke party, weeg dit volgens vraagbelang, normaliseer volgens die vrae wat jy beantwoord het, en neem dan die gemiddelde oor alle asse. Punte is persentasies; vertroue wys hoe duidelik die gaping tussen jou top-passing en die res is.",
     "transparency": "Oop data, geen verrassings",
@@ -124,7 +124,7 @@
     "analytics": "Liggewig statistiek",
     "analyticsText": "Ons gebruik privaatheidsvriendelike, koekielose statistiek net om te weet of mense besoek. Dit neem nie jou antwoorde op nie.",
     "parties": "Ingeslote partye",
-    "partiesText": "Ons lys groot partye wat in Suid-Afrika se metropolitaanse munisipaliteite meeding. As ons een mis, wys ons na hul gepubliseerde beleid.",
+    "partiesText": "Ons lys groot partye wat in Suid-Afrika se plaaslike munisipaliteite meeding. As ons een mis, wys ons na hul gepubliseerde beleid.",
     "disclaimer": "Riglyn, nie uitspraak nie",
     "disclaimerText": "Gebruik dit as 'n beginpunt. Lees manifeste, woon wykskomiteevergaderings by en toets ons data. Politiek skuif; jou oordeel ook.",
     "viewData": "Kyk na die rou lêers",
@@ -222,7 +222,7 @@
       "short": "Stedelike Verdichting"
     },
     "metro_safety": {
-      "short": "Metroveiligheid"
+      "short": "Plaaslike Veiligheid"
     },
     "community_participation": {
       "short": "Gemeenskapsdeelname"
@@ -248,11 +248,11 @@
       "axis": "service_delivery"
     },
     "q3": {
-      "text": "Metros moet met private beleggers vennoot deur langtermyn-kontsessies om verouderde water- en sanitasie-infrastruktuur op te gradeer en te bedryf.",
+      "text": "Munisipaliteite moet met private beleggers vennoot deur langtermyn-konsessies om verouderde water- en sanitasie-infrastruktuur op te gradeer en te bedryf.",
       "axis": "service_delivery"
     },
     "q4": {
-      "text": "Partye wat drie of meer opeenvolgende jare verwerping- of ongunstige ouditmenings ontvang, moet gediskwalifiseer word van leidende metro-koalisies.",
+      "text": "Partye wat drie of meer opeenvolgende jare verwerping- of ongunstige ouditmenings ontvang, moet gediskwalifiseer word van leidende munisipale koalisies.",
       "axis": "accountability"
     },
     "q5": {
@@ -260,7 +260,7 @@
       "axis": "accountability"
     },
     "q6": {
-      "text": "'n Toegewyde eenheid teen korrupsie, volledig onafhanklik van nasionale agentskappe en met ondersoek- en vervolgingsbevoegdheid, moet in elke metro gestig word.",
+      "text": "'n Toegewyde eenheid teen korrupsie, volledig onafhanklik van nasionale agentskappe en met ondersoek- en vervolgingsbevoegdheid, moet in elke munisipaliteit gestig word.",
       "axis": "accountability"
     },
     "q7": {
@@ -268,7 +268,7 @@
       "axis": "settlement_housing"
     },
     "q8": {
-      "text": "Metros moet die bou van gesubsidieerde sosiale huurbehuising naby werksgebiede en openbare vervoerkorridors prioritiseer.",
+      "text": "Munisipaliteite moet die bou van gesubsidieerde sosiale huurbehuising naby werksgebiede en openbare vervoerkorridors prioritiseer.",
       "axis": "settlement_housing"
     },
     "q9": {
@@ -280,7 +280,7 @@
       "axis": "tariffs_affordability"
     },
     "q11": {
-      "text": "Onwettige elektrisiteits- en waterverbindings in arm woongebiede moet deur metros geregulariseer en gesubsidieer word eerder as om dit af te sny.",
+      "text": "Onwettige elektrisiteits- en waterverbindings in arm woongebiede moet deur die munisipaliteit geregulariseer en gesubsidieer word eerder as om dit af te sny.",
       "axis": "tariffs_affordability"
     },
     "q12": {
@@ -288,7 +288,7 @@
       "axis": "tariffs_affordability"
     },
     "q13": {
-      "text": "Koalisie-ooreenkomste op metrovlak moet volledig openbaar, wetlik bindend wees en 'n meganisme vir die afdwing van nakoming insluit.",
+      "text": "Koalisie-ooreenkomste op plaaslike regeringsvlak moet volledig openbaar, wetlik bindend wees en 'n meganisme vir die afdwing van nakoming insluit.",
       "axis": "coalition_governance"
     },
     "q14": {
@@ -300,23 +300,23 @@
       "axis": "coalition_governance"
     },
     "q16": {
-      "text": "Metros moet Bus Rapid Transit (BRT)-netwerke aansienlik uitbrei, selfs waar dit bestaande minibustaxiroetes ontwrig.",
+      "text": "Munisipaliteite moet in formele snelvervoernetwerke belê, selfs waar dit bestaande minibustaxiroetes ontwrig.",
       "axis": "public_transport"
     },
     "q17": {
-      "text": "Minibustaksi-assosiasies moet formeel in metro-openbare-vervoernetwerke geïntegreer word met gereguleerde tariewe en roetes.",
+      "text": "Minibustaksi-assosiasies moet formeel in munisipale openbare vervoernetwerke geïntegreer word met gereguleerde tariewe en roetes.",
       "axis": "public_transport"
     },
     "q18": {
-      "text": "Metros moet swaar belê in veilige fiets- en voetgangerinfrastruktuur as 'n primêre pendelaarwyse.",
+      "text": "Munisipaliteite moet swaar belê in veilige fiets- en voetgangerinfrastruktuur as 'n primêre pendelaarwyse.",
       "axis": "public_transport"
     },
     "q19": {
-      "text": "Residensiële voorstede moet hersoneer word om hoëdigtheid-ontwikkeling naby BRT- en spoorkorridors toe te laat.",
+      "text": "Residensiële gebiede moet hersoneer word om hoëdigtheid-ontwikkeling naby vervoer- en spoorkorridors toe te laat.",
       "axis": "land_densification"
     },
     "q20": {
-      "text": "Groenveldontwikkelings op die metropolitaanse randgebied moet aktief gedeprioritiseer word ten gunste van binnestad-hernuwing.",
+      "text": "Groenveldontwikkelings op die stedelike en dorp-randgebied moet aktief gedeprioritiseer word ten gunste van stads- en dorp-kernhernuwing.",
       "axis": "land_densification"
     },
     "q21": {
@@ -324,11 +324,11 @@
       "axis": "land_densification"
     },
     "q22": {
-      "text": "Metropolitaanse polisiemagte moet aansienlik uitgebrei word en volle stedelike wetstoepassingsbevoegdhede kry, wat staatmaking op die SAPD in stede verminder.",
+      "text": "Munisipale wetstoepassingskapasiteit moet aansienlik uitgebrei word, wat staatmaking op die SAPD vir plaaslike veiligheid verminder.",
       "axis": "metro_safety"
     },
     "q23": {
-      "text": "Gemeenskapspolisiëringsforums moet formele mag hê om metro-polisiëringsprioriteite in hulle gebied te stel.",
+      "text": "Gemeenskapspolisiëringsforums moet formele mag hê om plaaslike polisiëringsprioriteite in hulle gebied te stel.",
       "axis": "metro_safety"
     },
     "q24": {
@@ -348,7 +348,7 @@
       "axis": "community_participation"
     },
     "q28": {
-      "text": "Metros moet aktief besigheidsbroeikas en gesubsidieerde opleidingsentrums bedryf om plaaslike werkskepping te bevorder.",
+      "text": "Munisipaliteite moet aktief besigheidsbroeikas en gesubsidieerde opleidingsentrums bedryf om plaaslike werkskepping te bevorder.",
       "axis": "local_economy"
     },
     "q29": {
@@ -356,7 +356,7 @@
       "axis": "local_economy"
     },
     "q30": {
-      "text": "Metro-ekonomiese ontwikkeling moet deur privaatsektorbelegging gelei word, met rade wat 'n gunstige regulatoriese omgewing eerder as direkte ingryping bied.",
+      "text": "Plaaslike ekonomiese ontwikkeling moet deur privaatsektorbelegging gelei word, met rade wat 'n gunstige regulatoriese omgewing eerder as direkte ingryping bied.",
       "axis": "local_economy"
     }
   },
