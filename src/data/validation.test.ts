@@ -328,6 +328,31 @@ describe("Data Validation", () => {
       const afAxes = Object.keys(af.axes || {}).toSorted();
       expect(afAxes).toEqual(enAxes);
     });
+
+    it("should have matching keys in all UI text sections", () => {
+      const sections = [
+        "landing",
+        "quiz",
+        "results",
+        "about",
+        "options",
+        "errors",
+        "footer",
+        "disclaimer",
+      ] as const;
+      for (const section of sections) {
+        const enKeys = Object.keys(
+          (en as Record<string, unknown>)[section] as Record<string, unknown>
+        ).toSorted();
+        const afKeys = Object.keys(
+          (af as Record<string, unknown>)[section] as Record<string, unknown>
+        ).toSorted();
+        expect(
+          afKeys,
+          `"${section}" section keys must match between en and af`
+        ).toEqual(enKeys);
+      }
+    });
   });
 
   describe("Data Consistency", () => {

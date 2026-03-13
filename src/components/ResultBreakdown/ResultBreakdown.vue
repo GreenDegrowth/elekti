@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import type { PartyScore } from "../types";
-  import PartyCard from "./PartyCard.vue";
+  import type { PartyScore } from "../../types";
+  import PartyCard from "../PartyCard/PartyCard.vue";
 
   defineProps<{
     scores: PartyScore[];
@@ -9,7 +9,9 @@
 
 <template>
   <div class="result-breakdown">
-    <h3 class="result-breakdown__title">{{ $t("results.otherParties") }}</h3>
+    <h3 class="result-breakdown__title" data-testid="result-breakdown-title">
+      {{ $t("results.otherParties") }}
+    </h3>
 
     <div class="result-breakdown__list">
       <PartyCard

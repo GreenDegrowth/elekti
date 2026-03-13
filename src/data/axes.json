@@ -28,7 +28,7 @@
       "id": "coalition_governance",
       "name": "Transparent & Structured Coalitions ↔ Executive Flexibility",
       "shortNameKey": "axes.coalition_governance.short",
-      "description": "Coalition politics at metro level. Positive (+1): Binding, public coalition agreements with accountability mechanisms. Negative (-1): Flexible, ad-hoc coalitions with executive discretion and informal deals."
+      "description": "Coalition politics at local government level. Positive (+1): Binding, public coalition agreements with accountability mechanisms. Negative (-1): Flexible, ad-hoc coalitions with executive discretion and informal deals."
     },
     {
       "id": "public_transport",
@@ -40,13 +40,13 @@
       "id": "land_densification",
       "name": "Densification & Transit-oriented ↔ Greenfield & Sprawl",
       "shortNameKey": "axes.land_densification.short",
-      "description": "Urban form and development. Positive (+1): Densification near transit corridors, inner-city regeneration, rezoning for higher density. Negative (-1): Greenfield peripheral development, suburban sprawl, heritage protection over density."
+      "description": "Urban and town form and development. Positive (+1): Densification near transit corridors, town and city centre regeneration, rezoning for higher density. Negative (-1): Greenfield peripheral development, sprawl, heritage protection over density."
     },
     {
       "id": "metro_safety",
-      "name": "Expanded Metro Police ↔ SAPS Reliance",
+      "name": "Expanded Municipal Policing ↔ SAPS Reliance",
       "shortNameKey": "axes.metro_safety.short",
-      "description": "Urban policing and safety. Positive (+1): Expanded metro police forces, community policing forums with formal power. Negative (-1): Reliance on national SAPS, national policing primacy in cities."
+      "description": "Local policing and safety. Positive (+1): Expanded municipal law enforcement, community policing forums with formal power. Negative (-1): Reliance on national SAPS, national policing primacy."
     },
     {
       "id": "community_participation",

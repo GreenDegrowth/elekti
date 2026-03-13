@@ -6,6 +6,7 @@
     Home,
     Lock,
     Users,
+    Vote,
   } from "lucide-vue-next";
   import { useQuizStore } from "../stores/quizStore";
 
@@ -40,6 +41,24 @@
             {{ $t("about.transparency") }}
           </h3>
           <p class="about__text">{{ $t("about.transparencyText") }}</p>
+        </div>
+      </section>
+
+      <section class="about__section">
+        <h2 class="about__section-title">
+          <Vote :size="24" />
+          {{ $t("about.ballot") }}
+        </h2>
+        <p class="about__text">{{ $t("about.ballotText") }}</p>
+
+        <div class="about__subsection">
+          <h3 class="about__subsection-title">{{ $t("about.wardBallot") }}</h3>
+          <p class="about__text">{{ $t("about.wardBallotText") }}</p>
+        </div>
+
+        <div class="about__subsection">
+          <h3 class="about__subsection-title">{{ $t("about.prBallot") }}</h3>
+          <p class="about__text">{{ $t("about.prBallotText") }}</p>
         </div>
       </section>
 
@@ -192,13 +211,6 @@
     margin-bottom: var(--space-md);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-lg);
-  }
-
-  .about__data-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    margin-top: var(--space-md);
   }
 
   .about__data-link {

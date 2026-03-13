@@ -23,6 +23,10 @@ const router = createRouter({
       name: "about",
       component: () => import("../views/About.vue"),
     },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/",
+    },
   ],
   scrollBehavior(to) {
     if (to.hash) {

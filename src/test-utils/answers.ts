@@ -3,12 +3,6 @@ import {
   UNANSWERED_VALUE,
 } from "../validators/answers";
 
-/**
- * Encode an array of answer values (with undefined for unanswered) into a
- * base64url string. Pads/truncates to `total` length.
- *
- * For use in unit tests only.
- */
 export function makeEncodedAnswers(
   values: Array<number | undefined>,
   total: number

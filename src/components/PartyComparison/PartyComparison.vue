@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { X } from "lucide-vue-next";
   import { useI18n } from "vue-i18n";
-  import type { PartyScore } from "../types";
-  import { getAxes } from "../utils/dataLoader";
+  import type { PartyScore } from "../../types";
+  import { getAxes } from "../../utils/dataLoader";
 
   defineProps<{
     parties: PartyScore[];

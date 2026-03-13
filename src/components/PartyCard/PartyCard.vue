@@ -2,9 +2,9 @@
   import { ChevronDown, ExternalLink } from "lucide-vue-next";
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
-  import type { Party } from "../types";
-  import { badgeTextColor, getAxisColor } from "../utils/colorUtils";
-  import { getAxes } from "../utils/dataLoader";
+  import type { Party } from "../../types";
+  import { badgeTextColor, getAxisColor } from "../../utils/colorUtils";
+  import { getAxes } from "../../utils/dataLoader";
 
   const props = defineProps<{
     party: Party;
@@ -59,7 +59,11 @@
       {{ $t(party.ideologyKey) }}
     </p>
 
-    <div v-if="score !== undefined" class="party-card__score">
+    <div
+      v-if="score !== undefined"
+      class="party-card__score"
+      data-testid="party-score"
+    >
       <div class="party-card__score-bar">
         <div
           class="party-card__score-fill"
@@ -78,6 +82,7 @@
       target="_blank"
       rel="noopener noreferrer"
       class="party-card__website"
+      data-testid="party-website"
     >
       {{ $t("party.visitWebsite") }}
       <ExternalLink :size="16" />
@@ -86,6 +91,7 @@
     <button
       v-if="axisScores && allAxisScores.length > 0 && score && score > 0"
       class="party-card__expand-button"
+      data-testid="party-expand"
       :class="{ 'party-card__expand-button--expanded': expanded }"
       @click="expanded = !expanded"
       :aria-expanded="expanded"
@@ -94,7 +100,11 @@
       <span>{{ $t(expanded ? "results.hideAxes" : "results.showAxes") }}</span>
     </button>
 
-    <div v-if="expanded && axisScores" class="party-card__axis-breakdown">
+    <div
+      v-if="expanded && axisScores"
+      class="party-card__axis-breakdown"
+      data-testid="party-axes"
+    >
       <div class="party-card__axis-list">
         <div
           v-for="axis in allAxisScores"

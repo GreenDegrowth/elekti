@@ -3,10 +3,10 @@
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
   import { useRouter } from "vue-router";
-  import ConfidenceIndicator from "../components/ConfidenceIndicator.vue";
-  import PartyCard from "../components/PartyCard.vue";
-  import PartyComparison from "../components/PartyComparison.vue";
-  import ResultBreakdownEnhanced from "../components/ResultBreakdownEnhanced.vue";
+  import ConfidenceIndicator from "../components/ConfidenceIndicator/ConfidenceIndicator.vue";
+  import PartyCard from "../components/PartyCard/PartyCard.vue";
+  import PartyComparison from "../components/PartyComparison/PartyComparison.vue";
+  import ResultBreakdownEnhanced from "../components/ResultBreakdownEnhanced/ResultBreakdownEnhanced.vue";
   import { useResultsLoader } from "../composables/useResultsLoader";
   import { useQuizStore } from "../stores/quizStore";
   import type { PartyScore, Question } from "../types";
@@ -16,8 +16,7 @@
   const quizStore = useQuizStore();
   const { t } = useI18n();
   const { result, error, loading } = useResultsLoader();
-  const copied = ref(false);
-  const copyFailed = ref(false);
+  const copyState = ref<"idle" | "success" | "failed">("idle");
   const showComparison = ref(false);
   const comparisonParties = ref<PartyScore[]>([]);
 
@@ -78,15 +77,15 @@
 
       navigator.clipboard.writeText(text).then(
         () => {
-          copied.value = true;
+          copyState.value = "success";
           setTimeout(() => {
-            copied.value = false;
+            copyState.value = "idle";
           }, 2000);
         },
         () => {
-          copyFailed.value = true;
+          copyState.value = "failed";
           setTimeout(() => {
-            copyFailed.value = false;
+            copyState.value = "idle";
           }, 2000);
         }
       );
@@ -124,6 +123,7 @@
       <div
         v-if="loading"
         class="results__loading"
+        data-testid="results-loading"
         role="status"
         aria-live="polite"
       >
@@ -169,19 +169,20 @@
           <button
             @click="copyResults"
             class="results__button results__button--secondary results__button--share-card"
+            data-testid="results-share"
             :aria-label="
-              copied
+              copyState === 'success'
                 ? $t('results.resultsCopied')
-                : copyFailed
+                : copyState === 'failed'
                   ? $t('results.copyFailed')
                   : $t('results.copyResults')
             "
           >
             <Copy :size="20" />
             {{
-              copied
+              copyState === "success"
                 ? $t("results.resultsCopied")
-                : copyFailed
+                : copyState === "failed"
                   ? $t("results.copyFailed")
                   : $t("results.copyResults")
             }}
@@ -219,6 +220,7 @@
           <button
             @click="retakeQuiz"
             class="results__button results__button--primary"
+            data-testid="results-retake"
           >
             <RotateCcw :size="20" />
             {{ $t("results.retakeQuiz") }}
@@ -235,6 +237,7 @@
       <div
         v-else-if="error"
         class="results__error"
+        data-testid="results-error"
         role="alert"
         aria-live="polite"
       >
@@ -243,6 +246,7 @@
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
+          data-testid="results-go-to-quiz"
           :aria-label="$t('landing.startButton')"
         >
           {{ $t("landing.startButton") }}
@@ -255,6 +259,7 @@
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
+          data-testid="results-go-to-quiz"
           :aria-label="$t('landing.startButton')"
         >
           {{ $t("landing.startButton") }}

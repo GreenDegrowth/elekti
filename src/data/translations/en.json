@@ -10,7 +10,7 @@
     "about": "About"
   },
   "landing": {
-    "title": "Match your vote to your metro",
+    "title": "Match your vote on local government",
     "subtitle": "30 questions on service delivery, housing, transport, safety, and coalition governance. See which parties align with your priorities for the 2026 Local Government Elections.",
     "startButton": "Start the quiz",
     "aboutLink": "How we work",
@@ -18,12 +18,12 @@
     "modes": {
       "metro": {
         "title": "Local Elections 2026",
-        "desc": "~10–15 min · metro focus"
+        "desc": "~10–15 min · local government"
       }
     },
     "howItHelps": {
       "title": "Why this matters now",
-      "intro": "Service delivery, audit outcomes, housing, coalitions, transport, safety. Compare parties on the issues that shape daily life in South Africa's metros.",
+      "intro": "Service delivery, audit outcomes, housing, coalitions, transport, safety. Compare parties on the issues that shape daily life in South Africa's municipalities.",
       "benefit1": {
         "title": "Look past slogans",
         "text": "See actual positions on service delivery, housing, audit culture, coalition deals, and transport — not just campaign posters."
@@ -104,9 +104,9 @@
   "about": {
     "title": "About Elekti",
     "methodology": "How this tool is built",
-    "methodologyText": "Elekti is rooted in South African policy documents, municipal governance records, and public statements. We score across 10 issue areas specific to local government and metropolitan councils. The maths is deterministic and transparent.",
+    "methodologyText": "Elekti is rooted in South African policy documents, municipal governance records, and public statements. We score across 10 issue areas specific to local government. The maths is deterministic and transparent.",
     "howItWorks": "What you answer",
-    "howItWorksText": "30 questions cover service delivery, financial accountability, housing and informal settlements, rates and tariffs, coalition governance, public transport, urban densification, metro policing, community participation, and local economic development. Each question links to an issue axis. You answer, we map your stance, and we compare it to each party's stated position.",
+    "howItWorksText": "30 questions cover service delivery, financial accountability, housing and informal settlements, rates and tariffs, coalition governance, public transport, land use and densification, local policing, community participation, and local economic development. Each question links to an issue axis. You answer, we map your stance, and we compare it to each party's stated position.",
     "scoring": "How we score",
     "scoringText": "For every axis we calculate similarity between your answers and each party, weight by question importance, normalise by the questions you answered, then average across all axes. Scores are percentages; confidence reflects how clear the gap is between your top match and the rest.",
     "transparency": "Open data, no surprises",
@@ -123,8 +123,14 @@
     "sharingText": "Sharing creates a URL that encodes your answers. Anyone with the link can view your result. Remove the link to keep it private again.",
     "analytics": "Lightweight stats",
     "analyticsText": "We use privacy-first, cookie-free analytics only to see if people are visiting. They do not record your answers.",
+    "ballot": "The ballot paper",
+    "ballotText": "In local government elections you receive two ballot papers. Your Elekti result is most relevant to the party ballot.",
+    "wardBallot": "Ward ballot",
+    "wardBallotText": "You vote for a ward councillor — an individual candidate who will represent your specific ward. Candidates may stand for a party or as independents. Consider the person, not only the party.",
+    "prBallot": "Party (PR) ballot",
+    "prBallotText": "You vote for a party. This determines proportional representation seats on the council and, indirectly, which party controls the majority and who becomes mayor or speaker. This is the vote your Elekti match speaks to.",
     "parties": "Parties included",
-    "partiesText": "We list major parties contesting in South Africa's metropolitan municipalities. If we missed one, point us to their published policies.",
+    "partiesText": "We list major parties contesting in South Africa's local municipalities. If we missed one, point us to their published policies.",
     "disclaimer": "A guide, not a verdict",
     "disclaimerText": "Use this as a starting point. Read manifestos, attend ward committee meetings, and test our data. Politics shifts; so should your judgement.",
     "viewData": "Check the raw files",
@@ -170,9 +176,13 @@
       "desc": "The African Christian Democratic Party promotes Christian values, conservative social policies, and constitutional democracy.",
       "ideology": "Centre-right, Christian conservative"
     },
+    "cope": {
+      "desc": "Congress of the People advocates for merit-based, depoliticised local government, with professional municipal administration, direct accountability, and stronger ward-level democracy.",
+      "ideology": "Centre, technocratic reform"
+    },
     "ufc": {
-      "desc": "Unite for Change is a merger of RISE Mzansi, BOSA, and GOOD. It focuses on grassroots mobilisation and addressing local community concerns through progressive policies.",
-      "ideology": "Centrist, grassroots"
+      "desc": "Unite for Change (UFC) was formed from the merger of RISE Mzansi, BOSA, and GOOD in October 2025. It focuses on capable, merit-based local governance, anti-corruption, and universal access to basic services.",
+      "ideology": "Centrist, good governance"
     },
     "udm": {
       "desc": "The United Democratic Movement is a social democratic party focused on clean governance, anti-corruption, and balanced economic policies that reward merit.",
@@ -219,10 +229,10 @@
       "short": "Public Transport"
     },
     "land_densification": {
-      "short": "Urban Densification"
+      "short": "Land Use & Densification"
     },
     "metro_safety": {
-      "short": "Metro Safety"
+      "short": "Local Safety"
     },
     "community_participation": {
       "short": "Community Participation"
@@ -248,11 +258,11 @@
       "axis": "service_delivery"
     },
     "q3": {
-      "text": "Metros should partner with private investors through long-term concessions to upgrade and operate ageing water and sanitation infrastructure.",
+      "text": "Municipalities should partner with private investors through long-term concessions to upgrade and operate ageing water and sanitation infrastructure.",
       "axis": "service_delivery"
     },
     "q4": {
-      "text": "Parties that receive disclaimed or adverse audit opinions for three or more consecutive years should be disqualified from leading metro coalitions.",
+      "text": "Parties that receive disclaimed or adverse audit opinions for three or more consecutive years should be disqualified from leading municipal coalitions.",
       "axis": "accountability"
     },
     "q5": {
@@ -260,7 +270,7 @@
       "axis": "accountability"
     },
     "q6": {
-      "text": "Each metro should have a dedicated anti-corruption unit, fully independent of national agencies, with power to investigate and prosecute.",
+      "text": "Each municipality should have a dedicated anti-corruption unit, fully independent of national agencies, with power to investigate and prosecute.",
       "axis": "accountability"
     },
     "q7": {
@@ -268,7 +278,7 @@
       "axis": "settlement_housing"
     },
     "q8": {
-      "text": "Metros should prioritise building subsidised social rental housing near employment centres and public transport corridors.",
+      "text": "Municipalities should prioritise building subsidised social rental housing near employment centres and public transport routes.",
       "axis": "settlement_housing"
     },
     "q9": {
@@ -280,7 +290,7 @@
       "axis": "tariffs_affordability"
     },
     "q11": {
-      "text": "Illegal electricity and water connections in poor neighbourhoods should be regularised and subsidised by metros rather than disconnected.",
+      "text": "Illegal electricity and water connections in poor neighbourhoods should be regularised and subsidised by the municipality rather than disconnected.",
       "axis": "tariffs_affordability"
     },
     "q12": {
@@ -288,7 +298,7 @@
       "axis": "tariffs_affordability"
     },
     "q13": {
-      "text": "Coalition agreements at metro level should be fully public, legally binding, and include a mechanism for enforcing compliance.",
+      "text": "Coalition agreements at local government level should be fully public, legally binding, and include a mechanism for enforcing compliance.",
       "axis": "coalition_governance"
     },
     "q14": {
@@ -300,35 +310,35 @@
       "axis": "coalition_governance"
     },
     "q16": {
-      "text": "Metros should significantly expand Bus Rapid Transit (BRT) networks even where this disrupts existing minibus taxi routes.",
+      "text": "Municipalities should invest in formal public transport networks even where this disrupts existing minibus taxi routes.",
       "axis": "public_transport"
     },
     "q17": {
-      "text": "Minibus taxi associations should be formally integrated into metro public transport networks with regulated fares and routes.",
+      "text": "Minibus taxi associations should be formally integrated into municipal public transport networks with regulated fares and routes.",
       "axis": "public_transport"
     },
     "q18": {
-      "text": "Metros should invest heavily in safe cycling and pedestrian infrastructure as a primary commuter mode.",
+      "text": "Municipalities should invest heavily in safe cycling and pedestrian infrastructure as a primary commuter mode.",
       "axis": "public_transport"
     },
     "q19": {
-      "text": "Residential suburbs should be rezoned to allow higher-density development near BRT and rail corridors.",
+      "text": "Residential areas should be rezoned to allow higher-density development near public transport routes.",
       "axis": "land_densification"
     },
     "q20": {
-      "text": "Greenfield housing developments on the metropolitan periphery should be actively deprioritised in favour of inner-city regeneration.",
+      "text": "Greenfield housing developments on the urban and town periphery should be actively deprioritised in favour of town and city centre regeneration.",
       "axis": "land_densification"
     },
     "q21": {
-      "text": "Heritage and neighbourhood-character protections should not be allowed to block densification in well-located suburbs.",
+      "text": "Heritage and neighbourhood-character protections should not be allowed to block higher-density development in well-located residential areas.",
       "axis": "land_densification"
     },
     "q22": {
-      "text": "Metropolitan police forces should be significantly expanded and given full urban law enforcement powers, reducing reliance on SAPS in cities.",
+      "text": "Municipal law enforcement capacity should be significantly expanded, reducing reliance on SAPS for local safety.",
       "axis": "metro_safety"
     },
     "q23": {
-      "text": "Community policing forums should have formal power to set metro policing priorities in their area.",
+      "text": "Community policing forums should have formal power to set local policing priorities in their area.",
       "axis": "metro_safety"
     },
     "q24": {
@@ -348,7 +358,7 @@
       "axis": "community_participation"
     },
     "q28": {
-      "text": "Metros should actively operate business incubators and subsidised training centres to create local employment.",
+      "text": "Municipalities should actively operate business incubators and subsidised training centres to create local employment.",
       "axis": "local_economy"
     },
     "q29": {
@@ -356,7 +366,7 @@
       "axis": "local_economy"
     },
     "q30": {
-      "text": "Metro economic development should be led by private sector investment, with councils providing a favourable regulatory environment rather than direct intervention.",
+      "text": "Local economic development should be led by private sector investment, with councils providing a favourable regulatory environment rather than direct intervention.",
       "axis": "local_economy"
     }
   },
@@ -373,7 +383,8 @@
   "footer": {
     "about": "About",
     "privacy": "Privacy",
-    "contact": "Contact"
+    "contact": "Contact",
+    "source": "Source code"
   },
   "disclaimer": {
     "title": "Use this as a guide",
