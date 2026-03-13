@@ -21,7 +21,7 @@ vi.mock("vue-i18n", () => ({
 vi.mock("../QuizOption/QuizOption.vue", () => ({
   default: {
     name: "QuizOption",
-    template: `<button class="quiz-option" :data-selected="isSelected" @click="$emit('select')">{{ label }}</button>`,
+    template: `<button data-testid="quiz-option" :data-selected="isSelected" @click="$emit('select')">{{ label }}</button>`,
     props: ["label", "isSelected", "disabled"],
     emits: ["select"],
   },
@@ -41,8 +41,7 @@ describe("QuizQuestion", () => {
     const wrapper = mount(QuizQuestion, {
       props: { question: mockQuestion },
     });
-    // The component calls t(question.textKey) which returns the key in our mock
-    expect(wrapper.find(".quiz-question__text").text()).toBe(
+    expect(wrapper.find('[data-testid="question-text"]').text()).toBe(
       "questions.q1.text"
     );
   });
@@ -51,14 +50,14 @@ describe("QuizQuestion", () => {
     const wrapper = mount(QuizQuestion, {
       props: { question: mockQuestion },
     });
-    expect(wrapper.findAll(".quiz-option")).toHaveLength(5);
+    expect(wrapper.findAll('[data-testid="quiz-option"]')).toHaveLength(5);
   });
 
   it("emits update:modelValue when an option is selected", async () => {
     const wrapper = mount(QuizQuestion, {
       props: { question: mockQuestion },
     });
-    await wrapper.findAll(".quiz-option")[2].trigger("click");
+    await wrapper.findAll('[data-testid="quiz-option"]')[2].trigger("click");
     expect(wrapper.emitted("update:modelValue")).toBeTruthy();
     expect(wrapper.emitted("update:modelValue")?.[0]).toEqual([2]);
   });
@@ -67,7 +66,7 @@ describe("QuizQuestion", () => {
     const wrapper = mount(QuizQuestion, {
       props: { question: mockQuestion, disabled: true },
     });
-    await wrapper.findAll(".quiz-option")[0].trigger("click");
+    await wrapper.findAll('[data-testid="quiz-option"]')[0].trigger("click");
     expect(wrapper.emitted("update:modelValue")).toBeFalsy();
   });
 
@@ -75,7 +74,7 @@ describe("QuizQuestion", () => {
     const wrapper = mount(QuizQuestion, {
       props: { question: mockQuestion, modelValue: 3 },
     });
-    const options = wrapper.findAll(".quiz-option");
+    const options = wrapper.findAll('[data-testid="quiz-option"]');
     expect(options[3].attributes("data-selected")).toBe("true");
   });
 
@@ -83,16 +82,16 @@ describe("QuizQuestion", () => {
     const wrapper = mount(QuizQuestion, {
       props: { question: mockQuestion, disabled: true },
     });
-    expect(wrapper.find(".quiz-question__options").classes()).toContain(
-      "quiz-question__options--disabled"
-    );
+    expect(
+      wrapper.find('[data-testid="question-options"]').classes()
+    ).toContain("quiz-question__options--disabled");
   });
 
   it("reflects updated modelValue when parent changes the prop", async () => {
     const wrapper = mount(QuizQuestion, {
       props: { question: mockQuestion, modelValue: 1 },
     });
-    const options = wrapper.findAll(".quiz-option");
+    const options = wrapper.findAll('[data-testid="quiz-option"]');
     expect(options[1].attributes("data-selected")).toBe("true");
 
     await wrapper.setProps({ modelValue: 4 });

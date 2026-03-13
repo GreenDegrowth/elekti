@@ -44,6 +44,7 @@
       @click="toggleDropdown"
       @keydown.escape.prevent="closeDropdown"
       class="language-selector__button"
+      data-testid="language-toggle"
       :aria-expanded="isOpen"
       aria-haspopup="listbox"
       :aria-controls="dropdownId"
@@ -59,6 +60,7 @@
       v-if="isOpen"
       :id="dropdownId"
       class="language-selector__dropdown"
+      data-testid="language-dropdown"
       role="listbox"
     >
       <button
@@ -68,6 +70,7 @@
         @keydown.enter.prevent="selectLanguage(lang.code)"
         @keydown.space.prevent="selectLanguage(lang.code)"
         class="language-selector__option"
+        data-testid="language-option"
         :class="{
           'language-selector__option--active': lang.code === currentLocale,
         }"

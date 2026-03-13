@@ -11,7 +11,7 @@ describe("QuizOption", () => {
       },
     });
 
-    const button = wrapper.find("button.quiz-option");
+    const button = wrapper.find('[data-testid="quiz-option"]');
     expect(button.attributes("role")).toBe("radio");
     expect(button.attributes("aria-checked")).toBe("false");
     expect(button.attributes("aria-disabled")).toBe("false");
@@ -26,7 +26,7 @@ describe("QuizOption", () => {
       },
     });
 
-    await wrapper.find("button.quiz-option").trigger("click");
+    await wrapper.find('[data-testid="quiz-option"]').trigger("click");
     expect(wrapper.emitted("select")).toHaveLength(1);
   });
 
@@ -38,7 +38,7 @@ describe("QuizOption", () => {
       },
     });
 
-    const button = wrapper.find("button.quiz-option");
+    const button = wrapper.find('[data-testid="quiz-option"]');
     await button.trigger("keydown.enter");
     await button.trigger("keydown.space");
 
@@ -48,12 +48,12 @@ describe("QuizOption", () => {
   it("applies selected modifier class and aria state", () => {
     const wrapper = mount(QuizOption, {
       props: {
-        label: "Strongly agree",
+        label: "Option",
         isSelected: true,
       },
     });
 
-    const button = wrapper.find("button.quiz-option");
+    const button = wrapper.find('[data-testid="quiz-option"]');
     expect(button.classes()).toContain("quiz-option--selected");
     expect(button.attributes("aria-checked")).toBe("true");
   });
@@ -61,13 +61,13 @@ describe("QuizOption", () => {
   it("forwards disabled state to the button", () => {
     const wrapper = mount(QuizOption, {
       props: {
-        label: "Disagree",
+        label: "Option",
         isSelected: false,
         disabled: true,
       },
     });
 
-    const button = wrapper.find("button.quiz-option");
+    const button = wrapper.find('[data-testid="quiz-option"]');
     expect(button.attributes("disabled")).toBeDefined();
     expect(button.attributes("aria-disabled")).toBe("true");
   });

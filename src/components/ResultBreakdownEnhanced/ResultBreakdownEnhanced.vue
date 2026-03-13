@@ -138,7 +138,7 @@
       </div>
     </div>
 
-    <div v-else class="result-breakdown__table">
+    <div v-else class="result-breakdown__table" data-testid="result-table">
       <div class="result-breakdown__table-header">
         <div
           class="result-breakdown__table-cell result-breakdown__table-cell--select"
@@ -164,6 +164,7 @@
         v-for="partyScore in sortedScores"
         :key="partyScore.partyId"
         class="result-breakdown__table-row"
+        data-testid="result-table-row"
         :class="{ selected: selectedForComparison.has(partyScore.partyId) }"
       >
         <div

@@ -95,7 +95,7 @@ describe("Quiz view", () => {
     });
     mountedWrappers.push(wrapper);
 
-    const nextButton = wrapper.find(".quiz__nav-button--next");
+    const nextButton = wrapper.find('[data-testid="nav-next"]');
     expect(nextButton.exists()).toBe(true);
     expect(nextButton.attributes("disabled")).toBeDefined();
   });
@@ -112,7 +112,7 @@ describe("Quiz view", () => {
     });
     mountedWrappers.push(wrapper);
 
-    const backButton = wrapper.find(".quiz__nav-button--back");
+    const backButton = wrapper.find('[data-testid="nav-back"]');
     expect(backButton.exists()).toBe(true);
 
     await backButton.trigger("click");
@@ -170,7 +170,7 @@ describe("Quiz view", () => {
     });
     mountedWrappers.push(wrapper);
 
-    const finishButton = wrapper.find(".quiz__nav-button--finish");
+    const finishButton = wrapper.find('[data-testid="nav-finish"]');
     expect(finishButton.exists()).toBe(true);
 
     await finishButton.trigger("click");

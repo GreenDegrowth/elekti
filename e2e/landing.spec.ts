@@ -12,11 +12,11 @@ test("landing loads with title and start button", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("start button navigates to quiz with 30 questions", async ({ page }) => {
+test("start button navigates to quiz", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Start the quiz" }).click();
   await expect(page).toHaveURL(/\/quiz/);
-  await expect(page.getByText("Question 1 of 30")).toBeVisible();
+  await expect(page.getByTestId("progress-label")).toContainText(/Question 1 of \d+/);
 });
 
 test("language switch updates landing copy", async ({ page }) => {

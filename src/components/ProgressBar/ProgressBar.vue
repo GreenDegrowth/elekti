@@ -23,10 +23,15 @@
     >
       <div
         class="progress-bar__fill"
+        data-testid="progress-fill"
         :style="{ width: `${props.progress}%` }"
       />
     </div>
-    <div v-if="$slots.default" class="progress-bar__label">
+    <div
+      v-if="$slots.default"
+      class="progress-bar__label"
+      data-testid="progress-label"
+    >
       <slot />
     </div>
   </div>

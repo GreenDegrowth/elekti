@@ -35,12 +35,18 @@
 
 <template>
   <div class="quiz-question">
-    <h2 class="quiz-question__text" :id="questionLabelId" aria-live="polite">
+    <h2
+      class="quiz-question__text"
+      data-testid="question-text"
+      :id="questionLabelId"
+      aria-live="polite"
+    >
       {{ question.textKey ? t(question.textKey) : question.text }}
     </h2>
 
     <div
       class="quiz-question__options"
+      data-testid="question-options"
       role="radiogroup"
       :aria-labelledby="questionLabelId"
       :class="{ 'quiz-question__options--disabled': disabled }"

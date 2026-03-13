@@ -16,6 +16,7 @@
     @keydown.enter.prevent="$emit('select')"
     @keydown.space.prevent="$emit('select')"
     class="quiz-option"
+    data-testid="quiz-option"
     :class="{ 'quiz-option--selected': isSelected }"
     :disabled="disabled"
     role="radio"

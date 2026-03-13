@@ -20,20 +20,15 @@ function mountIndicator(confidence: "high" | "medium" | "low") {
 }
 
 describe("ConfidenceIndicator", () => {
-  it("applies the correct modifier class for high confidence", () => {
-    const wrapper = mountIndicator("high");
-    expect(wrapper.classes()).toContain("confidence-indicator--high");
-  });
-
-  it("applies the correct modifier class for medium confidence", () => {
-    const wrapper = mountIndicator("medium");
-    expect(wrapper.classes()).toContain("confidence-indicator--medium");
-  });
-
-  it("applies the correct modifier class for low confidence", () => {
-    const wrapper = mountIndicator("low");
-    expect(wrapper.classes()).toContain("confidence-indicator--low");
-  });
+  it.each(["high", "medium", "low"] as const)(
+    "applies the correct modifier class for %s confidence",
+    (confidence) => {
+      const wrapper = mountIndicator(confidence);
+      expect(wrapper.classes()).toContain(
+        `confidence-indicator--${confidence}`
+      );
+    }
+  );
 
   it("renders the translated label text", () => {
     const wrapper = mountIndicator("high");
@@ -42,20 +37,26 @@ describe("ConfidenceIndicator", () => {
 
   it("does not show the tooltip by default", () => {
     const wrapper = mountIndicator("high");
-    expect(wrapper.find(".confidence-indicator__tooltip").exists()).toBe(false);
+    expect(wrapper.find('[data-testid="confidence-tooltip"]').exists()).toBe(
+      false
+    );
   });
 
   it("shows the tooltip after click", async () => {
     const wrapper = mountIndicator("medium");
     await wrapper.trigger("click");
-    expect(wrapper.find(".confidence-indicator__tooltip").exists()).toBe(true);
+    expect(wrapper.find('[data-testid="confidence-tooltip"]').exists()).toBe(
+      true
+    );
   });
 
   it("hides the tooltip after second click", async () => {
     const wrapper = mountIndicator("low");
     await wrapper.trigger("click");
     await wrapper.trigger("click");
-    expect(wrapper.find(".confidence-indicator__tooltip").exists()).toBe(false);
+    expect(wrapper.find('[data-testid="confidence-tooltip"]').exists()).toBe(
+      false
+    );
   });
 
   it("displays primary score percentage in the tooltip", async () => {

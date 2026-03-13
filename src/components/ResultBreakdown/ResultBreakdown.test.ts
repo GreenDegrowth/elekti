@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it, vi } from "vitest";
+import { makePartyScore } from "../../test-utils/factories";
 import { createTestI18n } from "../../test-utils/i18n";
-import type { PartyScore } from "../../types";
 import ResultBreakdown from "./ResultBreakdown.vue";
 
 vi.mock("../PartyCard/PartyCard.vue", () => ({
@@ -15,8 +15,8 @@ vi.mock("../PartyCard/PartyCard.vue", () => ({
 
 const i18n = createTestI18n();
 
-const scores: PartyScore[] = [
-  {
+const scores = [
+  makePartyScore({
     partyId: "a",
     alignmentScore: 0.71,
     party: {
@@ -28,9 +28,8 @@ const scores: PartyScore[] = [
       colour: "#123456",
       website: "https://example.com/a",
     },
-    axisScores: { economy: 0.7 },
-  },
-  {
+  }),
+  makePartyScore({
     partyId: "b",
     alignmentScore: 0.62,
     party: {
@@ -42,8 +41,7 @@ const scores: PartyScore[] = [
       colour: "#654321",
       website: "https://example.com/b",
     },
-    axisScores: { economy: 0.6 },
-  },
+  }),
 ];
 
 describe("ResultBreakdown", () => {
@@ -53,7 +51,7 @@ describe("ResultBreakdown", () => {
       global: { plugins: [i18n] },
     });
 
-    expect(wrapper.find(".result-breakdown__title").text()).toBe(
+    expect(wrapper.find('[data-testid="result-breakdown-title"]').text()).toBe(
       "results.otherParties"
     );
   });
@@ -65,7 +63,7 @@ describe("ResultBreakdown", () => {
     });
 
     const cards = wrapper.findAll(".party-card-stub");
-    expect(cards).toHaveLength(2);
+    expect(cards).toHaveLength(scores.length);
     expect(cards[0].text()).toContain("Alpha Party");
     expect(cards[1].text()).toContain("Beta Party");
   });

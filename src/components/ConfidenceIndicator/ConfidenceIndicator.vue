@@ -47,7 +47,11 @@
       </span>
     </div>
 
-    <div v-if="showTooltip" class="confidence-indicator__tooltip">
+    <div
+      v-if="showTooltip"
+      class="confidence-indicator__tooltip"
+      data-testid="confidence-tooltip"
+    >
       <p class="confidence-indicator__tooltip-title">
         {{ $t(`results.confidenceExplainer.${confidence}.title`) }}
       </p>

@@ -155,6 +155,7 @@
           v-if="quizStore.currentQuestionIndex > 0"
           @click="quizStore.previousQuestion()"
           class="quiz__nav-button quiz__nav-button--back"
+          data-testid="nav-back"
           :title="$t('quiz.back')"
         >
           <ChevronLeft :size="24" />
@@ -164,6 +165,7 @@
           v-if="!hasAnsweredCurrent && currentQuestion"
           @click="handleSkip"
           class="quiz__nav-button quiz__nav-button--skip"
+          data-testid="nav-skip"
           :title="$t('quiz.skip')"
         >
           {{ $t("quiz.skip") }}
@@ -173,6 +175,7 @@
           v-if="quizStore.currentQuestionIndex < quizStore.questions.length - 1"
           @click="handleNext"
           class="quiz__nav-button quiz__nav-button--next"
+          data-testid="nav-next"
           :title="$t('quiz.next')"
           :disabled="!hasAnsweredCurrent"
         >
@@ -182,6 +185,7 @@
           v-else
           @click="handleFinish"
           class="quiz__nav-button quiz__nav-button--finish"
+          data-testid="nav-finish"
           :title="$t('quiz.finish')"
           :disabled="!hasAnsweredCurrent"
         >

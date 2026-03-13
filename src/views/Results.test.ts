@@ -205,7 +205,7 @@ describe("Results view", () => {
       global: { plugins: [i18n] },
     });
 
-    expect(wrapper.find(".results__loading").exists()).toBe(true);
+    expect(wrapper.find('[data-testid="results-loading"]').exists()).toBe(true);
   });
 
   it("renders error state and navigates to quiz", async () => {
@@ -218,7 +218,9 @@ describe("Results view", () => {
 
     expect(wrapper.text()).toContain("Load failed");
 
-    await wrapper.find(".results__error .results__button").trigger("click");
+    await wrapper
+      .find('[data-testid="results-error"] [data-testid="results-go-to-quiz"]')
+      .trigger("click");
     expect(routerPushMock).toHaveBeenCalledWith("/quiz");
   });
 
@@ -250,7 +252,7 @@ describe("Results view", () => {
       global: { plugins: [i18n] },
     });
 
-    await wrapper.find(".results__button--primary").trigger("click");
+    await wrapper.find('[data-testid="results-retake"]').trigger("click");
 
     expect(quizStoreMock.reset).toHaveBeenCalledTimes(1);
     expect(routerPushMock).toHaveBeenCalledWith("/quiz");
@@ -261,7 +263,7 @@ describe("Results view", () => {
       global: { plugins: [i18n] },
     });
 
-    await wrapper.find(".results__button--share-card").trigger("click");
+    await wrapper.find('[data-testid="results-share"]').trigger("click");
     await Promise.resolve();
 
     expect(writeTextMock).toHaveBeenCalledTimes(1);

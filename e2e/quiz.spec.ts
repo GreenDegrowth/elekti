@@ -8,7 +8,7 @@ test("start quiz and answer first question", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 2 })).toBeVisible();
 
   await page.getByRole("radio", { name: "Strongly agree" }).click();
-  await expect(page.getByText("Question 2 of 30")).toBeVisible();
+  await expect(page.getByTestId("progress-label")).toContainText(/Question 2 of \d+/);
 });
 
 test("quiz navigation requires an answer and supports back", async ({
@@ -17,12 +17,12 @@ test("quiz navigation requires an answer and supports back", async ({
   await page.goto("/");
   await page.getByRole("button", { name: "Start the quiz" }).click();
 
-  await expect(page.getByTitle("Next")).toBeDisabled();
+  await expect(page.getByTestId("nav-next")).toBeDisabled();
   await page.getByRole("radio", { name: "Neutral" }).click();
-  await expect(page.getByText("Question 2 of 30")).toBeVisible();
+  await expect(page.getByTestId("progress-label")).toContainText(/Question 2 of \d+/);
 
   await page.getByRole("button", { name: "Back" }).click();
-  await expect(page.getByText("Question 1 of 30")).toBeVisible();
+  await expect(page.getByTestId("progress-label")).toContainText(/Question 1 of \d+/);
 });
 
 test("progress bar updates as quiz advances", async ({ page }) => {
@@ -33,7 +33,6 @@ test("progress bar updates as quiz advances", async ({ page }) => {
   await expect(progressBar).toHaveAttribute("aria-valuenow", "0");
 
   await page.getByRole("radio", { name: "Neutral" }).click();
-  // After 1 of 30 questions, progress is non-zero
   await expect(progressBar).not.toHaveAttribute("aria-valuenow", "0");
 });
 
@@ -41,13 +40,15 @@ test("changing answer updates selection before advancing", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Start the quiz" }).click();
 
+  const progressLabel = page.getByTestId("progress-label");
+
   const agreeOption = page.getByRole("radio", { name: "Agree", exact: true });
   await expect(agreeOption).toBeEnabled();
   await agreeOption.click();
-  await expect(page.getByText("Question 2 of 30")).toBeVisible();
+  await expect(progressLabel).toContainText(/Question 2 of \d+/);
 
   await page.getByRole("button", { name: "Back" }).click();
-  await expect(page.getByText("Question 1 of 30")).toBeVisible();
+  await expect(progressLabel).toContainText(/Question 1 of \d+/);
   await expect(agreeOption).toBeChecked();
 
   const disagreeOption = page.getByRole("radio", {
@@ -55,7 +56,7 @@ test("changing answer updates selection before advancing", async ({ page }) => {
     exact: true,
   });
   await disagreeOption.click();
-  await expect(page.getByText("Question 2 of 30")).toBeVisible();
+  await expect(progressLabel).toContainText(/Question 2 of \d+/);
 
   await page.getByRole("button", { name: "Back" }).click();
   await expect(disagreeOption).toBeChecked();
@@ -68,8 +69,8 @@ test("quiz preserves answer when navigating back and forward", async ({
   await page.goto("/");
   await page.getByRole("button", { name: "Start the quiz" }).click();
 
-  const progressLabel = page.locator(".progress-bar__label");
-  await expect(progressLabel).toContainText("Question 1 of 30");
+  const progressLabel = page.getByTestId("progress-label");
+  await expect(progressLabel).toContainText(/Question 1 of \d+/);
 
   const stronglyAgree = page.getByRole("radio", {
     name: "Strongly agree",
@@ -77,10 +78,10 @@ test("quiz preserves answer when navigating back and forward", async ({
   });
   await stronglyAgree.click();
 
-  await expect(progressLabel).toContainText("Question 2 of 30");
+  await expect(progressLabel).toContainText(/Question 2 of \d+/);
 
   await page.getByRole("button", { name: "Back" }).click();
-  await expect(progressLabel).toContainText("Question 1 of 30");
+  await expect(progressLabel).toContainText(/Question 1 of \d+/);
 
   await expect(stronglyAgree).toBeChecked();
 });
@@ -89,12 +90,10 @@ test("quiz language switch updates questions", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Start the quiz" }).click();
 
-  const languageButton = page.locator(".language-selector__button");
-  await languageButton.click();
+  await page.getByTestId("language-toggle").click();
   await page.getByRole("option", { name: "Afrikaans" }).click();
 
-  const progressLabel = page.locator(".progress-bar__label");
-  await expect(progressLabel).toContainText("Vraag 1 van 30");
+  await expect(page.getByTestId("progress-label")).toContainText(/Vraag 1 van \d+/);
 });
 
 test("all answer options are visible and selectable", async ({ page }) => {
@@ -123,11 +122,11 @@ test("logo during quiz returns to landing and resets", async ({ page }) => {
   await page.getByRole("button", { name: "Start the quiz" }).click();
 
   await page.getByRole("radio", { name: "Neutral" }).click();
-  await expect(page.getByText("Question 2 of 30")).toBeVisible();
+  await expect(page.getByTestId("progress-label")).toContainText(/Question 2 of \d+/);
 
   await page.getByRole("link", { name: /Elekti South African/i }).click();
   await expect(page).toHaveURL("/");
 
   await page.getByRole("button", { name: "Start the quiz" }).click();
-  await expect(page.getByText("Question 1 of 30")).toBeVisible();
+  await expect(page.getByTestId("progress-label")).toContainText(/Question 1 of \d+/);
 });

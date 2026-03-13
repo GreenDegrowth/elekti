@@ -123,6 +123,7 @@
       <div
         v-if="loading"
         class="results__loading"
+        data-testid="results-loading"
         role="status"
         aria-live="polite"
       >
@@ -168,6 +169,7 @@
           <button
             @click="copyResults"
             class="results__button results__button--secondary results__button--share-card"
+            data-testid="results-share"
             :aria-label="
               copyState === 'success'
                 ? $t('results.resultsCopied')
@@ -218,6 +220,7 @@
           <button
             @click="retakeQuiz"
             class="results__button results__button--primary"
+            data-testid="results-retake"
           >
             <RotateCcw :size="20" />
             {{ $t("results.retakeQuiz") }}
@@ -234,6 +237,7 @@
       <div
         v-else-if="error"
         class="results__error"
+        data-testid="results-error"
         role="alert"
         aria-live="polite"
       >
@@ -242,6 +246,7 @@
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
+          data-testid="results-go-to-quiz"
           :aria-label="$t('landing.startButton')"
         >
           {{ $t("landing.startButton") }}
@@ -254,6 +259,7 @@
         <button
           @click="goToQuiz"
           class="results__button results__button--primary"
+          data-testid="results-go-to-quiz"
           :aria-label="$t('landing.startButton')"
         >
           {{ $t("landing.startButton") }}

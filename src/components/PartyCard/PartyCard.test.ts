@@ -70,12 +70,12 @@ describe("PartyCard", () => {
 
   it("does not render the score bar when score is omitted", () => {
     const wrapper = mountCard();
-    expect(wrapper.find(".party-card__score").exists()).toBe(false);
+    expect(wrapper.find('[data-testid="party-score"]').exists()).toBe(false);
   });
 
   it("renders the external website link", () => {
     const wrapper = mountCard();
-    const link = wrapper.find("a.party-card__website");
+    const link = wrapper.find('[data-testid="party-website"]');
     expect(link.exists()).toBe(true);
     expect(link.attributes("href")).toBe("https://www.anc.org.za");
     expect(link.attributes("rel")).toContain("noopener");
@@ -83,7 +83,7 @@ describe("PartyCard", () => {
 
   it("does not render the expand button without axisScores", () => {
     const wrapper = mountCard({ score: 0.5 });
-    expect(wrapper.find(".party-card__expand-button").exists()).toBe(false);
+    expect(wrapper.find('[data-testid="party-expand"]').exists()).toBe(false);
   });
 
   it("shows the axis breakdown after clicking expand", async () => {
@@ -91,9 +91,9 @@ describe("PartyCard", () => {
       score: 0.6,
       axisScores: { axis1: 0.8, axis2: 0.4 },
     });
-    const btn = wrapper.find(".party-card__expand-button");
+    const btn = wrapper.find('[data-testid="party-expand"]');
     expect(btn.exists()).toBe(true);
     await btn.trigger("click");
-    expect(wrapper.find(".party-card__axis-breakdown").exists()).toBe(true);
+    expect(wrapper.find('[data-testid="party-axes"]').exists()).toBe(true);
   });
 });

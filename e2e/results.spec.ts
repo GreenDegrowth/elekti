@@ -1,8 +1,11 @@
 import { expect, test } from "@playwright/test";
+import questionsData from "../src/data/questions.json";
+import { encodeAnswerValuesToBase64Url } from "../src/validators/answers";
 
-// 30 neutral answers (index 2) for metro mode (q1–q30), encoded as base64url
-const metroResultsUrl =
-  "/results?r=SSSSSSSSSSSSSSSA&m=metro&q=q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20,q21,q22,q23,q24,q25,q26,q27,q28,q29,q30";
+const questionIds = questionsData.questions.map((q) => q.id);
+const NEUTRAL_INDEX = 2;
+const encoded = encodeAnswerValuesToBase64Url(questionIds.map(() => NEUTRAL_INDEX));
+const metroResultsUrl = `/results?r=${encoded}&m=metro&q=${questionIds.join(",")}`;
 
 test("dev shortcut reaches results and can retake", async ({ page }) => {
   await page.goto("/");
@@ -105,12 +108,12 @@ test("switching between strongest alignment and table view", async ({
   await expect(cardViewButton).toHaveClass(/active/);
 
   await tableViewButton.click();
-  await expect(page.locator(".result-breakdown__table")).toBeVisible();
+  await expect(page.getByTestId("result-table")).toBeVisible();
   await expect(tableViewButton).toHaveClass(/active/);
 
   await cardViewButton.click();
   await expect(cardViewButton).toHaveClass(/active/);
-  await expect(page.locator(".result-breakdown__table")).not.toBeVisible();
+  await expect(page.getByTestId("result-table")).not.toBeVisible();
 });
 
 test("answer again button resets to quiz start", async ({ page }) => {
@@ -118,16 +121,16 @@ test("answer again button resets to quiz start", async ({ page }) => {
 
   await page.getByRole("button", { name: "Answer again" }).click();
   await expect(page).toHaveURL(/\/quiz/);
-  await expect(page.getByText("Question 1 of 30")).toBeVisible();
+  await expect(page.getByTestId("progress-label")).toContainText(/Question 1 of \d+/);
 });
 
 test("all party cards display in table view", async ({ page }) => {
   await page.goto(metroResultsUrl);
 
   await page.getByRole("button", { name: /table view/i }).click();
-  await expect(page.locator(".result-breakdown__table")).toBeVisible();
+  await expect(page.getByTestId("result-table")).toBeVisible();
 
-  const tableRows = page.locator(".result-breakdown__table-row");
+  const tableRows = page.getByTestId("result-table-row");
   await expect(tableRows.first()).toBeVisible();
   const count = await tableRows.count();
   expect(count).toBeGreaterThan(0);
@@ -155,7 +158,7 @@ test("comparison view displays differences correctly", async ({ page }) => {
   await expect(closeButton).toBeVisible();
   await closeButton.click();
 
-  await expect(page.locator(".result-breakdown__table")).toBeVisible();
+  await expect(page.getByTestId("result-table")).toBeVisible();
 });
 
 test("results page shows close alternatives section", async ({ page }) => {

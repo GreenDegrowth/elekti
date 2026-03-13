@@ -22,21 +22,21 @@ describe("ProgressBar", () => {
       props: { progress: 67 },
     });
 
-    expect(wrapper.find(".progress-bar__fill").attributes("style")).toContain(
-      "width: 67%"
-    );
+    expect(
+      wrapper.find('[data-testid="progress-fill"]').attributes("style")
+    ).toContain("width: 67%");
   });
 
   it("renders slot content when provided", () => {
     const wrapper = mount(ProgressBar, {
       props: { progress: 10 },
       slots: {
-        default: "Question 1 of 30",
+        default: "Some label text",
       },
     });
 
-    expect(wrapper.find(".progress-bar__label").exists()).toBe(true);
-    expect(wrapper.text()).toContain("Question 1 of 30");
+    expect(wrapper.find('[data-testid="progress-label"]').exists()).toBe(true);
+    expect(wrapper.text()).toContain("Some label text");
   });
 
   it("does not render label container when slot is absent", () => {
@@ -44,6 +44,6 @@ describe("ProgressBar", () => {
       props: { progress: 10 },
     });
 
-    expect(wrapper.find(".progress-bar__label").exists()).toBe(false);
+    expect(wrapper.find('[data-testid="progress-label"]').exists()).toBe(false);
   });
 });
