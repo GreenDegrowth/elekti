@@ -1,11 +1,7 @@
 import { expect, test } from "@playwright/test";
-import questionsData from "../src/data/questions.json";
-import { encodeAnswerValuesToBase64Url } from "../src/validators/answers";
+import { buildResultsUrl } from "./helpers";
 
-const questionIds = questionsData.questions.map((q) => q.id);
-const NEUTRAL_INDEX = 2;
-const encoded = encodeAnswerValuesToBase64Url(questionIds.map(() => NEUTRAL_INDEX));
-const metroResultsUrl = `/results?r=${encoded}&m=metro&q=${questionIds.join(",")}`;
+const metroResultsUrl = buildResultsUrl(2);
 
 test("dev shortcut reaches results and can retake", async ({ page }) => {
   await page.goto("/");
