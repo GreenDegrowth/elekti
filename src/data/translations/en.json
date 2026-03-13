@@ -383,7 +383,8 @@
   "footer": {
     "about": "About",
     "privacy": "Privacy",
-    "contact": "Contact"
+    "contact": "Contact",
+    "source": "Source code"
   },
   "disclaimer": {
     "title": "Use this as a guide",

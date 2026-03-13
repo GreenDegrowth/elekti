@@ -26,6 +26,12 @@
           <router-link to="/about#privacy">{{
             $t("footer.privacy")
           }}</router-link>
+          <a
+            href="https://github.com/mooship/elekti"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ $t("footer.source") }}</a
+          >
         </nav>
         <p class="app-footer__copyright">
           Released under the

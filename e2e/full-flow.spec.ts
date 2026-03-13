@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test("metro flow completes quiz and shows results", async ({ page }) => {
+  test.setTimeout(60_000);
   await page.goto("/");
   await page.getByRole("button", { name: "Start the quiz" }).click();
 

@@ -67,6 +67,6 @@ test("navigation back to home from about works", async ({ page }) => {
   await page.getByRole("link", { name: /Elekti South African/i }).click();
   await expect(page).toHaveURL("/");
   await expect(
-    page.getByRole("heading", { name: "Match your vote to South Africa" })
+    page.getByRole("heading", { name: "Match your vote on local government" })
   ).toBeVisible();
 });

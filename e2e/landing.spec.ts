@@ -4,7 +4,7 @@ test("landing loads with title and start button", async ({ page }) => {
   await page.goto("/");
 
   await expect(
-    page.getByRole("heading", { name: "Match your vote to your metro" })
+    page.getByRole("heading", { name: "Match your vote on local government" })
   ).toBeVisible();
 
   await expect(
@@ -35,7 +35,7 @@ test("language switch updates landing copy", async ({ page }) => {
   await expect(page.getByRole("listbox")).toBeVisible();
   await page.getByRole("option", { name: "Engels" }).click();
   await expect(
-    page.getByRole("heading", { name: "Match your vote to your metro" })
+    page.getByRole("heading", { name: "Match your vote on local government" })
   ).toBeVisible();
 });
 
@@ -62,7 +62,7 @@ test("logo link returns to landing page", async ({ page }) => {
   await page.getByRole("link", { name: /Elekti South African/i }).click();
   await expect(page).toHaveURL("/");
   await expect(
-    page.getByRole("heading", { name: "Match your vote to your metro" })
+    page.getByRole("heading", { name: "Match your vote on local government" })
   ).toBeVisible();
 });
 
