@@ -48,17 +48,17 @@ const parties: PartyScore[] = [
   },
 ];
 
-describe("PartyComparison", () => {
-  function mountComparison(show: boolean) {
-    return mount(PartyComparison, {
-      props: { show, parties },
-      global: {
-        plugins: [i18n],
-        stubs: { teleport: true },
-      },
-    });
-  }
+function mountComparison(show: boolean) {
+  return mount(PartyComparison, {
+    props: { show, parties },
+    global: {
+      plugins: [i18n],
+      stubs: { teleport: true },
+    },
+  });
+}
 
+describe("PartyComparison", () => {
   it("does not render modal content when show is false", () => {
     const wrapper = mountComparison(false);
 

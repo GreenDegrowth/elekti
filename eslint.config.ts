@@ -3,7 +3,6 @@ import {
   defineConfigWithVueTs,
   vueTsConfigs,
 } from "@vue/eslint-config-typescript";
-import pluginOxlint from "eslint-plugin-oxlint";
 import pluginUnicorn from "eslint-plugin-unicorn";
 import pluginVue from "eslint-plugin-vue";
 
@@ -30,7 +29,6 @@ export default [
 
     pluginVue.configs["flat/essential"],
     vueTsConfigs.recommended,
-    ...pluginOxlint.configs["flat/recommended"],
     pluginUnicorn.configs.recommended,
     skipFormatting,
     {

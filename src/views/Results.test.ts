@@ -4,6 +4,19 @@ import { createTestI18n } from "../test-utils/i18n";
 import type { PartyScore } from "../types";
 import Results from "./Results.vue";
 
+const makeRef = <T>(initial: T) => {
+  let current = initial;
+  return {
+    __v_isRef: true,
+    get value() {
+      return current;
+    },
+    set value(next: T) {
+      current = next;
+    },
+  };
+};
+
 const {
   routerPushMock,
   loaderState,
@@ -16,19 +29,6 @@ const {
     alternatives: PartyScore[];
     allScores: PartyScore[];
     confidence: "high" | "medium" | "low";
-  };
-
-  const makeRef = <T>(initial: T) => {
-    let current = initial;
-    return {
-      __v_isRef: true,
-      get value() {
-        return current;
-      },
-      set value(next: T) {
-        current = next;
-      },
-    };
   };
 
   const allScores: PartyScore[] = [
@@ -92,7 +92,7 @@ const {
 
   return {
     routerPushMock: vi.fn(),
-    writeTextMock: vi.fn().mockResolvedValue(undefined),
+    writeTextMock: vi.fn().mockResolvedValue(),
     quizStoreMock: {
       mode: "metro",
       questions: [{ id: "q1" }, { id: "q2" }],

@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 function packAnswerValues(values: number[]): Buffer {
@@ -26,12 +26,14 @@ function packAnswerValues(values: number[]): Buffer {
 }
 
 export function buildResultsUrl(answerIndex: number): string {
-  const dir = dirname(fileURLToPath(import.meta.url));
+  const dir = path.dirname(fileURLToPath(import.meta.url));
   const raw = JSON.parse(
-    readFileSync(resolve(dir, "../src/data/questions.json"), "utf-8")
+    readFileSync(path.resolve(dir, "../src/data/questions.json"), "utf8")
   ) as { questions: { id: string }[] };
 
   const ids = raw.questions.map((q) => q.id);
-  const encoded = packAnswerValues(ids.map(() => answerIndex)).toString("base64url");
+  const encoded = packAnswerValues(ids.map(() => answerIndex)).toString(
+    "base64url"
+  );
   return `/results?r=${encoded}&m=metro&q=${ids.join(",")}`;
 }

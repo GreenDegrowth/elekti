@@ -5,7 +5,7 @@ import LanguageSelector from "./LanguageSelector.vue";
 const { localeRef, setLangMock, loadAFTranslationsMock } = vi.hoisted(() => ({
   localeRef: { value: "en" },
   setLangMock: vi.fn(),
-  loadAFTranslationsMock: vi.fn().mockResolvedValue(undefined),
+  loadAFTranslationsMock: vi.fn().mockResolvedValue(),
 }));
 
 vi.mock("lucide-vue-next", () => ({
@@ -46,7 +46,7 @@ describe("LanguageSelector", () => {
     localeRef.value = "en";
     setLangMock.mockReset();
     loadAFTranslationsMock.mockReset();
-    loadAFTranslationsMock.mockResolvedValue(undefined);
+    loadAFTranslationsMock.mockResolvedValue();
   });
 
   it("renders current language name on the button", () => {

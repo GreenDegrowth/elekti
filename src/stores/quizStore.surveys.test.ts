@@ -4,7 +4,7 @@ import { useQuizStore } from "./quizStore";
 import { useUiStore } from "./uiStore";
 
 vi.mock("vue-i18n", () => ({
-  createI18n: (_opts?: unknown) => ({
+  createI18n: () => ({
     global: {
       t: (key: string) => key,
       locale: { value: "en" },
