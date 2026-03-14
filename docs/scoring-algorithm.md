@@ -78,4 +78,4 @@ For each party and axis:
 3. For each party, compute similarity vs party position and accumulate weighted sums and weights per axis.
 4. For each party/axis with weight > 0: normalize to 0..1; accumulate totals.
 5. Compute alignmentScore per party, sort, pick primary and alternatives, compute confidence.
-6. Return primary, alternatives, allScores (sorted), confidence, timestamp.
+6. Return primary, alternatives, allScores (sorted), confidence, timestamp, topAxes, answeredAxes.

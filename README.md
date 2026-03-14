@@ -2,11 +2,11 @@
 
 > A multilingual political alignment quiz that matches South African voters to parties via weighted scoring.
 
-Elekti is a Vue 3 + TypeScript SPA that walks users through 55 policy questions, normalises their answers against curated party data, and surfaces tailored recommendations. Axis-based deterministic scoring, full localization, and URL-shareable results.
+Elekti is a Vue 3 + TypeScript SPA that walks users through 30 policy questions, normalises their answers against curated party data, and surfaces tailored recommendations. Axis-based deterministic scoring, full localization, and URL-shareable results.
 
 ## Highlights
 
-- 🎯 **Policy matching** – 55 questions mapped to 12 political axes; weighted scoring determines party alignment
+- 🎯 **Policy matching** – 30 questions mapped to 10 political axes; weighted scoring determines party alignment
 - 🌍 **Fully localized** – All text in `src/data/translations/{en,af}.json`; metadata references via `textKey`
 - 🧠 **Deterministic scoring** – Axis-based alignment, not text matching; reproducible results with similarity normalization
 - 🧭 **Shareable results** – Encode quiz answers into URL for deep-linking across locales
@@ -43,7 +43,7 @@ src/
 
 - **State**: `quizStore` loads questions from i18n, manages quiz progress; `uiStore` handles locale persistence
 - **Scoring**: `computeScores()` calculates axis similarity, returns ranked parties with top 3 contributing axes
-- **Data**: 55 questions × 12 axes; each question has weight, textKey, optional `direction: "negative"` flag
+- **Data**: 30 questions × 10 axes; each question has weight, textKey, optional `direction: "negative"` flag
 
 ## Key Scripts
 
@@ -63,7 +63,7 @@ Full documentation is split into dedicated guides:
 - **[Question Direction Guide](docs/question-direction-guide.md)** – Understanding axis poles and the `direction: "negative"` flag with examples
 - **[Scoring Algorithm](docs/scoring-algorithm.md)** – Deep dive into axis-based similarity scoring and confidence levels
 - **[Party Position Reference](docs/party-position-reference.md)** – How to set party positions with worked examples
-- **[Parties & Maintenance](docs/party-guide.md)** – List of 16 parties; adding/updating party positions
+- **[Parties & Maintenance](docs/party-guide.md)** – List of 17 parties; adding/updating party positions
 
 Each guide covers one topic in detail so you can find what you need quickly.
 
