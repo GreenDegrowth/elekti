@@ -8,17 +8,17 @@ Each axis has two poles (positive and negative). Questions can measure either po
 
 ## Why Poles and Direction Matter
 
-Consider `law_order_vs_liberty`:
+Consider `service_delivery`:
 
-- **Positive pole (+1)**: Civil liberties prioritised, protest rights protected, scrutiny of state power
-- **Negative pole (-1)**: Law & order prioritised, strong policing, restrictions on disruptive protest
+- **Positive pole (+1)**: State employees run municipal services directly (water, electricity, refuse, roads)
+- **Negative pole (-1)**: Private contractors deliver services under performance contracts
 
 Two questions on this axis:
 
-- **Q22 (positive pole)**: "Should people be free to protest?" → Agreement (+1) naturally maps to positive pole ✓
-- **Q21 (negative pole)**: "Should police have stronger powers?" → Agreement (+1) naturally maps to... positive pole? ✗
+- **Q1 (positive pole)**: "Municipal water and electricity services should be run directly by council staff rather than outsourced to private companies." → Agreement (+1) naturally maps to positive pole ✓
+- **Q3 (negative pole)**: "Municipalities should partner with private investors through long-term concessions to upgrade and operate ageing water and sanitation infrastructure." → Agreement (+1) naturally maps to... positive pole? ✗
 
-Without the direction flag, agreeing with "stronger police powers" would incorrectly suggest civil libertarian views. **The direction flag solves this.**
+Without the direction flag, agreeing with Q3 would incorrectly suggest a pro-state-delivery stance. **The direction flag solves this.**
 
 ## The Inversion Mechanism
 
@@ -31,20 +31,18 @@ if (question.direction === "negative") {
 
 **With the flag:**
 
-- User agrees (+1) with Q21 "Police should have more power"
+- User agrees (+1) with Q3 "Municipalities should partner with private investors..."
 - Algorithm inverts: +1 → -1
-- Result: User correctly scores as pro-law-and-order on the axis ✓
+- Result: User correctly scores as pro-privatisation/outsourcing on the axis ✓
 
 ## Which Questions Have Direction Flags
 
-| Axis                           | Questions measuring negative pole                              |
-| ------------------------------ | -------------------------------------------------------------- |
-| `economic_left_right`          | Q2 (cut debt), Q8 (cut taxes)                                  |
-| `state_vs_market`              | Q9 (cut red tape), Q11 (privatise power)                       |
-| `labour_rights`                | Q19 (labour flexibility)                                       |
-| `law_order_vs_liberty`         | Q21 (police power), Q23 (limit protests)                       |
-| `global_vs_local`              | Q38 (tariffs), Q39 (immigration), Q40 (crack down on migrants) |
-| `transformation_vs_continuity` | Q43 (incremental reform)                                       |
+| Axis                   | Question | Text summary                                                                 |
+| ---------------------- | -------- | ---------------------------------------------------------------------------- |
+| `service_delivery`     | Q3       | Municipalities should partner with private investors via long-term concessions |
+| `settlement_housing`   | Q9       | Municipalities should enforce bylaws against land invasions quickly, even if this means evicting residents |
+| `coalition_governance` | Q15      | Motions of no confidence in a mayor should require a two-thirds majority rather than a simple majority |
+| `local_economy`        | Q30      | Local economic development should be led by private sector investment, with councils providing a favourable regulatory environment rather than direct intervention |
 
 See `src/data/questions.json` for the authoritative list.
 
@@ -54,37 +52,37 @@ See `src/data/questions.json` for the authoritative list.
 2. **Identify the positive pole** (the +1 direction)
 3. **Read your question**
 4. **Does your question ask about the POSITIVE pole?**
-   - YES → Omit `direction` field (use `direction: "positive"` or leave empty)
+   - YES → Omit `direction` field (or use `direction: "positive"` explicitly)
    - NO → Add `direction: "negative"`
 
 ## Examples with Full Scoring
 
-### Example A: EFF supporter answers Q22 (positive pole, no flag)
+### Example A: EFF supporter answers Q1 (positive pole, no flag)
 
-- **Question**: "Should people be free to protest?"
-- **Axis**: `law_order_vs_liberty` (positive = civil liberties, negative = law & order)
+- **Question**: "Municipal water and electricity services should be run directly by council staff rather than outsourced to private companies."
+- **Axis**: `service_delivery` (positive = state-run, negative = private contractors)
 - **Direction flag**: None
 - **EFF supporter answer**: Strongly Agree (+1)
 - **Algorithm**: No direction flag, so +1 stays +1
-- **Result on axis**: +1 (pro-civil-liberties) ✓ (EFF is indeed pro-protest)
+- **Result on axis**: +1 (pro-state-delivery) ✓ (EFF favours state-run services)
 
-### Example B: MK supporter answers Q21 (negative pole, with flag)
+### Example B: DA supporter answers Q3 (negative pole, with flag)
 
-- **Question**: "Should police have stronger powers?"
-- **Axis**: `law_order_vs_liberty`
-- **Direction flag**: `"negative"`
-- **MK supporter answer**: Strongly Agree (+1)
-- **Algorithm**: Direction flag applies, so +1 → -1
-- **Result on axis**: -1 (pro-law-and-order) ✓ (MK has authoritarian tendencies)
-
-### Example C: DA supporter answers Q2 (negative pole, with flag)
-
-- **Question**: "Government should pay down debt rather than spend"
-- **Axis**: `economic_left_right` (positive = left/spend, negative = right/save)
+- **Question**: "Municipalities should partner with private investors through long-term concessions to upgrade and operate ageing water and sanitation infrastructure."
+- **Axis**: `service_delivery`
 - **Direction flag**: `"negative"`
 - **DA supporter answer**: Strongly Agree (+1)
 - **Algorithm**: Direction flag applies, so +1 → -1
-- **Result on axis**: -1 (right-leaning) ✓ (DA is indeed economically right-wing)
+- **Result on axis**: -1 (pro-outsourcing/private delivery) ✓ (DA favours private sector delivery)
+
+### Example C: ActionSA supporter answers Q15 (negative pole, with flag)
+
+- **Question**: "Motions of no confidence in a mayor should require a two-thirds majority rather than a simple majority."
+- **Axis**: `coalition_governance` (positive = transparent/structured coalitions with accountability, negative = executive flexibility and informal deals)
+- **Direction flag**: `"negative"`
+- **ActionSA supporter answer**: Strongly Agree (+1)
+- **Algorithm**: Direction flag applies, so +1 → -1
+- **Result on axis**: -1 (pro-executive-flexibility) ✓ (requiring supermajority protects incumbents, reduces coalition accountability)
 
 ## Testing Your Understanding
 

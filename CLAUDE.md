@@ -29,8 +29,8 @@ All static data lives in `src/data/` as JSON and is imported at build time:
 
 - `questions.json` — 30 questions with `id`, `textKey`, `axis`, `weight`, optional `direction: "negative"`
 - `axes.json` — 10 political axes
-- `parties.json` — 16 parties with colour, website, i18n key references
-- `party_positions.json` — per-party scores per axis (0–1 scale, normalised)
+- `parties.json` — 17 parties with colour, website, i18n key references
+- `party_positions.json` — per-party scores per axis (−1 to 1 scale)
 - `surveys.json` — question ID lists per survey mode. Currently only one mode exists: `metro` (30 questions). The `surveys` key is a `Record<string, string[]>`, validated by `SurveysFileSchema`.
 - `translations/{en,af}.json` — all UI text; question text is keyed via `textKey` (e.g. `questions.q1.text`)
 

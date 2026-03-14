@@ -6,23 +6,23 @@ This guide covers how to add, modify, and manage quiz questions in Elekti.
 
 ### 1. Choose an axis
 
-Review `src/data/axes.json` and pick one of the 12 axes (e.g., `economic_left_right`).
+Review `src/data/axes.json` and pick one of the 10 axes (e.g., `accountability`).
 
 ### 2. Understand the axis direction
 
 Each axis has two poles:
 
-- **Positive (+1)**: The "progressive" or "left" or "libertarian" end (depends on axis)
-- **Negative (-1)**: The "conservative" or "right" or "authoritarian" end
+- **Positive (+1)**: The pole described as positive in `axes.json`
+- **Negative (-1)**: The opposite pole
 
-Example: `law_order_vs_liberty`
-- Positive = civil liberties
-- Negative = law & order
+Example: `accountability`
+- Positive = strict audit culture, personal criminal liability, independent oversight
+- Negative = flexible management, political discretion over financial decisions
 
 ### 3. Decide what your question measures
 
-- Does your question ask about the **positive pole**? (e.g., "Should civil liberties be protected?") → Omit `direction` flag
-- Does your question ask about the **negative pole**? (e.g., "Should police have stronger powers?") → Use `direction: "negative"`
+- Does your question ask about the **positive pole**? (e.g., "Should municipal managers face criminal liability for misconduct?") → Omit `direction` flag
+- Does your question ask about the **negative pole**? (e.g., "Should councils have flexibility to override audit findings?") → Use `direction: "negative"`
 
 For detailed guidance on axis poles and direction, see [Question Direction Guide](question-direction-guide.md).
 
@@ -31,7 +31,7 @@ For detailed guidance on axis poles and direction, see [Question Direction Guide
 Edit `src/data/translations/en.json` and `src/data/translations/af.json`:
 
 ```json
-"q51": {
+"q31": {
   "text": "Your question text here"
 }
 ```
@@ -40,17 +40,17 @@ Edit `src/data/translations/en.json` and `src/data/translations/af.json`:
 
 ```json
 {
-  "id": "q51",
-  "textKey": "questions.q51.text",
-  "axis": "economic_left_right",
+  "id": "q31",
+  "textKey": "questions.q31.text",
+  "axis": "accountability",
   "weight": 1.5,
   "direction": "negative"
 }
 ```
 
-- `id`: Unique identifier (q1 through q55)
+- `id`: Unique identifier (q1 through q30 are taken; use q31 onwards for new questions)
 - `textKey`: Path to translation (format: `questions.q[N].text`)
-- `axis`: One of the 12 axis IDs from `axes.json`
+- `axis`: One of the 10 axis IDs from `axes.json`
 - `weight`: Number from 1.0–2.0 (higher = more impact on scores)
 - `direction`: Use `"negative"` **only if your question measures the negative pole**; omit otherwise
 
@@ -121,8 +121,8 @@ The test suite (`src/data/validation.test.ts`) enforces that all locales have id
 
 ## Conventions
 
-- **Translation keys** use dot notation: `questions.q1.text`, `party.anc.desc`, `axes.economic_left_right.short`
-- **Question IDs** follow format `q[N]` (q1, q2, ..., q55)
-- **Axis IDs** use snake_case: `economic_left_right`, `law_order_vs_liberty`
+- **Translation keys** use dot notation: `questions.q1.text`, `party.anc.desc`, `axes.service_delivery.short`
+- **Question IDs** follow format `q[N]` (q1, q2, ..., q30 currently)
+- **Axis IDs** use snake_case: `service_delivery`, `accountability`, `settlement_housing`
 - **Party IDs** use lowercase alphanumeric: `anc`, `da`, `eff`
 - **Text** uses British English spelling and grammar

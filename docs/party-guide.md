@@ -2,7 +2,7 @@
 
 ## Parties Included
 
-The quiz currently includes 16 South African political parties:
+The quiz currently includes 17 South African political parties:
 
 1. **ANC** (African National Congress) - Centre-left governing party
 2. **DA** (Democratic Alliance) - Centre-right liberal opposition
@@ -20,16 +20,17 @@ The quiz currently includes 16 South African political parties:
 14. **Al Jama-ah** - Islamic democratic, socially conservative
 15. **NCC** (National Coloured Congress) - Coloured community representation
 16. **PAC** (Pan Africanist Congress of Azania) - Black nationalist, African socialist
+17. **COPE** (Congress of the People) - Centrist, pro-accountability
 
 Full metadata and axes positions are in:
 - `src/data/parties.json` – Party names, colors, websites, descriptions
-- `src/data/party_positions.json` – Party positions on all 12 axes (-1 to +1)
+- `src/data/party_positions.json` – Party positions on all 10 axes (-1 to +1)
 
 ## Adding a New Party
 
 ### 1. Research party positions
 
-Review official manifestos, parliamentary voting records, and verified public statements to understand the party's stance on each of the 12 axes.
+Review official manifestos, parliamentary voting records, and verified public statements to understand the party's stance on each of the 10 axes.
 
 ### 2. Add to `src/data/parties.json`
 
@@ -55,7 +56,7 @@ Review official manifestos, parliamentary voting records, and verified public st
 
 ### 3. Add to `src/data/party_positions.json`
 
-For each of the 12 axes, determine position (-1 to +1) by:
+For each of the 10 axes, determine position (-1 to +1) by:
 
 1. **Read all questions on that axis** – Check `src/data/questions.json` for every question with this axis ID
 2. **Estimate the party's typical answer** – Using manifestos, voting records, public positions
@@ -68,23 +69,21 @@ Example:
 ```json
 {
   "newparty": {
-    "economic_left_right": 0.2,
-    "state_vs_market": -0.3,
-    "land_and_ownership": 0.1,
-    "labour_rights": 0.4,
-    "law_order_vs_liberty": 0.2,
-    "democratic_institutions": 0.3,
-    "environment_energy": 0.5,
-    "social_progressivism": 0.6,
-    "global_vs_local": 0.1,
-    "transformation_vs_continuity": -0.2,
-    "urban_development": 0.2,
-    "equity_and_inclusion": 0.4
+    "service_delivery": 0.2,
+    "accountability": 0.5,
+    "settlement_housing": 0.1,
+    "tariffs_affordability": 0.2,
+    "coalition_governance": 0.4,
+    "public_transport": 0.3,
+    "land_densification": 0.2,
+    "metro_safety": 0.3,
+    "community_participation": 0.4,
+    "local_economy": 0.1
   }
 }
 ```
 
-**All 12 axes are required.** See [Party Position Reference](party-position-reference.md) for detailed worked examples of how to set positions.
+**All 10 axes are required.** See [Party Position Reference](party-position-reference.md) for detailed worked examples of how to set positions.
 
 ### 4. Add translations
 
@@ -110,7 +109,7 @@ npm run test
 ```
 
 All tests must pass. The validation suite will check:
-- All parties have positions on all 12 axes
+- All parties have positions on all 10 axes
 - No duplicate party IDs
 - All translation strings exist in both languages
 - All position values are between -1 and +1
