@@ -4,19 +4,6 @@ import { createTestI18n } from "../test-utils/i18n";
 import type { PartyScore } from "../types";
 import Results from "./Results.vue";
 
-const makeRef = <T>(initial: T) => {
-  let current = initial;
-  return {
-    __v_isRef: true,
-    get value() {
-      return current;
-    },
-    set value(next: T) {
-      current = next;
-    },
-  };
-};
-
 const {
   routerPushMock,
   loaderState,
@@ -24,6 +11,19 @@ const {
   writeTextMock,
   partyScores,
 } = vi.hoisted(() => {
+  const makeRef = <T>(initial: T) => {
+    let current = initial;
+    return {
+      __v_isRef: true,
+      get value() {
+        return current;
+      },
+      set value(next: T) {
+        current = next;
+      },
+    };
+  };
+
   type ResultViewModel = {
     primary: PartyScore;
     alternatives: PartyScore[];
