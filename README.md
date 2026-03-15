@@ -6,11 +6,11 @@ Elekti is a Vue 3 + TypeScript SPA that walks users through 30 policy questions,
 
 ## Highlights
 
-- 🎯 **Policy matching** – 30 questions mapped to 10 political axes; weighted scoring determines party alignment
-- 🌍 **Fully localized** – All text in `src/data/translations/{en,af}.json`; metadata references via `textKey`
-- 🧠 **Deterministic scoring** – Axis-based alignment, not text matching; reproducible results with similarity normalization
-- 🧭 **Shareable results** – Encode quiz answers into URL for deep-linking across locales
-- ⚙️ **Vue 3 + Pinia** – TypeScript-first, Vite bundler, vue-i18n, vue-router, fast HMR
+- **Policy matching** - 30 questions mapped to 10 political axes; weighted scoring determines party alignment
+- **Fully localized** - All text in `src/data/translations/{en,af}.json`; metadata references via `textKey`
+- **Deterministic scoring** - Axis-based alignment, not text matching; reproducible results with similarity normalization
+- **Shareable results** - Encode quiz answers into URL for deep-linking across locales
+- **Vue 3 + Pinia** - TypeScript-first, Vite bundler, vue-i18n, vue-router, fast HMR
 
 ## Getting Started
 
@@ -55,7 +55,7 @@ src/
 | `npm run lint` | oxlint + ESLint with autofix |
 | `npm run format` | Prettier + organize-imports |
 
-## 📚 Detailed Guides
+## Detailed Guides
 
 Full documentation is split into dedicated guides:
 
@@ -100,4 +100,4 @@ Have ideas, new questions, or found an alignment issue? Open an issue or start a
 
 ## License
 
-[GNU General Public License v3.0 only](https://opensource.org/license/gpl-3-0-only) — © 2025 Timothy Brits
+[GNU General Public License v3.0](LICENSE)
