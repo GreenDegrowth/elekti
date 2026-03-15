@@ -77,8 +77,8 @@ Each guide covers one topic in detail so you can find what you need quickly.
 ## Tooling
 
 - **TypeScript** – Strict mode; build fails on type errors
-- **Linting** – oxlint + ESLint with autofix
-- **Bundler** – Vite with Rolldown (very fast)
+- **Linting** – ESLint with autofix
+- **Bundler** – Vite with Rolldown
 - **i18n** – Fallback locale `en`; all locales must be complete
 
 ## Contributing
