@@ -8,7 +8,7 @@ Political alignment quiz: Vue 3 + TypeScript, Pinia, vue-i18n, vue-router, Zod, 
 npm run dev          # dev server at http://localhost:5173
 npm run build        # type-check + bundle (fails on TS errors)
 npm run test         # Vitest (happy-dom)
-npm run lint         # oxlint + ESLint with autofix
+npm run lint         # ESLint with autofix
 npm run format       # Prettier + organize-imports
 npm run type-check   # vue-tsc only
 npx vitest run <file>  # single test file

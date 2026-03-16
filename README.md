@@ -29,7 +29,6 @@ npm run build        # TypeScript strict mode enforced
 - **Arrow Left/Right** – Navigate questions
 - **Enter** – Proceed to next question
 
-
 ## Architecture
 
 ```
@@ -47,13 +46,13 @@ src/
 
 ## Key Scripts
 
-| Command | Purpose |
-|---------|---------|
-| `npm run dev` | Local dev server with HMR |
-| `npm run build` | Type-check + bundle (fails on type errors) |
-| `npm run test` / `test:ui` | Vitest; UI opens test inspector |
-| `npm run lint` | oxlint + ESLint with autofix |
-| `npm run format` | Prettier + organize-imports |
+| Command                    | Purpose                                    |
+| -------------------------- | ------------------------------------------ |
+| `npm run dev`              | Local dev server with HMR                  |
+| `npm run build`            | Type-check + bundle (fails on type errors) |
+| `npm run test` / `test:ui` | Vitest; UI opens test inspector            |
+| `npm run lint`             | ESLint with autofix                        |
+| `npm run format`           | Prettier + organize-imports                |
 
 ## Detailed Guides
 
@@ -66,7 +65,6 @@ Full documentation is split into dedicated guides:
 - **[Parties & Maintenance](docs/party-guide.md)** – List of 17 parties; adding/updating party positions
 
 Each guide covers one topic in detail so you can find what you need quickly.
-
 
 ## Testing & Quality
 

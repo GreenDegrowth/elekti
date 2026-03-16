@@ -9,12 +9,13 @@ npm run dev          # dev server at http://localhost:5173
 npm run build        # type-check + bundle (fails on type errors)
 npm run test         # run all Vitest tests
 npm run test:ui      # Vitest with browser UI
-npm run lint         # oxlint + ESLint with autofix
+npm run lint         # ESLint with autofix
 npm run format       # Prettier + organize-imports
 npm run type-check   # vue-tsc only, no bundle
 ```
 
 To run a single test file:
+
 ```sh
 npx vitest run src/utils/scoring.test.ts
 ```
@@ -39,6 +40,7 @@ All static data lives in `src/data/` as JSON and is imported at build time:
 ### Scoring
 
 `computeScores(answers, parties)` in `src/utils/scoring.ts`:
+
 1. For each answered question, looks up the party's position on that axis
 2. Computes `similarity = 1 - |userValue - partyPosition|`, weighted by `question.weight`
 3. Normalises per-axis, then averages across axes → `alignmentScore` (0–1)
@@ -50,6 +52,7 @@ Questions with `direction: "negative"` have their user value negated before comp
 ### Stores
 
 **`quizStore`** (`src/stores/quizStore.ts`) — owns quiz state:
+
 - `loadSurvey(mode, ids?)` — sets `questions`, resets answers; called on landing page and when restoring from URL
 - `encodeAnswersToUrl()` / `loadAnswersFromUrl()` — 3-bit-per-answer base64url packing via `src/validators/answers.ts`; `UNANSWERED_VALUE = 7` marks skipped questions
 - Translation cache (`translatedQuestionsCache`) is keyed by `locale|questionIds`; invalidated on locale change
@@ -65,6 +68,7 @@ Inside `quizStore`, i18n is accessed directly via `i18n.global.t` (not `useI18n(
 ### URL sharing
 
 Results are encoded into the URL as three query params:
+
 - `r` — base64url-packed answer values (3 bits each, `UNANSWERED_VALUE=7` for skipped)
 - `m` — survey mode (currently always `metro`)
 - `q` — comma-separated question IDs
@@ -89,4 +93,5 @@ Results are encoded into the URL as three query params:
 ### Testing
 
 Component tests use `@vue/test-utils` and Vitest with `happy-dom`. Shared test utilities live in `src/test-utils/`. Key helpers:
+
 - `makeEncodedAnswers(values, total)` — encode answer arrays into base64url for use in URL-based tests
