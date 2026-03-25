@@ -85,8 +85,6 @@ export const useQuizStore = defineStore("quiz", () => {
     const idx = currentQuestionIndex.value;
     if (idx >= questions.value.length - 1) return;
 
-    // Use ALL answers (not just answered questions before idx) so that
-    // navigating back and re-answering doesn't skew the coverage counts.
     const answeredPerAxis: Record<string, number> = {};
     for (const q of questions.value) {
       if (answers.value[q.id] !== undefined) {
@@ -97,8 +95,6 @@ export const useQuizStore = defineStore("quiz", () => {
     const fixed = questions.value.slice(0, idx + 1);
     const remaining = questions.value.slice(idx + 1);
 
-    // Keep already-answered remaining questions in their relative order;
-    // only sort the unanswered subset so revisited questions don't jump around.
     const answeredRemaining = remaining.filter(
       (q) => answers.value[q.id] !== undefined
     );
@@ -147,7 +143,6 @@ export const useQuizStore = defineStore("quiz", () => {
   }
 
   function encodeAnswersToUrl(): string {
-    // Always encode in the original survey order, not the (potentially adaptive-reordered) display order
     const orderedQuestions = questions.value.toSorted(
       (a, b) =>
         selectedQuestionIds.value.indexOf(a.id) -
