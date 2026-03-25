@@ -299,4 +299,41 @@ describe("quizStore", () => {
       expect(result.allScores.length).toBe(store.parties.length);
     });
   });
+
+  describe("adaptive question reordering", () => {
+    it("does not reorder when there are no remaining questions", () => {
+      const store = useQuizStore();
+      for (let i = 1; i <= 30; i++) {
+        store.answerQuestion(`q${i}`, 0);
+        store.reorderRemainingQuestions();
+        store.nextQuestion();
+      }
+      expect(store.questions.length).toBe(30);
+    });
+
+    it("keeps answered questions in place after reordering", () => {
+      const store = useQuizStore();
+      const firstId = store.questions[0]!.id;
+      store.answerQuestion(firstId, 0);
+      store.reorderRemainingQuestions();
+      store.nextQuestion();
+      expect(store.questions[0]!.id).toBe(firstId);
+    });
+
+    it("moves least-covered axes to the front of remaining questions", () => {
+      const store = useQuizStore();
+      store.answerQuestion("q1", 0);
+      store.reorderRemainingQuestions();
+      const upcoming = store.questions.slice(store.currentQuestionIndex + 1);
+      expect(upcoming[0]!.axis).not.toBe("axis1");
+    });
+
+    it("preserves total question count after reordering", () => {
+      const store = useQuizStore();
+      const initialCount = store.questions.length;
+      store.answerQuestion("q1", 0);
+      store.reorderRemainingQuestions();
+      expect(store.questions.length).toBe(initialCount);
+    });
+  });
 });

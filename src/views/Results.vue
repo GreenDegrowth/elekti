@@ -9,8 +9,9 @@
   import ResultBreakdownEnhanced from "../components/ResultBreakdownEnhanced/ResultBreakdownEnhanced.vue";
   import { useResultsLoader } from "../composables/useResultsLoader";
   import { useQuizStore } from "../stores/quizStore";
-  import type { PartyScore, Question } from "../types";
+  import type { Axis, PartyScore } from "../types";
   import { URL_PARAMS } from "../utils/constants";
+  import { getAxes } from "../utils/dataLoader";
 
   const router = useRouter();
   const quizStore = useQuizStore();
@@ -21,6 +22,17 @@
   const comparisonParties = ref<PartyScore[]>([]);
 
   const modeLabel = computed(() => t(`landing.modes.${quizStore.mode}.title`));
+
+  const topMatchAxes = computed(() => {
+    if (!result.value?.primary.axisScores) return [];
+    const axes = getAxes();
+    return Object.entries(result.value.primary.axisScores)
+      .filter(([, score]) => score >= 0.5)
+      .toSorted(([, a], [, b]) => b - a)
+      .slice(0, 3)
+      .map(([axisId]) => axes.find((a) => a.id === axisId))
+      .filter((a): a is Axis => a !== undefined);
+  });
 
   const otherScores = computed<PartyScore[]>(() => {
     const currentResult = result.value;
@@ -53,9 +65,7 @@
         const queryParams = new URLSearchParams({
           [URL_PARAMS.RESULTS]: encoded,
           [URL_PARAMS.MODE]: quizStore.mode,
-          [URL_PARAMS.QUESTIONS]: quizStore.questions
-            .map((q: Question) => q.id)
-            .join(","),
+          [URL_PARAMS.QUESTIONS]: quizStore.selectedQuestionIds.join(","),
         });
         shareUrl = `${globalThis.location.origin}/results?${queryParams.toString()}`;
       }
@@ -127,7 +137,7 @@
         role="status"
         aria-live="polite"
       >
-        <span class="sr-only">{{ $t("results.title") }}</span>
+        <span class="sr-only">{{ $t("results.loading") }}</span>
       </div>
 
       <div
@@ -159,6 +169,22 @@
           <h2 id="primary-match-heading" class="sr-only">
             {{ $t("results.primaryMatch") }}
           </h2>
+
+          <div
+            v-if="topMatchAxes.length > 0"
+            class="results__why"
+            aria-labelledby="why-match-label"
+          >
+            <span id="why-match-label" class="results__why-label">{{
+              $t("results.whyThisMatch")
+            }}</span>
+            <span
+              v-for="axis in topMatchAxes"
+              :key="axis.id"
+              class="results__why-badge"
+              >{{ $t(axis.shortNameKey) }}</span
+            >
+          </div>
 
           <PartyCard
             :party="result.primary.party"
@@ -243,27 +269,45 @@
       >
         <AlertCircle :size="48" />
         <p>{{ error }}</p>
-        <button
-          @click="goToQuiz"
-          class="results__button results__button--primary"
-          data-testid="results-go-to-quiz"
-          :aria-label="$t('landing.startButton')"
-        >
-          {{ $t("landing.startButton") }}
-        </button>
+        <div class="results__actions">
+          <button
+            @click="goToQuiz"
+            class="results__button results__button--primary"
+            data-testid="results-go-to-quiz"
+            :aria-label="$t('landing.startButton')"
+          >
+            {{ $t("landing.startButton") }}
+          </button>
+          <button
+            @click="goHome"
+            class="results__button results__button--secondary"
+            data-testid="results-go-home"
+          >
+            {{ $t("results.backToHome") }}
+          </button>
+        </div>
       </div>
 
       <div v-else class="results__empty" role="status" aria-live="polite">
         <AlertCircle :size="48" />
         <p>{{ $t("errors.noData") }}</p>
-        <button
-          @click="goToQuiz"
-          class="results__button results__button--primary"
-          data-testid="results-go-to-quiz"
-          :aria-label="$t('landing.startButton')"
-        >
-          {{ $t("landing.startButton") }}
-        </button>
+        <div class="results__actions">
+          <button
+            @click="goToQuiz"
+            class="results__button results__button--primary"
+            data-testid="results-go-to-quiz"
+            :aria-label="$t('landing.startButton')"
+          >
+            {{ $t("landing.startButton") }}
+          </button>
+          <button
+            @click="goHome"
+            class="results__button results__button--secondary"
+            data-testid="results-go-home"
+          >
+            {{ $t("results.backToHome") }}
+          </button>
+        </div>
       </div>
 
       <PartyComparison
@@ -519,5 +563,32 @@
     .results__section {
       margin-bottom: var(--space-2xl);
     }
+  }
+
+  .results__why {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .results__why-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-md);
+  }
+
+  .results__why-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-xs, 2px) var(--space-sm);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
   }
 </style>

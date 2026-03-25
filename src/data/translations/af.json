@@ -52,6 +52,8 @@
   },
   "results": {
     "title": "Jou ooreenkomste",
+    "loading": "Laai jou resultate…",
+    "whyThisMatch": "Sterkste belyning op",
     "primaryMatch": "Sterkste passing",
     "alternativeMatch": "Nou alternatiewe",
     "confidence": {

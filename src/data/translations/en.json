@@ -52,6 +52,8 @@
   },
   "results": {
     "title": "Your matches",
+    "loading": "Loading your results…",
+    "whyThisMatch": "Strongest alignment on",
     "primaryMatch": "Strongest alignment",
     "alternativeMatch": "Close alternatives",
     "confidence": {

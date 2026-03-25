@@ -81,6 +81,34 @@ export const useQuizStore = defineStore("quiz", () => {
     return q ? answers.value[q.id] !== undefined : false;
   });
 
+  function reorderRemainingQuestions() {
+    const idx = currentQuestionIndex.value;
+    if (idx >= questions.value.length - 1) return;
+
+    const answeredPerAxis: Record<string, number> = {};
+    for (const q of questions.value) {
+      if (answers.value[q.id] !== undefined) {
+        answeredPerAxis[q.axis] = (answeredPerAxis[q.axis] ?? 0) + 1;
+      }
+    }
+
+    const fixed = questions.value.slice(0, idx + 1);
+    const remaining = questions.value.slice(idx + 1);
+
+    const answeredRemaining = remaining.filter(
+      (q) => answers.value[q.id] !== undefined
+    );
+    const unansweredRemaining = remaining.filter(
+      (q) => answers.value[q.id] === undefined
+    );
+
+    unansweredRemaining.sort(
+      (a, b) => (answeredPerAxis[a.axis] ?? 0) - (answeredPerAxis[b.axis] ?? 0)
+    );
+
+    questions.value = [...fixed, ...answeredRemaining, ...unansweredRemaining];
+  }
+
   function answerQuestion(questionId: string, optionIndex: number) {
     answers.value[questionId] = optionIndex;
   }
@@ -114,7 +142,12 @@ export const useQuizStore = defineStore("quiz", () => {
   }
 
   function encodeAnswersToUrl(): string {
-    return encodeAnswers(questions.value, answers.value);
+    const orderedQuestions = questions.value.toSorted(
+      (a, b) =>
+        selectedQuestionIds.value.indexOf(a.id) -
+        selectedQuestionIds.value.indexOf(b.id)
+    );
+    return encodeAnswers(orderedQuestions, answers.value);
   }
 
   function loadAnswersFromUrl(
@@ -169,6 +202,7 @@ export const useQuizStore = defineStore("quiz", () => {
     selectedQuestionIds,
     parties,
     answerQuestion,
+    reorderRemainingQuestions,
     nextQuestion,
     previousQuestion,
     skipQuestion,

@@ -27,9 +27,17 @@
   <div
     class="confidence-indicator"
     :class="`confidence-indicator--${confidence}`"
+    role="button"
+    tabindex="0"
+    :aria-haspopup="true"
+    :aria-expanded="showTooltip"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
+    @focus="showTooltip = true"
+    @blur="showTooltip = false"
     @click.stop="showTooltip = !showTooltip"
+    @keydown.enter.prevent="showTooltip = !showTooltip"
+    @keyup.space.prevent="showTooltip = !showTooltip"
   >
     <div class="confidence-indicator__content">
       <component

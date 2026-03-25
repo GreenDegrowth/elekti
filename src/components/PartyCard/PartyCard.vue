@@ -63,10 +63,17 @@
       class="party-card__score"
       data-testid="party-score"
     >
-      <div class="party-card__score-bar">
+      <div
+        class="party-card__score-bar"
+        role="progressbar"
+        :aria-valuenow="Math.min(100, Math.max(0, Math.round(score * 100)))"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        :aria-label="`${$t('results.match')} ${formatPercentage(score)}%`"
+      >
         <div
           class="party-card__score-fill"
-          :style="{ width: `${Math.max(0, score * 100)}%` }"
+          :style="{ width: `${Math.min(100, Math.max(0, score * 100))}%` }"
         />
       </div>
       <span class="party-card__score-text">{{ formatPercentage(score) }}%</span>
@@ -94,6 +101,7 @@
       :class="{ 'party-card__expand-button--expanded': expanded }"
       @click="expanded = !expanded"
       :aria-expanded="expanded"
+      :aria-controls="`axes-${party.id}`"
     >
       <ChevronDown :size="18" />
       <span>{{ $t(expanded ? "results.hideAxes" : "results.showAxes") }}</span>
@@ -101,6 +109,7 @@
 
     <div
       v-if="expanded && axisScores"
+      :id="`axes-${party.id}`"
       class="party-card__axis-breakdown"
       data-testid="party-axes"
     >

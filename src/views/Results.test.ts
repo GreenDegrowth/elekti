@@ -97,6 +97,7 @@ const {
     quizStoreMock: {
       mode: "metro",
       questions: [{ id: "q1" }, { id: "q2" }],
+      selectedQuestionIds: ["q1", "q2"],
       encodeAnswersToUrl: vi.fn(() => "encoded"),
       reset: vi.fn(),
     },

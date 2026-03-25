@@ -11,6 +11,8 @@
   const quizStore = useQuizStore();
   const isTransitioning = ref(false);
   const isAnswerDisabled = ref(false);
+  let touchStartX = 0;
+  let touchStartY = 0;
 
   const currentQuestion = computed(() => quizStore.currentQuestion);
   const isLastQuestion = computed(
@@ -26,6 +28,7 @@
     if (currentQuestion.value && !isAnswerDisabled.value) {
       isAnswerDisabled.value = true;
       quizStore.answerQuestion(currentQuestion.value.id, optionIndex);
+      quizStore.reorderRemainingQuestions();
       isTransitioning.value = true;
       setTimeout(() => {
         if (isLastQuestion.value) {
@@ -112,6 +115,23 @@
     }
   }
 
+  function handleTouchStart(event: TouchEvent) {
+    touchStartX = event.touches[0]!.clientX;
+    touchStartY = event.touches[0]!.clientY;
+  }
+
+  function handleTouchEnd(event: TouchEvent) {
+    if (isTransitioning.value || isAnswerDisabled.value) return;
+    const dx = event.changedTouches[0]!.clientX - touchStartX;
+    const dy = event.changedTouches[0]!.clientY - touchStartY;
+    if (Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx)) return;
+    if (dx < 0 && hasAnsweredCurrent.value) {
+      handleNext();
+    } else if (dx > 0 && quizStore.currentQuestionIndex > 0) {
+      quizStore.previousQuestion();
+    }
+  }
+
   onMounted(() => {
     globalThis.addEventListener("keydown", handleKeyDown);
   });
@@ -123,7 +143,11 @@
 
 <template>
   <div class="quiz">
-    <div class="quiz__wrapper">
+    <div
+      class="quiz__wrapper"
+      @touchstart.passive="handleTouchStart"
+      @touchend.passive="handleTouchEnd"
+    >
       <div class="quiz__container">
         <div class="quiz__header">
           <ProgressBar :progress="quizStore.progress">
@@ -156,7 +180,7 @@
           @click="quizStore.previousQuestion()"
           class="quiz__nav-button quiz__nav-button--back"
           data-testid="nav-back"
-          :title="$t('quiz.back')"
+          :aria-label="$t('quiz.back')"
         >
           <ChevronLeft :size="24" />
         </button>
@@ -166,7 +190,7 @@
           @click="handleSkip"
           class="quiz__nav-button quiz__nav-button--skip"
           data-testid="nav-skip"
-          :title="$t('quiz.skip')"
+          :aria-label="$t('quiz.skip')"
         >
           {{ $t("quiz.skip") }}
         </button>
@@ -176,7 +200,7 @@
           @click="handleNext"
           class="quiz__nav-button quiz__nav-button--next"
           data-testid="nav-next"
-          :title="$t('quiz.next')"
+          :aria-label="$t('quiz.next')"
           :disabled="!hasAnsweredCurrent"
         >
           <ChevronRight :size="24" />
@@ -186,7 +210,7 @@
           @click="handleFinish"
           class="quiz__nav-button quiz__nav-button--finish"
           data-testid="nav-finish"
-          :title="$t('quiz.finish')"
+          :aria-label="$t('quiz.finish')"
           :disabled="!hasAnsweredCurrent"
         >
           <ChevronRight :size="24" />

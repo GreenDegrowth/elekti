@@ -3,7 +3,7 @@ import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 import { useQuizStore } from "../stores/quizStore";
 import { isSurveyMode, type SurveyMode } from "../stores/uiStore";
-import type { Question, QuizResult } from "../types";
+import type { QuizResult } from "../types";
 import { URL_PARAMS } from "../utils/constants";
 
 export function useResultsLoader() {
@@ -49,7 +49,7 @@ export function useResultsLoader() {
       if (quizStore.completed && Object.keys(quizStore.answers).length > 0) {
         result.value = quizStore.computeScores();
         const encoded = quizStore.encodeAnswersToUrl();
-        const ids = quizStore.questions.map((q: Question) => q.id).join(",");
+        const ids = quizStore.selectedQuestionIds.join(",");
         const m = quizStore.mode;
         const queryParams = {
           [URL_PARAMS.RESULTS]: encoded,
