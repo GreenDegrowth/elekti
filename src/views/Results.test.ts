@@ -93,7 +93,7 @@ const {
 
   return {
     routerPushMock: vi.fn(),
-    writeTextMock: vi.fn().mockResolvedValue(),
+    writeTextMock: vi.fn<() => Promise<void>>().mockResolvedValue(),
     quizStoreMock: {
       mode: "metro",
       questions: [{ id: "q1" }, { id: "q2" }],

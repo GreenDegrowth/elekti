@@ -5,7 +5,7 @@ import LanguageSelector from "./LanguageSelector.vue";
 const { localeRef, setLangMock, loadAFTranslationsMock } = vi.hoisted(() => ({
   localeRef: { value: "en" },
   setLangMock: vi.fn(),
-  loadAFTranslationsMock: vi.fn().mockResolvedValue(),
+  loadAFTranslationsMock: vi.fn<() => Promise<void>>().mockResolvedValue(),
 }));
 
 vi.mock("lucide-vue-next", () => ({
