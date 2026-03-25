@@ -19,6 +19,17 @@ export const URL_PARAMS = {
   QUESTIONS: "q",
 } as const;
 
+/**
+ * Thresholds used by `determineConfidence()` in `confidence.ts`.
+ *
+ * LOW_CONFIDENCE_THRESHOLD    — if topScore is below this, result is "low" confidence.
+ * MEDIUM_CONFIDENCE_THRESHOLD — if topScore is below this (but ≥ LOW), result is "medium".
+ * SPREAD_THRESHOLD            — if the gap between 1st and 2nd party is below this,
+ *                               confidence is downgraded to "medium" (parties are
+ *                               clustered; no clear winner).
+ *
+ * Tune these when the question bank grows or the scoring scale changes.
+ */
 export const SCORING = {
   LOW_CONFIDENCE_THRESHOLD: 0.2,
   MEDIUM_CONFIDENCE_THRESHOLD: 0.5,
