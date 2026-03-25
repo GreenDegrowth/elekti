@@ -9,7 +9,7 @@
   import ResultBreakdownEnhanced from "../components/ResultBreakdownEnhanced/ResultBreakdownEnhanced.vue";
   import { useResultsLoader } from "../composables/useResultsLoader";
   import { useQuizStore } from "../stores/quizStore";
-  import type { PartyScore, Question } from "../types";
+  import type { Axis, PartyScore } from "../types";
   import { URL_PARAMS } from "../utils/constants";
   import { getAxes } from "../utils/dataLoader";
 
@@ -31,7 +31,7 @@
       .toSorted(([, a], [, b]) => b - a)
       .slice(0, 3)
       .map(([axisId]) => axes.find((a) => a.id === axisId))
-      .filter(Boolean);
+      .filter((a): a is Axis => a !== undefined);
   });
 
   const otherScores = computed<PartyScore[]>(() => {
@@ -65,9 +65,7 @@
         const queryParams = new URLSearchParams({
           [URL_PARAMS.RESULTS]: encoded,
           [URL_PARAMS.MODE]: quizStore.mode,
-          [URL_PARAMS.QUESTIONS]: quizStore.questions
-            .map((q: Question) => q.id)
-            .join(","),
+          [URL_PARAMS.QUESTIONS]: quizStore.selectedQuestionIds.join(","),
         });
         shareUrl = `${globalThis.location.origin}/results?${queryParams.toString()}`;
       }
@@ -175,16 +173,16 @@
           <div
             v-if="topMatchAxes.length > 0"
             class="results__why"
-            aria-label="Top alignment axes"
+            aria-labelledby="why-match-label"
           >
-            <span class="results__why-label">{{
+            <span id="why-match-label" class="results__why-label">{{
               $t("results.whyThisMatch")
             }}</span>
             <span
               v-for="axis in topMatchAxes"
-              :key="axis!.id"
+              :key="axis.id"
               class="results__why-badge"
-              >{{ $t(axis!.shortNameKey) }}</span
+              >{{ $t(axis.shortNameKey) }}</span
             >
           </div>
 

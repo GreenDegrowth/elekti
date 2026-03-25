@@ -37,7 +37,7 @@
     @blur="showTooltip = false"
     @click.stop="showTooltip = !showTooltip"
     @keydown.enter.prevent="showTooltip = !showTooltip"
-    @keydown.space.prevent="showTooltip = !showTooltip"
+    @keyup.space.prevent="showTooltip = !showTooltip"
   >
     <div class="confidence-indicator__content">
       <component

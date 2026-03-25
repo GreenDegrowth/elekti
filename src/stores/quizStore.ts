@@ -85,21 +85,32 @@ export const useQuizStore = defineStore("quiz", () => {
     const idx = currentQuestionIndex.value;
     if (idx >= questions.value.length - 1) return;
 
+    // Use ALL answers (not just answered questions before idx) so that
+    // navigating back and re-answering doesn't skew the coverage counts.
     const answeredPerAxis: Record<string, number> = {};
-    for (const q of questions.value.slice(0, idx + 1)) {
+    for (const q of questions.value) {
       if (answers.value[q.id] !== undefined) {
         answeredPerAxis[q.axis] = (answeredPerAxis[q.axis] ?? 0) + 1;
       }
     }
 
-    const answered = questions.value.slice(0, idx + 1);
+    const fixed = questions.value.slice(0, idx + 1);
     const remaining = questions.value.slice(idx + 1);
 
-    remaining.sort(
+    // Keep already-answered remaining questions in their relative order;
+    // only sort the unanswered subset so revisited questions don't jump around.
+    const answeredRemaining = remaining.filter(
+      (q) => answers.value[q.id] !== undefined
+    );
+    const unansweredRemaining = remaining.filter(
+      (q) => answers.value[q.id] === undefined
+    );
+
+    unansweredRemaining.sort(
       (a, b) => (answeredPerAxis[a.axis] ?? 0) - (answeredPerAxis[b.axis] ?? 0)
     );
 
-    questions.value = [...answered, ...remaining];
+    questions.value = [...fixed, ...answeredRemaining, ...unansweredRemaining];
   }
 
   function answerQuestion(questionId: string, optionIndex: number) {
