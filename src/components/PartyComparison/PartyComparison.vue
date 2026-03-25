@@ -2,6 +2,7 @@
   import { X } from "lucide-vue-next";
   import { useI18n } from "vue-i18n";
   import type { PartyScore } from "../../types";
+  import { formatPercentage } from "../../utils/colorUtils";
   import { getAxes } from "../../utils/dataLoader";
 
   defineProps<{
@@ -15,11 +16,6 @@
 
   useI18n();
   const axes = getAxes();
-
-  const formatPercentage = (score: number): string => {
-    const percentage = Math.max(0, score * 100);
-    return percentage.toFixed(1);
-  };
 </script>
 
 <template>

@@ -66,13 +66,11 @@ export function computeScores(
 
       const weightedScore = similarity * weight;
 
-      const partyAxisScores = axisScoresPerParty[party.id];
-      const partyAxisWeights = axisWeightsPerParty[party.id];
+      const partyAxisScores = axisScoresPerParty[party.id]!;
+      const partyAxisWeights = axisWeightsPerParty[party.id]!;
 
-      if (partyAxisScores && partyAxisScores[axis] !== undefined) {
+      if (partyAxisScores[axis] !== undefined) {
         partyAxisScores[axis] += weightedScore;
-      }
-      if (partyAxisWeights && partyAxisWeights[axis] !== undefined) {
         partyAxisWeights[axis] += weight;
       }
     }

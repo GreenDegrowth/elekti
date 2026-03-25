@@ -3,6 +3,7 @@
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
   import type { PartyScore } from "../../types";
+  import { formatPercentage } from "../../utils/colorUtils";
   import PartyCard from "../PartyCard/PartyCard.vue";
 
   const props = defineProps<{
@@ -25,18 +26,11 @@
       : scores.toSorted((a, b) => a.party.name.localeCompare(b.party.name));
   });
 
-  const formatPercentage = (score: number): string => {
-    const percentage = Math.max(0, score * 100);
-    return percentage.toFixed(1);
-  };
-
   function toggleSelect(partyId: string) {
     if (selectedForComparison.value.has(partyId)) {
       selectedForComparison.value.delete(partyId);
-    } else {
-      if (selectedForComparison.value.size < 3) {
-        selectedForComparison.value.add(partyId);
-      }
+    } else if (selectedForComparison.value.size < 3) {
+      selectedForComparison.value.add(partyId);
     }
     selectedForComparison.value = new Set(selectedForComparison.value);
   }
@@ -49,7 +43,6 @@
   }
 
   function clearSelection() {
-    selectedForComparison.value.clear();
     selectedForComparison.value = new Set();
   }
 </script>

@@ -18,6 +18,7 @@ vi.mock("../../utils/dataLoader", () => ({
 
 vi.mock("../../utils/colorUtils", () => ({
   badgeTextColor: () => "#ffffff",
+  formatPercentage: (score: number) => (score * 100).toFixed(1),
   getAxisColor: () => "#1f7a51",
 }));
 

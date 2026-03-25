@@ -26,9 +26,12 @@ export function useQuestionTranslation() {
     const base = getQuestions();
     const filtered =
       ids && ids.length > 0
-        ? ids
-            .map((id) => base.find((q) => q.id === id))
-            .filter((q): q is QuestionMetadata => !!q)
+        ? (() => {
+            const byId = new Map(base.map((q) => [q.id, q]));
+            return ids
+              .map((id) => byId.get(id))
+              .filter((q): q is QuestionMetadata => q !== undefined);
+          })()
         : base;
 
     const translated = filtered.map((q: QuestionMetadata) => ({

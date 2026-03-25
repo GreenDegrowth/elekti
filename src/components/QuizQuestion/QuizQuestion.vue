@@ -41,7 +41,7 @@
       :id="questionLabelId"
       aria-live="polite"
     >
-      {{ question.textKey ? t(question.textKey) : question.text }}
+      {{ t(question.textKey) }}
     </h2>
 
     <div

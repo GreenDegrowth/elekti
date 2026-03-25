@@ -128,9 +128,8 @@ export function validateAnswerIndex(value: unknown): AnswerValidationResult {
     const validated = AnswerIndexSchema.parse(value);
     return { success: true, value: validated };
   } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return { success: false, error: zodError.issues[0]?.message };
+    if (error instanceof ZodError) {
+      return { success: false, error: error.issues[0]?.message };
     }
     return { success: false, error: "Unknown validation error" };
   }
@@ -145,9 +144,8 @@ export function validateAnswersRecord(data: unknown): {
     const validated = AnswersRecordSchema.parse(data);
     return { success: true, answers: validated };
   } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return { success: false, error: zodError.issues[0]?.message };
+    if (error instanceof ZodError) {
+      return { success: false, error: error.issues[0]?.message };
     }
     return { success: false, error: "Unknown validation error" };
   }
@@ -162,9 +160,8 @@ export function validateEncodedAnswers(encoded: unknown): {
     const validated = EncodedAnswersSchema.parse(encoded);
     return { success: true, value: validated };
   } catch (error) {
-    if (error instanceof Error && "issues" in error) {
-      const zodError = error as ZodError;
-      return { success: false, error: zodError.issues[0]?.message };
+    if (error instanceof ZodError) {
+      return { success: false, error: error.issues[0]?.message };
     }
     return { success: false, error: "Unknown validation error" };
   }

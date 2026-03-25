@@ -17,9 +17,8 @@
       return;
     }
     quizStore.loadSurvey("metro");
-    const questions = quizStore.getQuestions();
     const optionCount = 5;
-    for (const question of questions) {
+    for (const question of quizStore.questions) {
       const randomOption = Math.floor(Math.random() * optionCount);
       quizStore.answerQuestion(question.id, randomOption);
     }

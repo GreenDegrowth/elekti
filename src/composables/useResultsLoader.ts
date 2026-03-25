@@ -23,16 +23,16 @@ export function useResultsLoader() {
       const qParam = urlParameters.get(URL_PARAMS.QUESTIONS);
 
       if (encodedAnswers) {
+        const parsedIds = qParam
+          ? qParam.split(",").filter(Boolean)
+          : undefined;
         if (modeParam) {
-          const ids = qParam ? qParam.split(",").filter(Boolean) : undefined;
           const m: SurveyMode = isSurveyMode(modeParam)
             ? (modeParam as SurveyMode)
             : "metro";
-          quizStore.loadSurvey(m, ids);
+          quizStore.loadSurvey(m, parsedIds);
         }
-        const idsForDecode = qParam
-          ? qParam.split(",").filter(Boolean)
-          : undefined;
+        const idsForDecode = parsedIds;
         const loaded = quizStore.loadAnswersFromUrl(
           encodedAnswers,
           idsForDecode

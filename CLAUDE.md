@@ -14,6 +14,8 @@ npm run format       # Prettier + organize-imports
 npm run type-check   # vue-tsc only, no bundle
 ```
 
+Git hooks are managed by **lefthook** (`lefthook.yml`). On each commit, ESLint (autofix) and Prettier run against staged files, and fixed files are re-staged automatically. Run `npx lefthook install` after cloning to activate the hooks.
+
 To run a single test file:
 
 ```sh

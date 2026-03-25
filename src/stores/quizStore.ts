@@ -177,7 +177,6 @@ export const useQuizStore = defineStore("quiz", () => {
     encodeAnswersToUrl,
     loadAnswersFromUrl,
     loadSurvey,
-    getQuestions: () => questions.value,
     setCompleted: (value: boolean) => {
       completed.value = value;
     },

@@ -48,7 +48,7 @@
       :aria-expanded="isOpen"
       aria-haspopup="listbox"
       :aria-controls="dropdownId"
-      :aria-label="t('languages.change') ?? 'Change language'"
+      :aria-label="t('languages.change')"
       type="button"
     >
       <Globe :size="20" />

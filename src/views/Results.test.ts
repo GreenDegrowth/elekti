@@ -11,6 +11,7 @@ const {
   writeTextMock,
   partyScores,
 } = vi.hoisted(() => {
+  // eslint-disable-next-line unicorn/consistent-function-scoping
   const makeRef = <T>(initial: T) => {
     let current = initial;
     return {
@@ -92,7 +93,7 @@ const {
 
   return {
     routerPushMock: vi.fn(),
-    writeTextMock: vi.fn().mockResolvedValue(undefined),
+    writeTextMock: vi.fn().mockResolvedValue(),
     quizStoreMock: {
       mode: "metro",
       questions: [{ id: "q1" }, { id: "q2" }],

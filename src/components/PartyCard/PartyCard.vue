@@ -3,7 +3,11 @@
   import { computed, ref } from "vue";
   import { useI18n } from "vue-i18n";
   import type { Party } from "../../types";
-  import { badgeTextColor, getAxisColor } from "../../utils/colorUtils";
+  import {
+    badgeTextColor,
+    formatPercentage,
+    getAxisColor,
+  } from "../../utils/colorUtils";
   import { getAxes } from "../../utils/dataLoader";
 
   const props = defineProps<{
@@ -37,11 +41,6 @@
   const partyBadgeTextColor = computed(() =>
     badgeTextColor(props.party.colour)
   );
-
-  const formatPercentage = (score: number): string => {
-    const percentage = Math.max(0, score * 100);
-    return percentage.toFixed(1);
-  };
 </script>
 
 <template>

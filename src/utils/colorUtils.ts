@@ -1,5 +1,9 @@
 import { AXIS_COLOR_THRESHOLDS } from "./constants";
 
+export function formatPercentage(score: number): string {
+  return Math.max(0, score * 100).toFixed(1);
+}
+
 function toLinear(c: number): number {
   return c <= 0.040_45 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
 }
