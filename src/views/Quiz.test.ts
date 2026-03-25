@@ -16,6 +16,7 @@ const { routerPushMock, storeMock } = vi.hoisted(() => ({
     answers: {} as Record<string, number>,
     progress: 0,
     answerQuestion: vi.fn(),
+    reorderRemainingQuestions: vi.fn(),
     nextQuestion: vi.fn(),
     previousQuestion: vi.fn(),
     skipQuestion: vi.fn(),

@@ -303,12 +303,11 @@ describe("quizStore", () => {
   describe("adaptive question reordering", () => {
     it("does not reorder when there are no remaining questions", () => {
       const store = useQuizStore();
-      // Answer all 30 questions
       for (let i = 1; i <= 30; i++) {
         store.answerQuestion(`q${i}`, 0);
+        store.reorderRemainingQuestions();
         store.nextQuestion();
       }
-      // Should not throw and question count stays the same
       expect(store.questions.length).toBe(30);
     });
 
@@ -316,22 +315,16 @@ describe("quizStore", () => {
       const store = useQuizStore();
       const firstId = store.questions[0]!.id;
       store.answerQuestion(firstId, 0);
+      store.reorderRemainingQuestions();
       store.nextQuestion();
-      // The first question must still be the same
       expect(store.questions[0]!.id).toBe(firstId);
     });
 
     it("moves least-covered axes to the front of remaining questions", () => {
       const store = useQuizStore();
-      // The mock data assigns axis = `axis${(index % 10) + 1}`:
-      // q1 → axis1, q2 → axis2, …, q10 → axis10, q11 → axis1, etc.
-      // Answer q1 (axis1): after reorder, the first upcoming question should
-      // NOT be on axis1 (since axis1 has more answered questions than the others).
-      store.answerQuestion("q1", 0); // axis1 now has 1 answer
-
-      // currentQuestionIndex is still 0; upcoming questions start at index 1
+      store.answerQuestion("q1", 0);
+      store.reorderRemainingQuestions();
       const upcoming = store.questions.slice(store.currentQuestionIndex + 1);
-      // The first upcoming question should NOT be on axis1
       expect(upcoming[0]!.axis).not.toBe("axis1");
     });
 
@@ -339,6 +332,7 @@ describe("quizStore", () => {
       const store = useQuizStore();
       const initialCount = store.questions.length;
       store.answerQuestion("q1", 0);
+      store.reorderRemainingQuestions();
       expect(store.questions.length).toBe(initialCount);
     });
   });

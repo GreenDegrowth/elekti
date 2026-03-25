@@ -66,14 +66,14 @@
       <div
         class="party-card__score-bar"
         role="progressbar"
-        :aria-valuenow="Math.max(0, Math.round(score * 100))"
+        :aria-valuenow="Math.min(100, Math.max(0, Math.round(score * 100)))"
         aria-valuemin="0"
         aria-valuemax="100"
         :aria-label="`${$t('results.match')} ${formatPercentage(score)}%`"
       >
         <div
           class="party-card__score-fill"
-          :style="{ width: `${Math.max(0, score * 100)}%` }"
+          :style="{ width: `${Math.min(100, Math.max(0, score * 100))}%` }"
         />
       </div>
       <span class="party-card__score-text">{{ formatPercentage(score) }}%</span>

@@ -111,7 +111,6 @@ export const useQuizStore = defineStore("quiz", () => {
 
   function answerQuestion(questionId: string, optionIndex: number) {
     answers.value[questionId] = optionIndex;
-    reorderRemainingQuestions();
   }
 
   function nextQuestion() {

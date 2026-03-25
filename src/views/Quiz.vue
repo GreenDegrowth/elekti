@@ -28,6 +28,7 @@
     if (currentQuestion.value && !isAnswerDisabled.value) {
       isAnswerDisabled.value = true;
       quizStore.answerQuestion(currentQuestion.value.id, optionIndex);
+      quizStore.reorderRemainingQuestions();
       isTransitioning.value = true;
       setTimeout(() => {
         if (isLastQuestion.value) {
