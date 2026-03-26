@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## About
+
+Elekti is a political compass / party alignment quiz built with Vue 3 + TypeScript. Users answer questions on political axes and get matched to South African political parties based on scoring similarity.
+
 ## Commands
 
 ```sh
@@ -85,6 +89,10 @@ Results are encoded into the URL as three query params:
 
 **New i18n key:** add to `en.json` first (it is the type source), then mirror in `af.json`. The build will type-check coverage.
 
+## Safety
+
+- **Never deploy to production without explicit permission from the user.** Always ask first and wait for confirmation.
+
 ## Key constraints
 
 - `party.colour` is always a 6-digit hex string (`#RRGGBB`) — relied on by the contrast utility in `PartyCard.vue`
@@ -92,7 +100,13 @@ Results are encoded into the URL as three query params:
 - `surveys.json` is validated at startup by `validateSurveys()` — the app throws on invalid data
 - Locale persistence key is `"lang"`, mode persistence key is `"mode"` (localStorage)
 
-### Testing
+## Code style
+
+- **No inline comments** — never use trailing `//` comments on the same line as code. JSDoc block comments (`/** */`) are fine where genuinely useful.
+- Prettier enforces: double quotes, semicolons, 100-char width
+- ESLint uses `@vue/eslint-config-prettier` integration
+
+## Testing
 
 Component tests use `@vue/test-utils` and Vitest with `happy-dom`. Shared test utilities live in `src/test-utils/`. Key helpers:
 
