@@ -135,11 +135,23 @@
   .landing__hero {
     text-align: left;
     padding: var(--space-2xl);
+    padding-top: calc(var(--pattern-geo-height) + var(--space-2xl));
     background: var(--color-surface-elevated);
-    border: 2px solid var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
+  }
+
+  .landing__hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--pattern-geo-height);
+    background: var(--pattern-geo);
   }
 
   .landing__hero::after {
@@ -214,7 +226,7 @@
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     border: 2px solid var(--color-primary-dark);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     cursor: pointer;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-md);
@@ -224,7 +236,7 @@
 
   .landing__cta:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-primary), var(--shadow-lg);
     background: linear-gradient(
       120deg,
       var(--color-primary-dark),
@@ -248,10 +260,10 @@
 
   .landing__disclaimer {
     background: var(--color-surface);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: var(--space-xl);
     margin-bottom: var(--space-md);
-    border: 2px solid var(--color-border);
+    border: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
   }
 
@@ -283,7 +295,7 @@
       transparent
     );
     color: var(--color-text-primary);
-    border-radius: 0;
+    border-radius: var(--radius-sm);
     border-left: 6px solid var(--color-secondary-dark);
     font-weight: var(--font-weight-semibold);
   }
@@ -330,10 +342,10 @@
 
   .landing__why {
     background: var(--color-surface);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: var(--space-2xl);
     margin-bottom: var(--space-md);
-    border: 2px solid var(--color-border);
+    border: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
   }
 
@@ -363,6 +375,7 @@
     text-align: left;
     padding: var(--space-lg);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     background-color: var(--color-background);
     position: relative;
   }

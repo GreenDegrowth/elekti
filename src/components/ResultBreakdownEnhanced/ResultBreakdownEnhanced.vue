@@ -220,7 +220,7 @@
     border: 1px solid var(--color-border);
     border-left: 4px solid var(--color-secondary);
     padding: var(--space-xl);
-    border-radius: 0;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
   }
 
@@ -252,7 +252,7 @@
     gap: var(--space-xs);
     background: var(--color-surface-elevated);
     padding: var(--space-xs);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     border: 1px solid var(--color-border);
   }
 
@@ -265,7 +265,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     transition: all var(--transition-fast);
   }
 
@@ -285,7 +285,7 @@
     padding: var(--space-sm) var(--space-md);
     background: var(--color-surface-elevated);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     cursor: pointer;
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
@@ -304,7 +304,7 @@
     justify-content: space-between;
     padding: var(--space-md);
     background: var(--color-accent);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     margin-bottom: var(--space-md);
     font-weight: var(--font-weight-semibold);
     color: var(--color-text-primary);
@@ -319,7 +319,7 @@
   .result-breakdown__clear-btn {
     padding: var(--space-sm) var(--space-md);
     border: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     cursor: pointer;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
@@ -354,7 +354,7 @@
   .result-breakdown__card-wrapper {
     position: relative;
     border: 2px solid transparent;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     transition: border-color var(--transition-fast);
   }
 
@@ -448,7 +448,7 @@
     color: white;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     white-space: nowrap;
     position: relative;
     z-index: var(--z-index-above);
@@ -465,7 +465,7 @@
     flex: 1;
     height: var(--bar-height-md);
     background: var(--color-surface-elevated);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     overflow: hidden;
   }
 

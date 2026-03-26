@@ -147,7 +147,7 @@
     background-color: var(--color-surface-elevated);
     border: 1px solid var(--color-border);
     border-left: 6px solid var(--party-colour);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-lg);
     padding: var(--space-lg);
     transition:
       box-shadow var(--transition-base),
@@ -202,7 +202,7 @@
     background-color: var(--party-colour);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     white-space: nowrap;
   }
 
@@ -243,7 +243,7 @@
     text-decoration: none;
     color: var(--party-colour);
     border: 2px solid var(--party-colour);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     transition: all var(--transition-fast);
     background-color: transparent;
   }
@@ -271,14 +271,14 @@
     flex: 1;
     height: var(--bar-height-md);
     background-color: var(--color-border-light);
-    border-radius: 0;
+    border-radius: var(--radius-full);
     overflow: hidden;
   }
 
   .party-card__score-fill {
     height: 100%;
     background-color: var(--party-colour);
-    border-radius: 0;
+    border-radius: var(--radius-full);
     transition: width var(--transition-base);
   }
 
@@ -295,7 +295,7 @@
     padding: var(--space-sm) var(--space-md);
     background-color: transparent;
     border: 1px solid var(--color-border-light);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     color: var(--color-text-primary);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);

@@ -56,7 +56,6 @@
 
   .app-header {
     height: var(--header-height);
-    border-bottom: 2px solid var(--color-border);
     background: linear-gradient(
       90deg,
       var(--color-surface) 0%,
@@ -65,6 +64,13 @@
     position: sticky;
     top: 0;
     z-index: var(--z-index-sticky);
+  }
+
+  .app-header::after {
+    content: "";
+    display: block;
+    height: var(--pattern-geo-height);
+    background: var(--pattern-geo);
   }
 
   .app-header__container {
@@ -106,9 +112,15 @@
 
   .app-footer {
     min-height: var(--footer-height);
-    border-top: 2px solid var(--color-border);
     background-color: var(--color-surface);
     padding: var(--space-xl) 0;
+  }
+
+  .app-footer::before {
+    content: "";
+    display: block;
+    height: var(--pattern-geo-height);
+    background: var(--pattern-geo);
   }
 
   .app-footer__container {

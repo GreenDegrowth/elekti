@@ -32,7 +32,7 @@
     border: 1px solid var(--color-border);
     border-left: 4px solid var(--color-secondary);
     padding: var(--space-xl);
-    border-radius: 0;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
   }
 

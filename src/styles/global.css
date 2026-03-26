@@ -55,7 +55,6 @@ h6 {
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-md);
   letter-spacing: -0.015em;
-  text-transform: uppercase;
 }
 
 h1 {

@@ -287,7 +287,7 @@
     justify-content: center;
     min-width: 148px;
     height: 54px;
-    border-radius: 0;
+    border-radius: var(--radius-md);
     border: 2px solid var(--color-border);
     background-color: var(--color-surface);
     color: var(--color-text-primary);

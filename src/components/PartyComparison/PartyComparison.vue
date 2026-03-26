@@ -106,7 +106,7 @@
 
   .comparison-modal__content {
     background: var(--color-surface);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-2xl);
     max-width: 1200px;
     width: 100%;
     max-height: 90vh;
@@ -140,7 +140,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     transition: all var(--transition-fast);
   }
 
@@ -227,7 +227,7 @@
     width: 100%;
     height: var(--bar-height-sm);
     background: var(--color-surface-elevated);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     overflow: hidden;
   }
 
@@ -266,7 +266,7 @@
 
     .comparison-modal__content {
       max-height: 85vh;
-      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
     }
 
     .comparison-modal__header {

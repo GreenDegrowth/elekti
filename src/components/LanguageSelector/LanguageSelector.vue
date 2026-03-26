@@ -95,8 +95,8 @@
     gap: var(--space-sm);
     padding: var(--space-sm) var(--space-md);
     background-color: var(--color-surface-elevated);
-    border: 2px solid var(--color-border);
-    border-radius: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     color: var(--color-text-primary);
     font-size: var(--font-size-sm);
     cursor: pointer;
@@ -129,8 +129,8 @@
     right: 0;
     min-width: 180px;
     background-color: var(--color-surface-elevated);
-    border: 2px solid var(--color-border);
-    border-radius: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     z-index: var(--z-index-sticky);
     overflow: hidden;

@@ -75,10 +75,11 @@
   --letter-spacing-3xl: 0.04em;
   --letter-spacing-4xl: 0.05em;
 
-  --radius-sm: 0.125rem;
-  --radius-md: 0.35rem;
-  --radius-lg: 0.55rem;
-  --radius-xl: 0.75rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
@@ -110,6 +111,40 @@
   --bar-height-md: 12px;
 
   --color-backdrop: rgba(0, 0, 0, 0.7);
+
+  --color-primary-subtle: color-mix(
+    in srgb,
+    var(--color-primary) 8%,
+    var(--color-background)
+  );
+  --color-secondary-subtle: color-mix(
+    in srgb,
+    var(--color-secondary) 8%,
+    var(--color-background)
+  );
+  --color-accent-subtle: color-mix(
+    in srgb,
+    var(--color-accent) 10%,
+    var(--color-background)
+  );
+
+  --shadow-primary: 0 4px 14px
+    color-mix(in srgb, var(--color-primary) 20%, transparent);
+  --shadow-secondary: 0 4px 14px
+    color-mix(in srgb, var(--color-secondary) 20%, transparent);
+
+  --pattern-geo: repeating-linear-gradient(
+    90deg,
+    var(--color-primary) 0px,
+    var(--color-primary) 8px,
+    var(--color-secondary) 8px,
+    var(--color-secondary) 16px,
+    var(--color-accent) 16px,
+    var(--color-accent) 24px,
+    var(--color-primary) 24px,
+    var(--color-primary) 32px
+  );
+  --pattern-geo-height: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -138,5 +173,21 @@
 
     --color-border: #3c3027;
     --color-border-light: #4f4036;
+
+    --color-primary-subtle: color-mix(
+      in srgb,
+      var(--color-primary) 12%,
+      var(--color-background)
+    );
+    --color-secondary-subtle: color-mix(
+      in srgb,
+      var(--color-secondary) 12%,
+      var(--color-background)
+    );
+    --color-accent-subtle: color-mix(
+      in srgb,
+      var(--color-accent) 15%,
+      var(--color-background)
+    );
   }
 }

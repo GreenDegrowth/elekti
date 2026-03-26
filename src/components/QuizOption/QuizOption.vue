@@ -37,7 +37,7 @@
     padding: var(--space-md) var(--space-lg);
     background-color: var(--color-surface);
     border: 2px solid var(--color-border);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     position: relative;
     text-align: left;
     cursor: pointer;
@@ -71,7 +71,7 @@
       color-mix(in srgb, var(--color-secondary) 30%, var(--color-primary))
     );
     color: white;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-primary), var(--shadow-lg);
   }
 
   .quiz-option--selected:hover {
@@ -102,6 +102,7 @@
     width: 18px;
     height: 18px;
     border: 3px solid currentColor;
+    border-radius: var(--radius-full);
     flex-shrink: 0;
     position: relative;
     transition: all var(--transition-fast);

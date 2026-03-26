@@ -52,7 +52,7 @@
       color-mix(in srgb, var(--color-border) 90%, transparent) 12px,
       color-mix(in srgb, var(--color-border) 90%, transparent) 18px
     );
-    border-radius: 0;
+    border-radius: var(--radius-full);
     overflow: hidden;
     margin-bottom: var(--space-md);
   }
@@ -65,7 +65,7 @@
       color-mix(in srgb, var(--color-secondary) 30%, var(--color-primary))
     );
     transition: width var(--transition-base);
-    border-radius: 0;
+    border-radius: var(--radius-full);
   }
 
   .progress-bar__label {

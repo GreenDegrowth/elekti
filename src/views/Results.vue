@@ -369,7 +369,7 @@
     color: white;
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-bold);
-    border-radius: 0;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     letter-spacing: var(--letter-spacing-xl);
     text-transform: uppercase;
@@ -386,7 +386,7 @@
 
   .results__mode {
     padding: var(--space-sm) var(--space-lg);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
     display: inline-flex;
@@ -431,7 +431,7 @@
     padding: var(--space-md) var(--space-xl);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-fast);
     border: none;
@@ -493,7 +493,7 @@
     padding: var(--space-3xl);
     background-color: var(--color-surface);
     border: 2px solid var(--color-error, #ef4444);
-    border-radius: 0;
+    border-radius: var(--radius-lg);
   }
 
   .results__error p {
@@ -586,7 +586,7 @@
     padding: var(--space-xs, 2px) var(--space-sm);
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
