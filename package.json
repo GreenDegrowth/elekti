@@ -52,7 +52,7 @@
     "vite": "npm:rolldown-vite@latest",
     "vite-plugin-pwa": "^1.2.0",
     "vite-plugin-vue-devtools": "^8.1.1",
-    "vitest": "^4.1.0",
+    "vitest": "^4.1.2",
     "vue-tsc": "^3.2.6"
   },
   "engines": {
